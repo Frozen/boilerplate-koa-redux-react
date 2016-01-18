@@ -1,0 +1,1 @@
+{"version":3,"file":"models.js","sourceRoot":"","sources":["models.ts"],"names":["Community","Community.constructor","Community.getId"],"mappings":"AAMA,iCAAiC;AAIjC;IAMIA;IACAC,CAACA;IAEDD,yBAAKA,GAALA;QACIE,MAAMA,CAACA,IAAIA,CAACA,EAAEA,CAAAA;IAClBA,CAACA;IAGLF,gBAACA;AAADA,CAACA,AAdD,IAcC;AAdY,iBAAS,YAcrB,CAAA"}

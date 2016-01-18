@@ -6,13 +6,16 @@ const ROOT_PATH = path.resolve(__dirname);
 module.exports = {
   devtool: process.env.NODE_ENV === 'production' ? '' : 'source-map',
   entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    //'webpack/hot/only-dev-server',
     path.resolve(ROOT_PATH,'app/src/index')
   ],
   module: {
     preLoaders: [
       {
         test: /\.jsx?$/,
-        loaders: process.env.NODE_ENV === 'production' ? [] : ['eslint'],
+        //loaders: process.env.NODE_ENV === 'production' ? [] : ['eslint'],
+        loaders: process.env.NODE_ENV === 'production' ? [] : [],
         include: path.resolve(ROOT_PATH, './app')
       }
     ],
@@ -31,7 +34,7 @@ module.exports = {
   },
   output: {
     path: process.env.NODE_ENV === 'production' ? path.resolve(ROOT_PATH, 'app/dist') : path.resolve(ROOT_PATH, 'app/build'),
-    publicPath: '/',
+    publicPath: 'http://localhost:8080/',
     filename: 'bundle.js',
   },
   devServer: {
@@ -42,9 +45,10 @@ module.exports = {
     progress: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlwebpackPlugin({
-      title: 'React BoilerPlate'
-    })
+    new webpack.HotModuleReplacementPlugin()
+    //,
+    //new HtmlwebpackPlugin({
+    //  title: 'React BoilerPlate'
+    //})
   ]
 };
