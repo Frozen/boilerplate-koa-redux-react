@@ -188,11 +188,9 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
                                 </Visible>
                                 <Visible className="userAc" test={currentSubTab == ''|| trimSlash(currentSubTab) == 'all'} >
                                     <div>{(content['all']).length}</div>
-                                    {content[this.getCurrentSubTab()].map(function(content, index) {
-                                        return <ContentItem content={content}/>
-                                        })}
-
-
+                                    {content['all'].map(function(content, index) {
+                                        return <ContentItem content={content} key={index}/>
+                                    })}
 
                                     <InfiniteScrolling infiniteLoadMore={this.handleLoadMore.bind(this)}
                                                        isActive={() => {return this.getCurrentTab() == 'wall' && this.getCurrentSubTab() == 'all'}}
@@ -200,57 +198,13 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
 
                                 </Visible>
                                 <Visible className="userAc ng-hide" test={trimSlash(currentSubTab) == 'article'} ng-show="tab=='article'">
-                                    <article>
-                                        <header>
-                                            <a href="/user/yaru" className="usName">yaru</a>
-                                            <p>17.11.2015 в 16:36 добавил статью
+                                    {content['article'].map(function(content, index) {
+                                        return <ContentItem content={content} key={index}/>
+                                        })}
 
-                                                в сообщество <a href="/community/4">Третье сообщество</a>
-
-                                            </p>
-                                            <mark>
-                                                <a href="/community/4/content/112">asdf asd sdas fa</a>
-                                            </mark>
-                                        </header>
-                                        <p>adf asdfa sdfas d</p>
-                                        <footer>
-                                            <div className="plusMinus ng-scope" ng-controller="ContentVote" ng-init="rating={&quot;rating&quot;: 0, &quot;votes_against&quot;: 0, &quot;votes_for&quot;: 0}">
-
-                                                <span className="ng-binding">0</span>
-
-
-
-                                                <span className="negative ng-binding">0</span>
-
-                                                <span className="positive ng-binding">0</span>
-                                            </div>
-                                            <a href="/community/4/content/112#comments"><span>Комментировать</span> (0)</a>
-                                        </footer>
-
-
-                                        <div className="user-l">
-                                            <div className="userAva">
-                                                <img src="/static/u/photo/1/s.jpg" alt="" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                            </div>
-
-                                            <span className="user-stat">Online</span>
-
-                                        </div>
-                                    </article>
+                                    <InfiniteScrolling infiniteLoadMore={this.handleLoadMore.bind(this)}
+                                                       isActive={() => {return this.getCurrentTab() == 'wall' && this.getCurrentSubTab() == 'article'}}
+                                                       pause={() => infinityIsLoading}/>
 
 
 
@@ -258,7 +212,13 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
                                     <br /><br />
                                 </Visible>
                                 <Visible className="userAc" test={trimSlash(currentSubTab) == 'note'}>
+                                    {content['note'].map(function(content, index) {
+                                        return <ContentItem content={content} key={index}/>
+                                        })}
 
+                                    <InfiniteScrolling infiniteLoadMore={this.handleLoadMore.bind(this)}
+                                                       isActive={() => {return this.getCurrentTab() == 'wall' && this.getCurrentSubTab() == 'note'}}
+                                                       pause={() => infinityIsLoading}/>
 
                                     <br /><br />
                                 </Visible>

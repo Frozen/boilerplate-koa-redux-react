@@ -3,7 +3,7 @@
 
 import * as types from './types';
 import * as models from '../../models/models';
-
+import * as stubs from '../../models/stubs';
 
 
 console.log("modelscommm", models.Community);
@@ -73,7 +73,7 @@ export const fetchContent = (type: string): any => {
         dispatch(setContentLoadingState(true));
         setTimeout(() => {
             dispatch(addContents(
-                [{}, {}], type
+                [stubs.createContent(), stubs.createContent()], type
             ));
             dispatch(setContentLoadingState(false))
         }, 2000);

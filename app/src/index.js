@@ -40,6 +40,8 @@ import {Community} from './components/community/Community'
 import * as communityActions from './components/community/actions'
 import * as models from './models/models'
 
+import * as stubs from './models/stubs';
+
 
 const COMMUNITY = 'community';
 
@@ -104,7 +106,7 @@ let store =  applyMiddleware(thunk, reduxRouterMiddleware)(createStore)(reducer,
         },
         currentSubTab: "",
         content: {
-            "all": [{}, {}, {}],
+            "all": [stubs.createContent(), stubs.createContent(), stubs.createContent()],
             "article": [],
             "note": [],
             "photo": [],

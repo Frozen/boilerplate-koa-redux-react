@@ -1,4 +1,11 @@
 //export default {Content, User};
+var Content = (function () {
+    function Content(obj) {
+        this.obj = obj;
+    }
+    return Content;
+})();
+exports.Content = Content;
 var Community = (function () {
     function Community() {
     }

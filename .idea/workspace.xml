@@ -2,39 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="489dbb6b-b8b5-4fb2-9af6-a1ea11d581af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/typescript-compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/src/assets/app.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/src/views/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/common/BottomTags.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/common/ContentItem.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/common/InfiniteScrolling.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/common/Loading.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/common/SubTabs.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/common/Tabs.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/common/Visible.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/community/Community.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/community/actions.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/community/blocks/Rules.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/community/reducers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/community/types.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/community/types.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/helpers/helpers.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/models/Community.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/models/Content.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/models/User.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/models/models.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/typings/tsd.t.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/components/community/reducers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/components/models/UserTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tsconfig.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/common/Rating.tsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/models/stubs.ts" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/models/Content.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/models/Content.ts" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/src/server.js" afterPath="$PROJECT_DIR$/api/src/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/ContentItem.js" afterPath="$PROJECT_DIR$/app/src/components/common/ContentItem.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/ContentItem.js.map" afterPath="$PROJECT_DIR$/app/src/components/common/ContentItem.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/ContentItem.tsx" afterPath="$PROJECT_DIR$/app/src/components/common/ContentItem.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/Community.js" afterPath="$PROJECT_DIR$/app/src/components/community/Community.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/Community.js.map" afterPath="$PROJECT_DIR$/app/src/components/community/Community.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/Community.tsx" afterPath="$PROJECT_DIR$/app/src/components/community/Community.tsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/actions.js" afterPath="$PROJECT_DIR$/app/src/components/community/actions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/actions.js.map" afterPath="$PROJECT_DIR$/app/src/components/community/actions.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/actions.ts" afterPath="$PROJECT_DIR$/app/src/components/community/actions.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/index.js" afterPath="$PROJECT_DIR$/app/src/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" afterPath="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/Content.js.map" afterPath="$PROJECT_DIR$/app/src/models/Content.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/models.js" afterPath="$PROJECT_DIR$/app/src/models/models.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/models.js.map" afterPath="$PROJECT_DIR$/app/src/models/models.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/models.ts" afterPath="$PROJECT_DIR$/app/src/models/models.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="boilerplate-koa-redux-react.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,81 +44,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Community.tsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/components/community/Community.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38793105">
-              <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="actions.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/components/community/actions.ts">
+      <file leaf-file-name="ContentItem.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/components/common/ContentItem.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="types.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/components/community/types.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reducers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/components/community/reducers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="79" selection-start-line="31" selection-start-column="79" selection-end-line="31" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reducers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/tests/components/community/reducers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="46" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InfiniteScrolling.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/components/common/InfiniteScrolling.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="interfaces.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/interfaces/interfaces.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tsd.t.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/typings/tsd.t.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+              <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -141,7 +60,67 @@
         <entry file="file://$PROJECT_DIR$/app/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="115" column="25" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="25" />
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actions.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/components/community/actions.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Community.tsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/components/community/Community.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.32112068">
+              <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stubs.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/models/stubs.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.583333">
+              <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rating.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/components/common/Rating.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BottomTags.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/components/common/BottomTags.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -179,7 +158,6 @@
         <option value="$PROJECT_DIR$/app/src/components/common/ContentItem.jsx" />
         <option value="$PROJECT_DIR$/app/tests/components/models/UserTest.js" />
         <option value="$PROJECT_DIR$/app/src/components/community/Description.jsx" />
-        <option value="$PROJECT_DIR$/api/src/server.js" />
         <option value="$PROJECT_DIR$/app/src/components/community/blocks/Rules.jsx" />
         <option value="$PROJECT_DIR$/app/src/helpers/helpers.ts" />
         <option value="$PROJECT_DIR$/app/src/components/common/SubTabs.jsx" />
@@ -187,7 +165,6 @@
         <option value="$PROJECT_DIR$/app/src/models/User.ts" />
         <option value="$PROJECT_DIR$/app/src/components/common/InfiniteScrolling.jsx" />
         <option value="$PROJECT_DIR$/app/src/components/community/Community.jsx" />
-        <option value="$PROJECT_DIR$/app/src/models/Content.ts" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/app/src/components/common/Loading.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/common/Visible.tsx" />
@@ -197,16 +174,20 @@
         <option value="$PROJECT_DIR$/app/src/components/common/BottomTags.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/community/actions.js" />
         <option value="$PROJECT_DIR$/app/src/typings/tsd.t.ts" />
-        <option value="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" />
-        <option value="$PROJECT_DIR$/app/src/models/models.ts" />
         <option value="$PROJECT_DIR$/app/src/models/Community.ts" />
-        <option value="$PROJECT_DIR$/app/src/components/common/ContentItem.tsx" />
-        <option value="$PROJECT_DIR$/app/src/index.js" />
         <option value="$PROJECT_DIR$/app/src/components/community/types.ts" />
         <option value="$PROJECT_DIR$/app/src/components/community/reducers.js" />
         <option value="$PROJECT_DIR$/app/tests/components/community/reducers.js" />
-        <option value="$PROJECT_DIR$/app/src/components/community/actions.ts" />
         <option value="$PROJECT_DIR$/app/src/components/common/InfiniteScrolling.tsx" />
+        <option value="$PROJECT_DIR$/api/src/server.js" />
+        <option value="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" />
+        <option value="$PROJECT_DIR$/app/src/components/common/Rating.tsx" />
+        <option value="$PROJECT_DIR$/app/src/models/Content.ts" />
+        <option value="$PROJECT_DIR$/app/src/models/models.ts" />
+        <option value="$PROJECT_DIR$/app/src/models/stubs.ts" />
+        <option value="$PROJECT_DIR$/app/src/index.js" />
+        <option value="$PROJECT_DIR$/app/src/components/community/actions.ts" />
+        <option value="$PROJECT_DIR$/app/src/components/common/ContentItem.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/community/Community.tsx" />
       </list>
     </option>
@@ -313,6 +294,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boilerplate-koa-redux-react" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boilerplate-koa-redux-react" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -506,7 +509,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1412" height="826" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -615,14 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.456621">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/src/views/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -697,26 +692,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33178654">
           <caret line="1322" column="0" selection-start-line="1322" selection-start-column="0" selection-end-line="1322" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/models/Content.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -763,26 +742,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/common/Visible.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/common/SubTabs.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/common/Tabs.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="25" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -810,8 +773,8 @@
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1453118734000" expanded="true" signature="23056:23065" placeholder="{...}" />
-            <marker date="1453118734000" expanded="true" signature="23056:23095" placeholder="{...}" />
+            <marker date="1453123476000" expanded="true" signature="22583:22592" placeholder="{...}" />
+            <marker date="1453123476000" expanded="true" signature="22583:22622" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -824,26 +787,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/common/BottomTags.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/typings/redux/redux.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13953489">
           <caret line="7" column="27" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/interfaces/interfaces.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -856,30 +803,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/models/models.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22580644">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/typings/tsd.t.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/common/ContentItem.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -892,26 +821,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="25" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/common/InfiniteScrolling.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/community/reducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="79" selection-start-line="31" selection-start-column="79" selection-end-line="31" selection-end-column="79" />
           <folding />
         </state>
       </provider>
@@ -924,18 +837,116 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/src/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/community/reducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/common/Tabs.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/common/Visible.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/common/BottomTags.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/interfaces/interfaces.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/common/Rating.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/models/models.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.583333">
+          <caret line="64" column="28" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/models/stubs.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/community/actions.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/common/ContentItem.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/community/Community.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38793105">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.32112068">
+          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
           <folding />
         </state>
       </provider>

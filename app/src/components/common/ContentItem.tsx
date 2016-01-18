@@ -5,31 +5,44 @@
  */
 
 import * as React from 'react';
+import * as infs from '../../interfaces/interfaces';
+import Rating from '../common/Rating';
 
 
-export default class ContentItem extends React.Component<any, any> {
+interface IProps {
+
+    content: infs.Content
+    key: string
+}
+
+export default class ContentItem extends React.Component<IProps, any> {
+
+    render() {
+
+        const {content} = this.props;
+
+        const f = (content): any => {
+            switch(content.type) {
+                case 'article':
+                    return <ContentArticle content={content} />;
+                default:
+                    return <div />
+            }
+        };
+
+        return (
+            f(content)
+        )
+    }
+}
 
 
-    //propTypes = {
-    //    visibleTodos: PropTypes.arrayOf(PropTypes.shape({
-    //        text: PropTypes.string.isRequired,
-    //        completed: PropTypes.bool.isRequired
-    //    }).isRequired).isRequired,
-    //    visibilityFilter: PropTypes.oneOf([
-    //        'SHOW_ALL',
-    //        'SHOW_COMPLETED',
-    //        'SHOW_ACTIVE'
-    //    ]).isRequired
-    //}
-    //
-    //propTypes = {
-    //    //content: PropTypes.s
-    //};
+class ContentArticle extends React.Component<IProps, any> {
 
 
     render() {
 
-        const {content, community, user} = this.props;
+        const {content} = this.props;
 
         return (
             <article>
@@ -37,30 +50,20 @@ export default class ContentItem extends React.Component<any, any> {
                     <a href="#" className="usName">yaru</a>
                     <p>добавил опрос в
 
-                        сообщество <a href="/community/4">Третье сообщество</a>
+                        сообщество <a href={content.community.getUrl()}>Третье сообщество</a>
 
                         <mark>
-                            <a href="/community/4/content/100"></a>
+                            <a href={content.getUrl()}>{content.getEditorTitle()}</a>
                         </mark>
                     </p>
 
                 </header>
                 <p>
-                    згжвафыщвг рвофвжафоы вдофыд аоыфджвао фывы
+                    {content.text}
                 </p>
 
-
                 <footer>
-                    <div className="plusMinus ng-scope">
-
-                        <span className="ng-binding">0</span>
-
-
-
-                        <span className="negative ng-binding">0</span>
-
-                        <span className="positive ng-binding">0</span>
-                    </div>
+                    <Rating rating={content.rating} />
                     <a href="/community/4/content/100#comments"><span>Комментировать</span> (0)</a>
                 </footer>
 
@@ -94,6 +97,7 @@ export default class ContentItem extends React.Component<any, any> {
     }
 
 }
+
 
 
 

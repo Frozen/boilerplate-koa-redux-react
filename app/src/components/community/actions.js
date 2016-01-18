@@ -2,6 +2,7 @@
 /// <reference path="./types.ts" />
 var types = require('./types');
 var models = require('../../models/models');
+var stubs = require('../../models/stubs');
 console.log("modelscommm", models.Community);
 exports.setCommunity = function (community) {
     return {
@@ -52,7 +53,7 @@ exports.fetchContent = function (type) {
     return function (dispatch) {
         dispatch(exports.setContentLoadingState(true));
         setTimeout(function () {
-            dispatch(exports.addContents([{}, {}], type));
+            dispatch(exports.addContents([stubs.createContent(), stubs.createContent()], type));
             dispatch(exports.setContentLoadingState(false));
         }, 2000);
     };
