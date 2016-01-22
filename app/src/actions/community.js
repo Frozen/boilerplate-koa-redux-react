@@ -1,13 +1,13 @@
-/// <reference path="../../typings/tsd.t.ts" />
-/// <reference path="./types.ts" />
-var types = require('./types');
-var models = require('../../models/models');
-var stubs = require('../../models/stubs');
-console.log("modelscommm", models.Community);
+/// <reference path="../typings/tsd.t.ts" />
+// <reference path="./types.ts" />
+var types = require('../types/community');
+var models = require('../models/models');
+var stubs = require('../models/stubs');
+//console.log("modelscommm", models.Community);
 exports.setCommunity = function (community) {
     return {
         type: types.SET_COMMUNITY,
-        community: Object.assign(new models.Community(), community)
+        community: community
     };
 };
 exports.fetchCommunity = function (communityId) {
@@ -58,4 +58,12 @@ exports.fetchContent = function (type) {
         }, 2000);
     };
 };
-//# sourceMappingURL=actions.js.map
+// set from value
+exports.setFormValue = function (key, value) {
+    return {
+        type: types.SET_FORM_VALUE,
+        key: key,
+        value: value
+    };
+};
+//# sourceMappingURL=community.js.map

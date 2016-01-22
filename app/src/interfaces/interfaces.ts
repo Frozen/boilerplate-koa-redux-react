@@ -11,11 +11,16 @@ export interface Community {
     avatar: { [key:string]:string; }
     name: string
     getUrl: () => string
+    rules: string
+    categories: Array<any>
 
 }
 
 export interface User {
-
+    getFioOrUsernameOrId: () => string
+    getUrl: () => string
+    isOnline: () => boolean
+    //avatar: string
 }
 
 export interface Rating {
@@ -34,5 +39,15 @@ export interface Content {
     text: string
     type: string
     getUrl: () => string
+
+}
+
+
+export interface CommunityUser {
+
+    community: Community
+    user: User
+    groupId: number
+    isBlocked: boolean
 
 }

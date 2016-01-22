@@ -16,11 +16,11 @@ var ContentItem = (function (_super) {
         _super.apply(this, arguments);
     }
     ContentItem.prototype.render = function () {
-        var content = this.props.content;
+        var _a = this.props, content = _a.content, key = _a.key;
         var f = function (content) {
             switch (content.type) {
                 case 'article':
-                    return React.createElement(ContentArticle, {"content": content});
+                    return React.createElement(ContentArticle, {"content": content, "key": key});
                 default:
                     return React.createElement("div", null);
             }

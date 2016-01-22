@@ -1,17 +1,17 @@
-/// <reference path="../../typings/tsd.t.ts" />
-/// <reference path="./types.ts" />
+/// <reference path="../typings/tsd.t.ts" />
+// <reference path="./types.ts" />
 
-import * as types from './types';
-import * as models from '../../models/models';
-import * as stubs from '../../models/stubs';
+import * as types from '../types/community';
+import * as models from '../models/models';
+import * as stubs from '../models/stubs';
 
 
-console.log("modelscommm", models.Community);
+//console.log("modelscommm", models.Community);
 
 export const setCommunity = (community: any) => {
     return {
         type: types.SET_COMMUNITY,
-        community: Object.assign(new models.Community(), community)
+        community: community
     }
 };
 
@@ -78,5 +78,14 @@ export const fetchContent = (type: string): any => {
             dispatch(setContentLoadingState(false))
         }, 2000);
 
+    }
+};
+
+// set from value
+export const setFormValue = (key: string, value: string) => {
+    return {
+        type: types.SET_FORM_VALUE,
+        key: key,
+        value: value
     }
 };

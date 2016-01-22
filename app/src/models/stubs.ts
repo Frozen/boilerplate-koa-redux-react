@@ -1,10 +1,5 @@
 
 
-
-
-//import {Content} from "./models";
-//import {Community} from "./models";
-
 import * as infs from '../interfaces/interfaces'
 
 
@@ -25,7 +20,11 @@ export const createCommunity = (name: string = 'community name'): infs.Community
         name: name,
         getUrl: () => {
             return "/community/5"
-        }
+        },
+        rules: "community rules",
+        categories: [
+            {id: 1, name: 'community category 1'}
+        ]
     }
 };
 
@@ -34,12 +33,20 @@ export const createContent = (type: string = 'article'): infs.Content => {
     return {
         type: type,
         community: createCommunity(),
-        user: {},
+        user: createUser(),
         rating: createRating(),
         getEditorTitle: () => {return 'editor title'},
         text: "bla bla text",
         getUrl: () => {
             return "/content/5"
         }
+    }
+};
+
+export const createUser = (): infs.User => {
+    return {
+        getFioOrUsernameOrId: () => "username",
+        getUrl: () => "/user/5",
+        isOnline: () => true
     }
 };

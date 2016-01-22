@@ -12,19 +12,19 @@ import Rating from '../common/Rating';
 interface IProps {
 
     content: infs.Content
-    key: string
+    key: number
 }
 
 export default class ContentItem extends React.Component<IProps, any> {
 
     render() {
 
-        const {content} = this.props;
+        const {content, key} = this.props;
 
         const f = (content): any => {
             switch(content.type) {
                 case 'article':
-                    return <ContentArticle content={content} />;
+                    return <ContentArticle content={content} key={key}/>;
                 default:
                     return <div />
             }

@@ -6,8 +6,8 @@
 
 var assert = require('assert');
 
-import User from '../../../src/models/User';
-import * as actions from '../../../src/components/community/actions';
+import {User} from '../../../src/models/models';
+import * as actions from '../../../src/actions/community';
 
 
 describe('User model', function() {

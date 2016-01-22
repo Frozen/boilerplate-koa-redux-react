@@ -12,14 +12,10 @@ var SubTabs = (function (_super) {
     function SubTabs() {
         _super.apply(this, arguments);
     }
-    //propTypes: {
-    //    handleClick: React.PropTypes.func.isRequired,
-    //    currentTab: React.PropTypes.string.isRequired,
-    //    tabs: React.PropTypes.array.isRequired
-    //};
     SubTabs.prototype.render = function () {
         var _a = this.props, tabs = _a.tabs, currentTab = _a.currentTab, handleClick = _a.handleClick;
-        return (React.createElement("ul", {"className": "wall-filter"}, tabs.map(function (tab, index) {
+        var _tabs = tabs || [];
+        return (React.createElement("ul", {"className": "wall-filter"}, _tabs.map(function (tab, index) {
             return React.createElement("li", {"key": index}, React.createElement("a", {"href": "", "className": classNames({ current: helpers_1.trimSlash(tab[0]) == helpers_1.trimSlash(currentTab) }), "onClick": function (e) { e.preventDefault(); handleClick(tab[0]); }, "ng-click": "tab='all'"}, tab[1]));
         })));
     };

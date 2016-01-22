@@ -6,5 +6,8 @@ exports.SET_SUB_TAB = 'SET_SUB_TAB';
 exports.ADD_CONTENTS = 'ADD_CONTENTS';
 // загрузка контента
 exports.SET_CONTENT_LOADING = 'SET_CONTENT_LOADING';
+exports.TEST_BLOCK_DISPATCH = 'TEST_BLOCK_DISPATCH';
+// settings
+exports.SET_FORM_VALUE = 'SET_FORM_VALUE';
 //}
-//# sourceMappingURL=types.js.map
+//# sourceMappingURL=community.js.map

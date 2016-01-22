@@ -11,6 +11,12 @@ export const ADD_CONTENTS = 'ADD_CONTENTS';
 // загрузка контента
 export const SET_CONTENT_LOADING = 'SET_CONTENT_LOADING';
 
+
+export const TEST_BLOCK_DISPATCH = 'TEST_BLOCK_DISPATCH';
+
+
+// settings
+export const SET_FORM_VALUE = 'SET_FORM_VALUE';
 //}
 
 

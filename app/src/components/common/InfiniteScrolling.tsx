@@ -50,8 +50,6 @@ export default class InfiniteScrolling extends React.Component<IProps, any> {
         }.bind(this);
 
 
-
-
         window.addEventListener('scroll', this.f)
     }
 
