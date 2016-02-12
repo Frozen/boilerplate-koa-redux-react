@@ -5,6 +5,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var React = require('react');
 var react_router_1 = require('react-router');
+var CommunityJoinLeave_1 = require('./blocks/CommunityJoinLeave');
 var IProps = (function () {
     function IProps() {
     }
@@ -16,15 +17,15 @@ var CommunityCategories = (function (_super) {
         _super.apply(this, arguments);
     }
     //e: MouseEvent
-    CommunityCategories.prototype.push = function (categoryId, e, bla) {
-        console.log("CommunityCategories==", categoryId, e, bla);
+    CommunityCategories.prototype.push = function (categoryId, e) {
         e.preventDefault();
         var _a = this.props, community = _a.community, history = _a.history;
-        history.push("/community/" + community.id + "?rubric_filter=" + categoryId);
+        history.push("/community/" + community.id + "/wall/all?rubric_filter=" + categoryId);
     };
     CommunityCategories.prototype.render = function () {
-        var _a = this.props, community = _a.community, history = _a.history;
-        return (React.createElement("div", {"className": "user-btns"}, React.createElement("div", {"className": "line line2"}), React.createElement("div", {"className": "cat-block people_module"}, React.createElement("h4", null, "Категории (", community.categories.length, ")"), React.createElement("ul", {"className": "cat-list"}, React.createElement("li", null, React.createElement(react_router_1.Link, {"className": "active", "to": "/community/" + community.id}, "Все")), community.categories.map(function (category, index) {
+        var community = this.props.community;
+        var categories = community.categories || [];
+        return (React.createElement("div", {"className": "user-btns"}, React.createElement(CommunityJoinLeave_1.default, null), React.createElement("div", {"className": "line line2"}), React.createElement("div", {"className": "cat-block people_module"}, React.createElement("h4", null, "Категории (", categories.length, ")"), React.createElement("ul", {"className": "cat-list"}, React.createElement("li", null, React.createElement(react_router_1.Link, {"className": "active", "to": "/community/" + community.id}, "Все")), categories.map(function (category, index) {
             return React.createElement("li", {"key": index}, React.createElement("a", {"className": "active", "href": "/community/" + category.id, "onClick": this.push.bind(this, category.id)}, category.name));
         }.bind(this))))));
     };

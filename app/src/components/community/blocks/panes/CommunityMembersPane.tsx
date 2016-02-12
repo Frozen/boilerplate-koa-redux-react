@@ -17,26 +17,37 @@ interface IProps {
     params: any
     history: History
     dispatch: any
+    location: any
+
 
 }
 
-@connect(state => state.community.panes.members)
+@connect()
 export default class CommunityMembersPane extends React.Component<IProps, any> {
+
+    getSubTabs() {
+        return [["all", "Все"],
+                ["admin", "Руководство"],
+                ["friend", "Друзья"],
+                ["waiting", "Заявки"],
+                ["blacklist", "Черный список"],
+                ["name", "По алфавиту"],
+                ["activity", "По активности"]]
+    }
 
     handleSubTabClick(path) {
         const {history, dispatch, params} = this.props;
-        history.push("/community/" + params.id + "/" + params.tab + path);
-        dispatch(actions.setSubTab(path))
+        history.push("/community/" + params.id + "/members/" + path);
     }
 
 
     render() {
 
-        const {handleSubTabClick, subTabs, params} = this.props;
+        const {params, location} = this.props;
 
         return (
             <div className="pane">
-                <SubTabs tabs={subTabs} currentTab={params.subtab || 'all'} handleClick={handleSubTabClick}/>
+                <SubTabs tabs={this.getSubTabs()} location={location} currentTab={params.subtab || ''} handleClick={this.handleSubTabClick.bind(this)}/>
 
                 <div className="fr-search">
                     <input type="text" placeholder="Найти участника по имени" className="fr-search-txt ng-pristine ng-untouched ng-valid"/>

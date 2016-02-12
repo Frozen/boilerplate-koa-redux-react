@@ -3,13 +3,19 @@ import * as React from 'react';
 var classNames = require('classnames');
 import {trimSlash} from '../../helpers/helpers';
 
+
+interface IProp {
+    location: any
+}
+
 export default class SubTabs extends React.Component<any, any> {
 
 
 
     render() {
 
-        const {tabs, currentTab, handleClick} = this.props;
+        const {tabs, handleClick, location} = this.props;
+        var currentTab = location.pathname.replace(/\//, "").split("/")[3];
 
         var _tabs = tabs || [];
 
@@ -18,9 +24,9 @@ export default class SubTabs extends React.Component<any, any> {
                 {_tabs.map((tab, index) => {
                     return <li key={index}>
                         <a href=""
-                           className={classNames({current: trimSlash(tab[0])==trimSlash(currentTab)})}
+                           className={classNames({current: tab[0]==currentTab})}
                            onClick={(e) => {e.preventDefault(); handleClick(tab[0])}}
-                           ng-click="tab='all'">{tab[1]}</a>
+                           >{tab[1]}</a>
                     </li>
                 })}
             </ul>

@@ -21,8 +21,16 @@ var ContentItem = (function (_super) {
             switch (content.type) {
                 case 'article':
                     return React.createElement(ContentArticle, {"content": content, "key": key});
+                case 'poll':
+                    return React.createElement(ContentPoll, {"content": content, "key": key});
+                case 'note':
+                    return React.createElement(ContentNote, {"content": content, "key": key});
+                case 'link':
+                    return React.createElement(ContentLink, {"content": content, "key": key});
+                case 'video':
+                    return React.createElement(ContentVideo, {"content": content, "key": key});
                 default:
-                    return React.createElement("div", null);
+                    return React.createElement("div", null, "No Content Type ", content.type);
             }
         };
         return (f(content));
@@ -31,15 +39,102 @@ var ContentItem = (function (_super) {
 })(React.Component);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ContentItem;
+var User = (function (_super) {
+    __extends(User, _super);
+    function User() {
+        _super.apply(this, arguments);
+    }
+    User.prototype.render = function () {
+        var user = this.props.user;
+        return (React.createElement("div", {"className": "user-l"}, React.createElement("div", {"className": "userAva"}, React.createElement("img", {"src": user.avatar['50x50'], "alt": user.getFioOrUsernameOrId()})), user.isOnline() ? React.createElement("span", {"className": "user-stat"}, "Online") : ''));
+    };
+    return User;
+})(React.Component);
 var ContentArticle = (function (_super) {
     __extends(ContentArticle, _super);
     function ContentArticle() {
         _super.apply(this, arguments);
+        this.type = 'статью';
     }
     ContentArticle.prototype.render = function () {
         var content = this.props.content;
-        return (React.createElement("article", null, React.createElement("header", null, React.createElement("a", {"href": "#", "className": "usName"}, "yaru"), React.createElement("p", null, "добавил опрос в" + ' ' + "сообщество ", React.createElement("a", {"href": content.community.getUrl()}, "Третье сообщество"), React.createElement("mark", null, React.createElement("a", {"href": content.getUrl()}, content.getEditorTitle())))), React.createElement("p", null, content.text), React.createElement("footer", null, React.createElement(Rating_1.default, {"rating": content.rating}), React.createElement("a", {"href": "/community/4/content/100#comments"}, React.createElement("span", null, "Комментировать"), " (0)")), React.createElement("div", {"className": "user-l"}, React.createElement("div", {"className": "userAva"}, React.createElement("img", {"src": "http://new.maxpark.com/static/u/photo/4297852211/s.jpg", "alt": ""}), React.createElement("div", {"className": "userHoverPopup"}, React.createElement("button", {"className": "close", "title": "Скрыть"}), React.createElement("div", {"className": "userAva"}, React.createElement("img", {"src": "/static/u/photo/1/s.jpg", "alt": ""})), React.createElement("div", {"className": "uDets"}, React.createElement("a", {"href": "#", "className": "usName"}, "Василий стрельников"), React.createElement("div", {"className": "user-location"}, React.createElement("i", {"className": "icon-location"}), React.createElement("i", {"className": "icon-flag-ru"}), React.createElement("b", null, "Россия"), ", Москва"), React.createElement("span", {"className": "friend"}, "546 друзей")), React.createElement("ul", {"className": "u-opts"}, React.createElement("li", null, React.createElement("a", {"href": "#"}, React.createElement("i", {"className": "icon-add-dark"}), "Добавить в друзья")), React.createElement("li", null, React.createElement("a", {"href": "#"}, React.createElement("i", {"className": "icon-mess-dark"}), "Написать сообщение")), React.createElement("li", null, React.createElement("a", {"href": "#"}, React.createElement("i", {"className": "icon-pres-dark"}), "Сделать подарок"))))), React.createElement("span", {"className": "user-stat"}, "Online"))));
+        return (React.createElement("article", null, React.createElement("header", null, React.createElement("a", {"href": "#", "className": "usName"}, "yaru"), React.createElement("p", null, "добавил ", this.type, " в" + ' ' + "сообщество ", React.createElement("a", {"href": content.community.getUrl()}, content.community.name), React.createElement("mark", null, React.createElement("a", {"href": content.getUrl()}, content.getEditorTitle())))), React.createElement("p", null, content.text), React.createElement("footer", null, React.createElement(Rating_1.default, {"content": content}), React.createElement("a", {"href": "/community/4/content/100#comments"}, React.createElement("span", null, "Комментировать"), " (0)")), React.createElement(User, {"user": content.user})));
     };
     return ContentArticle;
+})(React.Component);
+var ContentPoll = (function (_super) {
+    __extends(ContentPoll, _super);
+    function ContentPoll() {
+        _super.apply(this, arguments);
+        this.type = 'опрос';
+    }
+    return ContentPoll;
+})(ContentArticle);
+var ContentVideo = (function (_super) {
+    __extends(ContentVideo, _super);
+    function ContentVideo() {
+        _super.apply(this, arguments);
+        this.type = 'видео';
+    }
+    return ContentVideo;
+})(ContentArticle);
+var ContentLink = (function (_super) {
+    __extends(ContentLink, _super);
+    function ContentLink() {
+        _super.apply(this, arguments);
+    }
+    ContentLink.prototype.render = function () {
+        var content = this.props.content;
+        return (React.createElement("article", null, React.createElement("header", null, React.createElement("a", {"href": "#", "className": "usName"}, "yaru"), React.createElement("p", null, "добавил ссылку в" + ' ' + "сообщество ", React.createElement("a", {"href": content.community.getUrl()}, "Третье сообщество"), React.createElement("mark", null, React.createElement("a", {"href": content.getSourceLink()}, content.getEditorTitle())))), React.createElement("p", null, content.text), React.createElement("footer", null, React.createElement(Rating_1.default, {"content": content}), React.createElement("a", {"href": "/community/4/content/100#comments"}, React.createElement("span", null, "Комментировать"), " (0)")), React.createElement(User, {"user": content.user})));
+    };
+    return ContentLink;
+})(React.Component);
+//class ContentPoll extends React.Component<IProps, any> {
+//
+//
+//    render() {
+//
+//        const {content} = this.props;
+//
+//        return (
+//            <article>
+//                <header>
+//                    <a href="#" className="usName">yaru</a>
+//                    <p>добавил опрос в
+//
+//                        сообщество <a href={content.community.getUrl()}>Третье сообщество</a>
+//
+//                        <mark>
+//                            <a href={content.getUrl()}>{content.getEditorTitle()}</a>
+//                        </mark>
+//                    </p>
+//
+//                </header>
+//                <p>
+//                    {content.text}
+//                </p>
+//
+//                <footer>
+//                    <Rating rating={content.rating} />
+//                    <a href="/community/4/content/100#comments"><span>Комментировать</span> (0)</a>
+//                </footer>
+//
+//                <User user={content.user} />
+//
+//            </article>
+//        )
+//    }
+//
+//}
+var ContentNote = (function (_super) {
+    __extends(ContentNote, _super);
+    function ContentNote() {
+        _super.apply(this, arguments);
+    }
+    ContentNote.prototype.render = function () {
+        var content = this.props.content;
+        return (React.createElement("article", null, React.createElement("header", null, React.createElement("a", {"href": content.user.getUrl(), "className": "usName"}, content.user.getFioOrUsernameOrId()), React.createElement("p", null, "добавил заметку в" + ' ' + "сообщество ", React.createElement("a", {"href": content.community.getUrl()}, content.community.name))), React.createElement("p", null, content.text), React.createElement("footer", null, React.createElement(Rating_1.default, {"content": content}), React.createElement("a", {"href": "/community/4/content/100#comments"}, React.createElement("span", null, "Комментировать"), " (0)")), React.createElement(User, {"user": content.user})));
+    };
+    return ContentNote;
 })(React.Component);
 //# sourceMappingURL=ContentItem.js.map

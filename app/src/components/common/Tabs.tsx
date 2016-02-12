@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 var classNames = require('classnames');
-
+import {Router} from 'react-router';
+import {connect} from "react-redux";
 const {PropTypes} = React;
 
 /**
@@ -16,35 +17,31 @@ const {PropTypes} = React;
  *
  */
 
-
+@connect()
 export default class Tabs extends React.Component<any, any> {
 
-    //propTypes: {
-    //    handleClick: React.PropTypes.func.isRequired,
-    //    currentTab: React.PropTypes.string.isRequired,
-    //    tabs: React.PropTypes.array.isRequired
-    //};
-
+    //mixins: [Router.A];
 
     render() {
-        const {handleClick, currentTab, tabs} = this.props;
+        const {location, handleClick, tabs, params} = this.props;
 
-        //const current = () => {
-        //    return
-        //};
+        var currentTab = location.pathname.replace(/\//, "").split("/")[2] || "";
 
-        //x
+        if (!currentTab) {
+            currentTab = "wall"
+        }
 
         return (
 
             <ul className="tabs">
                 {tabs.map((tab, index) => {
-                    return <li key={index}><a
-                        href={"/community/3"+tab[0]}
-                        onMouseDown={(e) => {e.preventDefault(); handleClick(tab[0])}}
-                        onClick={(e) => e.preventDefault()}
-                        className={classNames({current: currentTab.replace(/\//, "") == tab[0].replace(/\//, "")})}>{tab[1]}</a></li>
-                })}
+                    return (
+                        <li key={index}><a
+                            href={"/community/3"+tab[0]}
+                            onMouseDown={(e) => {e.preventDefault(); handleClick(tab[0])}}
+                            onClick={(e) => e.preventDefault()}
+                            className={classNames({current: currentTab.replace(/\//, "") == tab[0].replace(/\//, "")})}>{tab[1]}</a></li>
+                    )})}
             </ul>
         )
     }

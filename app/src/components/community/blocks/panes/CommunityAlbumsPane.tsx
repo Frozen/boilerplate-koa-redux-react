@@ -12,7 +12,20 @@ interface IProps {
 
 export default class CommunityAlbumsPane extends React.Component<IProps, any> {
 
+
+    //componendWillUnmount() {
+    //    console.log("aaahahahahahah unmount");
+    //}
+
+
+
+
+
+
     render() {
+
+        //console.log("aaahahahahahah");
+
 
         return (
             <div className="pane photo ng-hide" ng-show="pane == 'photo'">
@@ -59,5 +72,7 @@ export default class CommunityAlbumsPane extends React.Component<IProps, any> {
 
 
     }
+
+
 
 }

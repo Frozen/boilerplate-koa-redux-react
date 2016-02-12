@@ -48,7 +48,9 @@ router
     }).
     get('/community/:id', common).
     get('/community/:id/:type', common).
-    get('/rest/community/:id', rest_community);
+    get('/community/:id/:type/:subtype', common).
+    get('/rest/community/:id', rest_community).
+    get('/rest/community/:id/content', rest_community_content);
 
 //app.use(route.get('/rest/community/:id', rest_community));
 //app.use(route.get('/community/:id', common));
@@ -111,6 +113,55 @@ function *restCommunitySettingsGet(id) {
   }
 
 }
+
+
+var contentId = 0;
+
+function sleep(ms) {
+  ms += new Date().getTime();
+  while (new Date() < ms){}
+}
+
+function * rest_community_content() {
+
+  const communityId = this.params.id;
+  console.log(this.query);
+
+  sleep(500);
+
+
+
+  contentId++;
+
+  this.body = {results:
+  [{
+    id: contentId,
+    title: "title " + contentId,
+    editor_title: "editor title " + contentId,
+    text: "content text bla bla " + contentId,
+    type: this.query.type || 'article',
+
+    rating: {
+      rating: 5,
+      votes_for: 15,
+      votes_against: 10
+    },
+
+    user: {
+      fio_or_username_or_id: "user fio or username",
+      id: 265,
+      avatar: {
+        '50x50': 'http://new.maxpark.com/static/u/photo/4295209629/s.jpg'
+      },
+      is_online: contentId % 2 == 1
+    }
+
+  }]};
+
+
+}
+
+
 //
 //app.post("/rest/community/:id/settings", function *(id) {
 //

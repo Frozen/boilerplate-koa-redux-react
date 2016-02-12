@@ -1,0 +1,8 @@
+
+
+
+export const COMMUNITY_GROUP_MODERATOR = 2;
+export const COMMUNITY_GROUP_WAITING = 4;
+export const COMMUNITY_GROUP_MEMBER = 3;
+export const COMMUNITY_GROUP_ADMIN = 1;
+

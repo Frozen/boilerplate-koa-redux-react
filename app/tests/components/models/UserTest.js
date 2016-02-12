@@ -13,24 +13,9 @@ import * as actions from '../../../src/actions/community';
 describe('User model', function() {
     describe('test getFioOrUserOrId method', function () {
 
-        it('should test correct fio', function () {
-            const user = new User({first_name:"first", last_name: 'last'});
+        it('should return fio_or_username_or_id', function () {
+            const user = Object.assign(new User(), {fio_or_username_or_id:"first last"});
             assert.equal("first last", user.getFioOrUsernameOrId())
-        });
-
-        it('should return first name', function () {
-            const user = new User({first_name:"first"});
-            assert.equal("first", user.getFioOrUsernameOrId())
-        });
-
-        it('should return username', function () {
-            const user = new User({username:"uname"});
-            assert.equal("uname", user.getFioOrUsernameOrId())
-        });
-
-        it('should return id', function () {
-            const user = new User({id:5});
-            assert.equal("5", user.getFioOrUsernameOrId())
         });
 
     });

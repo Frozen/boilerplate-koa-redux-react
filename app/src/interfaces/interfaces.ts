@@ -13,24 +13,28 @@ export interface Community {
     getUrl: () => string
     rules: string
     categories: Array<any>
-
+    isInCommunity: () => boolean
+    getGroup: () => number
+    user_group: number
 }
 
 export interface User {
     getFioOrUsernameOrId: () => string
     getUrl: () => string
     isOnline: () => boolean
+    avatar: { [key:string]:string; }
     //avatar: string
 }
 
 export interface Rating {
-    votesFor: number
-    votesAgainst: number
+    getVotesFor: () => number
+    getVotesAgainst: () => number
     rating: number
 }
 
 export interface Content {
 
+    id: number
     user: User
     community: Community
     rating: Rating
@@ -39,6 +43,8 @@ export interface Content {
     text: string
     type: string
     getUrl: () => string
+    getSourceLink: () => string
+
 
 }
 

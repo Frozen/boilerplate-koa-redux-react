@@ -11,72 +11,33 @@ import InfiniteScrolling from '../../../common/InfiniteScrolling';
 import * as actions from '../../../../actions/community';
 import {trimSlash} from '../../../../helpers/helpers';
 import {Provider, connect} from 'react-redux';
+import * as models from '../../../../models/models';
+
 
 interface IProp {
     handleSubTabClick: () => any
     getCurrentTab: () => string
     getCurrentSubTab: () => string
     subTabs: Array<any>
-    currentSubTab: string,
-    content: { [key:string]:Array<infs.Content>; }
+    currentSubTab: string
     infinityIsLoading: boolean
     dispatch: any
     params: any
     history: History
+    children: any
+    location: any
 }
 
-
-@connect(state => state.community.panes.content)
+@connect()
 export default class CommunityContentPane extends React.Component<IProp, any> {
 
-    //handleLoadMore() {
-    //    console.log("CommunityContentPane handle load more")
-    //}
-
-    //getCurrentTab() {
-    //    return 'wall'
-    //}
-    //
-    //getCurrentSubTab() {
-    //    return 'all'
-    //}
-
-    //handleLoadMore() {
-    //    console.log("handleLoadMore");
-    //    const {dispatch, infinityIsLoading} = this.props;
-    //
-    //    if (!infinityIsLoading) {
-    //        dispatch(actions.setContentLoadingState(true));
-    //        dispatch(actions.fetchContent(this.getCurrentSubTab()))
-    //    }
-    //}
-
     handleSubTabClick(path) {
-        const {history, dispatch, params} = this.props;
-        history.push("/community/" + params.id + "/" + this.getCurrentTab() + path);
-        dispatch(actions.setSubTab(path))
-    }
-
-    handleLoadMore() {
-        console.log("handleLoadMore");
-        const {dispatch, infinityIsLoading} = this.props;
-
-        if (!infinityIsLoading) {
-            dispatch(actions.setContentLoadingState(true));
-            dispatch(actions.fetchContent(this.getCurrentSubTab()))
-        }
-    }
-
-    componentWillMount() {
-
-        //console.log("CommunityContentPane componentWillMount props", this.props);
-
+        const {history, params} = this.props;
+        history.push("/community/" + params.id + "/" + this.getCurrentTab() + "/" + path);
     }
 
     getCurrentTab(): string {
-        //const {currentTab} = this.props;
-
-        const {params, dispatch} = this.props;
+        const {params} = this.props;
 
         if (!params.tab) {
             return "wall"
@@ -84,84 +45,41 @@ export default class CommunityContentPane extends React.Component<IProp, any> {
         return trimSlash(params.tab)
     }
 
-    getCurrentSubTab(): string {
-        //const {currentSubTab} = this.props;
-        const {params, dispatch} = this.props;
-        if (!params.subtab) {
-            return "all"
-        }
-        return trimSlash(params.subtab);
+    //_getSubTab(props: IProp): string {
+    //    const {params} = props;
+    //    if (!params.subtab) {
+    //        return ""
+    //    }
+    //    return trimSlash(params.subtab);
+    //}
+
+    //getCurrentSubTab(): string {
+    //    return this._getSubTab(this.props);
+    //}
+
+    getSubTabs() {
+        return [
+            ["all", "Всё"],
+            ["article", "Статьи"],
+            ["note", "Заметки"],
+            ["photo", "Фото"],
+            ["video", "Видео"],
+            ["poll", "Опросы"],
+        ];
     }
 
 
     render() {
 
-        const {subTabs, content, infinityIsLoading} = this.props;
+        const {location} = this.props;
 
         console.log("CommunityContentPane==", this.props);
 
-
         return (
-            <Visible className="pane" test={this.getCurrentTab() == "" || this.getCurrentTab() == "wall"}>
-
-                <SubTabs tabs={subTabs || []} currentTab={this.getCurrentSubTab()} handleClick={this.handleSubTabClick.bind(this)}/>
-
-                <Visible className="userAc" test={this.getCurrentSubTab() == 'all'} >
-                    <div>{(content['all']).length}</div>
-                    {content['all'].map(function(content, index) {
-                        return <ContentItem content={content} key={index}/>
-                        })}
-
-                    <InfiniteScrolling infiniteLoadMore={this.handleLoadMore.bind(this)}
-                                       isActive={() => {return this.getCurrentTab() == 'wall' && this.getCurrentSubTab() == 'all'}}
-                                       pause={() => infinityIsLoading}/>
-
-                </Visible>
-                <Visible className="userAc ng-hide" test={this.getCurrentSubTab() == 'article'} ng-show="tab=='article'">
-                    {content['article'].map(function(content, index) {
-                        return <ContentItem content={content} key={index}/>
-                        })}
-
-                    <InfiniteScrolling infiniteLoadMore={this.handleLoadMore.bind(this)}
-                                       isActive={() => {return this.getCurrentTab() == 'wall' && this.getCurrentSubTab() == 'article'}}
-                                       pause={() => infinityIsLoading}/>
-
-
-
-
-                    <br /><br />
-                </Visible>
-                <Visible className="userAc" test={this.getCurrentSubTab() == 'note'}>
-                    {content['note'].map(function(content, index) {
-                        return <ContentItem content={content} key={index}/>
-                        })}
-
-                    <InfiniteScrolling infiniteLoadMore={this.handleLoadMore.bind(this)}
-                                       isActive={() => {return this.getCurrentTab() == 'wall' && this.getCurrentSubTab() == 'note'}}
-                                       pause={() => infinityIsLoading}/>
-
-                    <br /><br />
-                </Visible>
-                <Visible className="userAc" test={this.getCurrentSubTab() == 'photo'}>
-
-
-                    <br /><br />
-                </Visible>
-                <Visible className="userAc" test={this.getCurrentSubTab() == 'video'}>
-
-
-                    <br /><br />
-                </Visible>
-                <Visible className="userAc" test={this.getCurrentSubTab() == 'poll'}>
-
-                    <br /><br />
-                </Visible>
-                <Visible className="userAc" test={this.getCurrentSubTab() == 'bookmark'}>
-
-                    <br /><br />
-                </Visible>
-            </Visible>
+            <div className="pane">
+                <SubTabs tabs={this.getSubTabs()} location={location} handleClick={this.handleSubTabClick.bind(this)}/>
+                {this.props.children}
+            </div>
         )
     }
-
 }

@@ -12,3 +12,10 @@ declare interface Object {
 declare interface History {
     push(path: string): void
 }
+
+declare interface request {
+    user: {
+        id: number,
+        is_authenticated: boolean
+    }
+}

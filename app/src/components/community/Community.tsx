@@ -53,17 +53,12 @@ export default class Community extends React.Component<CommunityProps, any> {
             dispatch(actions.fetchCommunity(params.id))
         }
 
-        //dispatch(actions.fetchCommunity(params.id));
-
     }
 
     render() {
         const {community} = this.props;
 
-        console.log('community children111', community);
-
         if (community) {
-            //return <div></div>;
             return <InnerCommunity {...this.props} community={community} />
         } else {
             return <Loading />
@@ -74,40 +69,13 @@ export default class Community extends React.Component<CommunityProps, any> {
 
 class InnerCommunity extends React.Component<CommunityProps, any> {
 
-
-    //handleLoadMore() {
-    //    console.log("handleLoadMore");
-    //    const {dispatch, infinityIsLoading} = this.props;
-    //
-    //    if (!infinityIsLoading) {
-    //        dispatch(actions.setContentLoadingState(true));
-    //        dispatch(actions.fetchContent(this.getCurrentSubTab()))
-    //    }
-    //}
-
-    //getCurrentTab(): string {
-    //    const {currentTab} = this.props;
-    //    if (currentTab == '') {
-    //        return "wall"
-    //    }
-    //    return trimSlash(currentTab)
-    //}
-    //
-    //getCurrentSubTab(): string {
-    //    const {currentSubTab} = this.props;
-    //    if (currentSubTab == '') {
-    //        return "all"
-    //    }
-    //    return trimSlash(currentSubTab);
-    //}
-
     getTabs() {
         return [
-            ["/wall", 'Стена'],
-            ["/rules", 'Правила'],
-            ["/members", 'Участники'],
-            ["/albums", 'Альбомы'],
-            ["/settings", 'Настройки']
+            ["wall", 'Стена'],
+            ["rules", 'Правила'],
+            ["members", 'Участники'],
+            ["albums", 'Альбомы'],
+            ["settings", 'Настройки']
         ]
     }
 
@@ -115,36 +83,16 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
     handleTabClick(path){
 
         const {history, community, dispatch} = this.props;
-        history.push("/community/" + community.id + "" + path);
-        dispatch(actions.setTab(path));
-
+        history.push("/community/" + community.id + "/" + path);
     }
 
-    //handleSubTabClick(path) {
-    //    const {history, community, dispatch, currentTab} = this.props;
-    //    history.push("/community/" + community.id + "/" + currentTab + path);
-    //    dispatch(actions.setSubTab(path))
-    //}
-
-    getCommunity() {
-        return this.props.community;
+    getCommunity(): infs.Community {
+        return Object.assign(new models.Community(), this.props.community);
     }
 
     render() {
 
-        //console.log('community children222', this.props.children);
-
-        const {community, location, history, currentTab, params} = this.props;
-
-        console.log('community???', community);
-
-        //console.log("content==", content, content[this.getCurrentSubTab()]);
-        //console.log("currentSubTab", this.getCurrentSubTab());
-        //console.log("currentSubTab2", content[this.getCurrentSubTab()].length);
-
-        //this.getCurrentTab() == 'wall' && this.getCurrentSubTab() == 'all'
-
-        //console.log("tab and subtab", this.getCurrentTab(), this.getCurrentSubTab());
+        const {community, location, history, params} = this.props;
 
         return (
             <div className="content" style={{paddingBottom: 0}}>

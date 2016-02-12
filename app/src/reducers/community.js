@@ -9,13 +9,9 @@ export const community = (state={}, action) => {
     switch (action.type) {
         case types.SET_COMMUNITY:
             return Object.assign({}, state, action.community);
-            return Object.assign(new models.Community(), state, action.community);
 
-        case types.SET_TAB:
-            return Object.assign({}, state, {currentTab: action.currentTab});
-
-        case types.SET_SUB_TAB:
-            return Object.assign({}, state, {currentSubTab: action.currentTab});
+        case types.SET_COMMUNITY_GROUP:
+            return Object.assign({}, state, {group_id: action.group_id});
 
         default:
             return state;
