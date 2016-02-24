@@ -32,7 +32,7 @@ var CommunityJoinLeave = (function (_super) {
         if (!request.user.is_authenticated) {
             return null;
         }
-        return community.user_group ?
+        return community.user_group_id ?
             React.createElement("a", {"href": "", "className": "btn btn-grey", "onClick": this.leave.bind(this)}, "Выйти") :
             React.createElement("a", {"href": "", "className": "btn btn-blue", "onClick": this.join.bind(this)}, "Вступить");
     };

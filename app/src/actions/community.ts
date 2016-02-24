@@ -8,7 +8,6 @@ import * as constants from '../constants/constants';
 
 
 //console.log("modelscommm", models.Community);
-
 export const setCommunity = (community: any) => {
     return {
         type: types.SET_COMMUNITY,
@@ -35,7 +34,7 @@ export const fetchCommunity = (communityId: number) => {
 
             dispatch({
                 type: types.SET_COMMUNITY,
-                community: Object.assign(new models.Community(), data)
+                community: data
             })
 
         });

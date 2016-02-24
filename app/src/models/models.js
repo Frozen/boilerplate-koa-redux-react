@@ -25,25 +25,38 @@ var Content = (function () {
     return Content;
 })();
 exports.Content = Content;
-var Community = (function () {
-    function Community() {
-    }
-    Community.prototype.isInCommunity = function () {
-        return this.is_in_community;
-    };
-    ;
-    Community.prototype.getUrl = function () {
-        return this.url;
-    };
-    Community.prototype.getId = function () {
-        return this.id;
-    };
-    Community.prototype.getGroup = function () {
-        return this.user_group;
-    };
-    return Community;
-})();
-exports.Community = Community;
+//export class Community implements infs.Community {
+//
+//    is_in_community: boolean;
+//
+//    isInCommunity(): boolean {
+//        return this.is_in_community;
+//    };
+//
+//    private url: string;
+//
+//    avatar:{ [key:string]:string; };
+//    name:string;
+//    getUrl() {
+//        return this.url;
+//    }string;
+//    rules:string;
+//    categories:Array<any>;
+//
+//    id: number;
+//
+//    constructor() {
+//    }
+//
+//    getId(): number {
+//        return this.id
+//    }
+//
+//    user_group: number;
+//    getGroup(): number {
+//        return this.user_group;
+//    }
+//}
 var Rating = (function () {
     function Rating() {
         var _this = this;
@@ -56,7 +69,7 @@ exports.Rating = Rating;
 function mapContent(data) {
     var user = Object.assign(new User(), data.user);
     var rating = Object.assign(new Rating(), data.rating);
-    var community = Object.assign(new Community(), data.community);
+    var community = data.community;
     return Object.assign(new Content(), data, { user: user, rating: rating, community: community });
 }
 exports.mapContent = mapContent;

@@ -19,6 +19,7 @@ import InfiniteScrolling from '../common/InfiniteScrolling';
 import * as models from '../../models/models';
 import * as infs from '../../interfaces/interfaces';
 import {connect} from 'react-redux';
+import CommunityAdmins from './blocks/CommunityAdmins';
 
 // Defines the interface of the properties of the Footer component
 interface CommunityProps {
@@ -68,6 +69,10 @@ export default class Community extends React.Component<CommunityProps, any> {
 
 
 class InnerCommunity extends React.Component<CommunityProps, any> {
+    
+    state = {
+        fullDescription: false
+    };
 
     getTabs() {
         return [
@@ -79,6 +84,12 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
         ]
     }
 
+    toggleFullDescription() {
+        this.setState({
+            fullDescription: !this.state.fullDescription
+        })
+    }
+
 
     handleTabClick(path){
 
@@ -87,7 +98,7 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
     }
 
     getCommunity(): infs.Community {
-        return Object.assign(new models.Community(), this.props.community);
+        return this.props.community;
     }
 
     render() {
@@ -106,28 +117,9 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
                     </div>
 
                     <br /><br />
-
-
-
+                    
                     <div className="line"></div>
-                    <div className="module people_module">
-                        <div className="module-title">
-                            <h4>
-                                <a href="#?pane=members&amp;tab=admin">Руководство <span>(1)</span></a>
-                            </h4>
-                        </div>
-                        <div className="peoples">
-
-                            <div className="people_cell active">
-                                <a href="/user/yaru" style={{display: 'block', height: '52px', whiteSpace: 'nowrap'}}>
-                                    <img src="/static/u/photo/1/s.jpg" className="ava center-image" alt="yaru" style={{verticalAlign: 'middle', border: 'none'}} />
-                                        <span>yaru</span>
-                                </a>
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <CommunityAdmins community={this.getCommunity()} />
 
                     <div className="line"></div>
                 </div>
@@ -140,7 +132,7 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
                         <div className="group-name">Сообщество</div>
                         <div className="group-text shot-text">
                             <span>Третье сообщество</span> <a href="" className="more-text">еще</a>
-                            <span className="ng-hide" ng-show="full_description">Третье сообщество</span> <a href="" className="more-text2 ng-hide" ng-click="full_description=false" ng-show="full_description">свернуть</a>
+                            <span>Третье сообщество</span> <a href="" className="more-text2">свернуть</a>
                         </div>
                     </div>
 

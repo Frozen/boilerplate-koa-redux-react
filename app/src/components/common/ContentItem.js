@@ -58,7 +58,7 @@ var ContentArticle = (function (_super) {
     }
     ContentArticle.prototype.render = function () {
         var content = this.props.content;
-        return (React.createElement("article", null, React.createElement("header", null, React.createElement("a", {"href": "#", "className": "usName"}, "yaru"), React.createElement("p", null, "добавил ", this.type, " в" + ' ' + "сообщество ", React.createElement("a", {"href": content.community.getUrl()}, content.community.name), React.createElement("mark", null, React.createElement("a", {"href": content.getUrl()}, content.getEditorTitle())))), React.createElement("p", null, content.text), React.createElement("footer", null, React.createElement(Rating_1.default, {"content": content}), React.createElement("a", {"href": "/community/4/content/100#comments"}, React.createElement("span", null, "Комментировать"), " (0)")), React.createElement(User, {"user": content.user})));
+        return (React.createElement("article", null, React.createElement("header", null, React.createElement("a", {"href": "#", "className": "usName"}, "yaru"), React.createElement("p", null, "добавил ", this.type, React.createElement("mark", null, React.createElement("a", {"href": content.getUrl()}, content.getEditorTitle())))), React.createElement("p", null, content.text), React.createElement("footer", null, React.createElement(Rating_1.default, {"content": content}), React.createElement("a", {"href": "/community/4/content/100#comments"}, React.createElement("span", null, "Комментировать"), " (0)")), React.createElement(User, {"user": content.user})));
     };
     return ContentArticle;
 })(React.Component);
@@ -85,7 +85,7 @@ var ContentLink = (function (_super) {
     }
     ContentLink.prototype.render = function () {
         var content = this.props.content;
-        return (React.createElement("article", null, React.createElement("header", null, React.createElement("a", {"href": "#", "className": "usName"}, "yaru"), React.createElement("p", null, "добавил ссылку в" + ' ' + "сообщество ", React.createElement("a", {"href": content.community.getUrl()}, "Третье сообщество"), React.createElement("mark", null, React.createElement("a", {"href": content.getSourceLink()}, content.getEditorTitle())))), React.createElement("p", null, content.text), React.createElement("footer", null, React.createElement(Rating_1.default, {"content": content}), React.createElement("a", {"href": "/community/4/content/100#comments"}, React.createElement("span", null, "Комментировать"), " (0)")), React.createElement(User, {"user": content.user})));
+        return (React.createElement("article", null, React.createElement("header", null, React.createElement("a", {"href": "#", "className": "usName"}, "yaru"), React.createElement("p", null, "добавил ссылку", React.createElement("mark", null, React.createElement("a", {"href": content.getSourceLink()}, content.getEditorTitle())))), React.createElement("p", null, content.text), React.createElement("footer", null, React.createElement(Rating_1.default, {"content": content}), React.createElement("a", {"href": "/community/4/content/100#comments"}, React.createElement("span", null, "Комментировать"), " (0)")), React.createElement(User, {"user": content.user})));
     };
     return ContentLink;
 })(React.Component);
@@ -133,7 +133,7 @@ var ContentNote = (function (_super) {
     }
     ContentNote.prototype.render = function () {
         var content = this.props.content;
-        return (React.createElement("article", null, React.createElement("header", null, React.createElement("a", {"href": content.user.getUrl(), "className": "usName"}, content.user.getFioOrUsernameOrId()), React.createElement("p", null, "добавил заметку в" + ' ' + "сообщество ", React.createElement("a", {"href": content.community.getUrl()}, content.community.name))), React.createElement("p", null, content.text), React.createElement("footer", null, React.createElement(Rating_1.default, {"content": content}), React.createElement("a", {"href": "/community/4/content/100#comments"}, React.createElement("span", null, "Комментировать"), " (0)")), React.createElement(User, {"user": content.user})));
+        return (React.createElement("article", null, React.createElement("header", null, React.createElement("a", {"href": content.user.getUrl(), "className": "usName"}, content.user.getFioOrUsernameOrId()), React.createElement("p", null, "добавил заметку")), React.createElement("p", null, content.text), React.createElement("footer", null, React.createElement(Rating_1.default, {"content": content}), React.createElement("a", {"href": "/community/4/content/100#comments"}, React.createElement("span", null, "Комментировать"), " (0)")), React.createElement(User, {"user": content.user})));
     };
     return ContentNote;
 })(React.Component);

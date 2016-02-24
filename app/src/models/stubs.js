@@ -12,17 +12,14 @@ exports.createCommunity = function (name) {
         id: 5,
         avatar: {},
         name: name,
-        getUrl: function () {
-            return "/community/5";
-        },
+        url: "/community/5",
         rules: "community rules",
         categories: [
             { id: 1, name: 'community category 1' }
         ],
         //is_in_community: false,
         isInCommunity: function () { return _this.is_in_community; },
-        user_group: 0,
-        getGroup: function () { return _this.user_group; }
+        user_group_id: 0
     };
 };
 exports.createContent = function (type) {
@@ -45,6 +42,9 @@ exports.createContent = function (type) {
 };
 exports.createUser = function () {
     return {
+        fio_or_username_or_id: "username",
+        url: "/user/5",
+        is_online: true,
         getFioOrUsernameOrId: function () { return "username"; },
         getUrl: function () { return "/user/5"; },
         isOnline: function () { return true; },

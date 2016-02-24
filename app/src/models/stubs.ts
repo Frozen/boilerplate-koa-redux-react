@@ -18,17 +18,14 @@ export const createCommunity = (name: string = 'community name'): infs.Community
             //'180':
         },
         name: name,
-        getUrl: () => {
-            return "/community/5"
-        },
+        url: "/community/5",
         rules: "community rules",
         categories: [
             {id: 1, name: 'community category 1'}
         ],
         //is_in_community: false,
         isInCommunity: () => this.is_in_community,
-        user_group: 0,
-        getGroup: () => this.user_group
+        user_group_id: 0
     }
 };
 
@@ -53,6 +50,9 @@ export const createContent = (type: string = 'article'): infs.Content => {
 
 export const createUser = (): infs.User => {
     return {
+        fio_or_username_or_id: "username",
+        url: "/user/5",
+        is_online: true,
         getFioOrUsernameOrId: () => "username",
         getUrl: () => "/user/5",
         isOnline: () => true,

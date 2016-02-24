@@ -55,40 +55,38 @@ export class Content {
 }
 
 
-export class Community implements infs.Community {
-
-    is_in_community: boolean;
-
-    isInCommunity(): boolean {
-        return this.is_in_community;
-    };
-
-    private url: string;
-
-    avatar:{ [key:string]:string; };
-    name:string;
-    getUrl() {
-        return this.url;
-    }string;
-    rules:string;
-    categories:Array<any>;
-
-    id: number;
-
-    constructor() {
-    }
-
-    getId(): number {
-        return this.id
-    }
-
-    user_group: number;
-    getGroup(): number {
-        return this.user_group;
-    }
-
-
-}
+//export class Community implements infs.Community {
+//
+//    is_in_community: boolean;
+//
+//    isInCommunity(): boolean {
+//        return this.is_in_community;
+//    };
+//
+//    private url: string;
+//
+//    avatar:{ [key:string]:string; };
+//    name:string;
+//    getUrl() {
+//        return this.url;
+//    }string;
+//    rules:string;
+//    categories:Array<any>;
+//
+//    id: number;
+//
+//    constructor() {
+//    }
+//
+//    getId(): number {
+//        return this.id
+//    }
+//
+//    user_group: number;
+//    getGroup(): number {
+//        return this.user_group;
+//    }
+//}
 
 export class Rating implements infs.Rating{
     getVotesFor = ()=>this.votes_for;
@@ -105,7 +103,7 @@ export function mapContent(data): infs.Content {
 
     const user = Object.assign(new User(), data.user);
     const rating = Object.assign(new Rating(), data.rating);
-    const community = Object.assign(new Community(), data.community);
+    const community = data.community;
     return Object.assign(new Content(), data, {user: user, rating: rating, community: community})
 
 }

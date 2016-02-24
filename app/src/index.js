@@ -38,6 +38,11 @@ import Community from './components/community/Community';
 import {CommunityContentPaneAll, CommunityContentPaneArticle,
     CommunityContentPaneNote, CommunityContentPanePoll,
     CommunityContentPaneVideo, CommunityContentPanePhoto} from './components/community/CommunityContentSubPanes';
+
+import {CommunityMembersPaneAll, CommunityMembersPaneAdmin,
+    CommunityMembersPaneFriends, CommunityMembersPaneWaiting,
+    CommunityMembersPaneBlacklist, CommunityMembersPaneName,
+    CommunityMembersPaneActivity} from './components/community/CommunityMembersSubPanes';
 import TestBlock from './components/community/TestBlock';
 import CommunityContentPane from './components/community/blocks/panes/CommunityContentPane';
 import CommunityMembersPane from './components/community/blocks/panes/CommunityMembersPane';
@@ -129,6 +134,19 @@ ReactDOM.render(
                     <Route path="video" component={CommunityContentPaneVideo} />
                     <Route path="poll" component={CommunityContentPanePoll} />
                 </Route>
+
+                <Route path="members" component={CommunityMembersPane}>
+                    <IndexRedirect to="all" />
+                    <Route path="all" component={CommunityMembersPaneAll} />
+                    <Route path="admin" component={CommunityMembersPaneAdmin} />
+                    <Route path="friends" component={CommunityMembersPaneFriends} />
+                    <Route path="waiting" component={CommunityMembersPaneWaiting} />
+                    <Route path="blacklist" component={CommunityMembersPaneBlacklist} />
+                    <Route path="name" component={CommunityMembersPaneName} />
+                    <Route path="activity" component={CommunityMembersPaneActivity} />
+                </Route>
+
+
                 <Route path="members(/:subtab)" component={CommunityMembersPane} />
                 <Route path="settings" component={CommunitySettingsPane} />
                 <Route path="albums" component={CommunityAlbumsPane} />

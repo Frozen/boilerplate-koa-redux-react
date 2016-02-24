@@ -83,10 +83,7 @@ class ContentArticle extends React.Component<IProps, any> {
             <article>
                 <header>
                     <a href="#" className="usName">yaru</a>
-                    <p>добавил {this.type} в
-
-                        сообщество <a href={content.community.getUrl()}>{content.community.name}</a>
-
+                    <p>добавил {this.type}
                         <mark>
                             <a href={content.getUrl()}>{content.getEditorTitle()}</a>
                         </mark>
@@ -129,10 +126,7 @@ class ContentLink extends React.Component<IProps, any> {
             <article>
                 <header>
                     <a href="#" className="usName">yaru</a>
-                    <p>добавил ссылку в
-
-                        сообщество <a href={content.community.getUrl()}>Третье сообщество</a>
-
+                    <p>добавил ссылку
                         <mark>
                             <a href={content.getSourceLink()}>{content.getEditorTitle()}</a>
                         </mark>
@@ -207,9 +201,7 @@ class ContentNote extends React.Component<IProps, any> {
             <article>
                 <header>
                     <a href={content.user.getUrl()} className="usName">{content.user.getFioOrUsernameOrId()}</a>
-                    <p>добавил заметку в
-                        сообщество <a href={content.community.getUrl()}>{content.community.name}</a>
-                    </p>
+                    <p>добавил заметку</p>
                 </header>
                 <p>
                     {content.text}

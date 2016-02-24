@@ -10,20 +10,24 @@ export interface Community {
     id: number
     avatar: { [key:string]:string; }
     name: string
-    getUrl: () => string
+    url: string
+    //getUrl: () => string
     rules: string
     categories: Array<any>
     isInCommunity: () => boolean
-    getGroup: () => number
-    user_group: number
+    //getGroup: () => number
+    user_group_id: number
 }
 
 export interface User {
+    fio_or_username_or_id: string
+    url : string
+    is_online: boolean
+
     getFioOrUsernameOrId: () => string
     getUrl: () => string
     isOnline: () => boolean
     avatar: { [key:string]:string; }
-    //avatar: string
 }
 
 export interface Rating {
@@ -51,9 +55,23 @@ export interface Content {
 
 export interface CommunityUser {
 
-    community: Community
     user: User
-    groupId: number
-    isBlocked: boolean
+    user_group_id: number
+    //isBlocked: boolean
 
 }
+
+export interface CommunityAlbum {
+
+    name: string
+    photos_count: number
+    photos: Array<CommunityAlbumPhoto>
+    //isBlocked: boolean
+
+}
+
+export interface CommunityAlbumPhoto {
+    url: string
+    '100x100': string
+}
+

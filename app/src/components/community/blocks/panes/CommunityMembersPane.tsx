@@ -18,6 +18,8 @@ interface IProps {
     history: History
     dispatch: any
     location: any
+    children: any
+
 
 
 }
@@ -28,7 +30,7 @@ export default class CommunityMembersPane extends React.Component<IProps, any> {
     getSubTabs() {
         return [["all", "Все"],
                 ["admin", "Руководство"],
-                ["friend", "Друзья"],
+                ["friends", "Друзья"],
                 ["waiting", "Заявки"],
                 ["blacklist", "Черный список"],
                 ["name", "По алфавиту"],
@@ -48,28 +50,7 @@ export default class CommunityMembersPane extends React.Component<IProps, any> {
         return (
             <div className="pane">
                 <SubTabs tabs={this.getSubTabs()} location={location} currentTab={params.subtab || ''} handleClick={this.handleSubTabClick.bind(this)}/>
-
-                <div className="fr-search">
-                    <input type="text" placeholder="Найти участника по имени" className="fr-search-txt ng-pristine ng-untouched ng-valid"/>
-                    <input type="submit" value="" className="fr-search-btn" />
-                </div>
-                <div className="wall-panes bord">
-                    <div className="userAc">
-                        <article ng-repeat="member in members" className="ng-scope">
-                            <header><a href="/user/2" className="usName ng-binding">2</a></header>
-                            <div className="user-edit" ng-show="is_admin_or_moderator">
-                                <select ng-show="is_admin" ng-hide="is_moderator" ng-change="groupChanged(member, group)" ng-options="group.value as group.title for group in groups" ng-model="member.group_id" className="ng-pristine ng-untouched ng-valid"><option value="number:3" label="Участник" >Участник</option><option value="number:2" label="Модератор">Модератор</option><option value="number:1" label="Администратор">Администратор</option></select>
-                                <a href="" className="action" ng-click="banUser(member)" ng-show="!member.is_blocked">Исключить</a>
-                                <a href="" ng-hide="is_moderator" className="action" ng-click="banUser(member)" ng-show="member.is_blocked">Разбанить</a>
-                            </div>
-                            <div className="user-l">
-                                <div className="userAva" style={{whiteSpace: 'nowrap', overflow: 'hidden'}}>
-                                    <span style={{display: 'inline-block', verticalAlign: 'middle', height: '100%'}} />
-                                    <img alt="" style={{verticalAlign: 'middle', marginLeft: '-3px'}} src="/static/images/avatars/b.png" />
-                                </div><span className="user-stat ng-hide">Online</span></div>
-                        </article>
-                    </div>
-                </div>
+                {this.props.children}
             </div>
         )
 

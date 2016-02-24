@@ -16,8 +16,8 @@ var Loading_1 = require('../common/Loading');
 var Tabs_1 = require('../common/Tabs');
 var actions = require('../../actions/community');
 var CommunityCategories_1 = require('./CommunityCategories');
-var models = require('../../models/models');
 var react_redux_1 = require('react-redux');
+var CommunityAdmins_1 = require('./blocks/CommunityAdmins');
 //<CommunityContentPane {...panes.content}
 //    getCurrentSubTab={this.getCurrentSubTab.bind(this)}
 //    getCurrentTab={this.getCurrentTab.bind(this)}
@@ -53,6 +53,9 @@ var InnerCommunity = (function (_super) {
     __extends(InnerCommunity, _super);
     function InnerCommunity() {
         _super.apply(this, arguments);
+        this.state = {
+            fullDescription: false
+        };
     }
     InnerCommunity.prototype.getTabs = function () {
         return [
@@ -63,16 +66,21 @@ var InnerCommunity = (function (_super) {
             ["settings", 'Настройки']
         ];
     };
+    InnerCommunity.prototype.toggleFullDescription = function () {
+        this.setState({
+            fullDescription: !this.state.fullDescription
+        });
+    };
     InnerCommunity.prototype.handleTabClick = function (path) {
         var _a = this.props, history = _a.history, community = _a.community, dispatch = _a.dispatch;
         history.push("/community/" + community.id + "/" + path);
     };
     InnerCommunity.prototype.getCommunity = function () {
-        return Object.assign(new models.Community(), this.props.community);
+        return this.props.community;
     };
     InnerCommunity.prototype.render = function () {
         var _a = this.props, community = _a.community, location = _a.location, history = _a.history, params = _a.params;
-        return (React.createElement("div", {"className": "content", "style": { paddingBottom: 0 }}, React.createElement("div", {"className": "left-col"}, React.createElement("div", {"className": "commun-photo"}, React.createElement("a", {"onClick": function () { history.push("/community/" + community.id + "/users"); }}, React.createElement("img", {"src": community.avatar['180'], "alt": ""}))), React.createElement(CommunityCategories_1.default, {"history": this.props.history, "community": this.getCommunity()}), React.createElement("div", {"className": "save-mess community-joined"}, "Вы вступили в сообщество"), React.createElement("br", null), React.createElement("br", null), React.createElement("div", {"className": "line"}), React.createElement("div", {"className": "module people_module"}, React.createElement("div", {"className": "module-title"}, React.createElement("h4", null, React.createElement("a", {"href": "#?pane=members&amp;tab=admin"}, "Руководство ", React.createElement("span", null, "(1)")))), React.createElement("div", {"className": "peoples"}, React.createElement("div", {"className": "people_cell active"}, React.createElement("a", {"href": "/user/yaru", "style": { display: 'block', height: '52px', whiteSpace: 'nowrap' }}, React.createElement("img", {"src": "/static/u/photo/1/s.jpg", "className": "ava center-image", "alt": "yaru", "style": { verticalAlign: 'middle', border: 'none' }}), React.createElement("span", null, "yaru"))))), React.createElement("div", {"className": "line"})), React.createElement("div", {"className": "center-wall"}, React.createElement("div", {"className": "user-wall-top"}, React.createElement("h1", null, community.name), React.createElement("div", {"className": "group-name"}, "Сообщество"), React.createElement("div", {"className": "group-text shot-text"}, React.createElement("span", null, "Третье сообщество"), " ", React.createElement("a", {"href": "", "className": "more-text"}, "еще"), React.createElement("span", {"className": "ng-hide", "ng-show": "full_description"}, "Третье сообщество"), " ", React.createElement("a", {"href": "", "className": "more-text2 ng-hide", "ng-click": "full_description=false", "ng-show": "full_description"}, "свернуть"))), React.createElement("div", {"className": "wall-tabs blue-block"}, React.createElement(Tabs_1.default, {"location": location, "tabs": this.getTabs(), "handleClick": this.handleTabClick.bind(this), "currentTab": params.tab || 'wall'}), React.createElement("div", {"className": "panes"}, this.props.children))), React.createElement(BottomTags_1.default, null)));
+        return (React.createElement("div", {"className": "content", "style": { paddingBottom: 0 }}, React.createElement("div", {"className": "left-col"}, React.createElement("div", {"className": "commun-photo"}, React.createElement("a", {"onClick": function () { history.push("/community/" + community.id + "/users"); }}, React.createElement("img", {"src": community.avatar['180'], "alt": ""}))), React.createElement(CommunityCategories_1.default, {"history": this.props.history, "community": this.getCommunity()}), React.createElement("div", {"className": "save-mess community-joined"}, "Вы вступили в сообщество"), React.createElement("br", null), React.createElement("br", null), React.createElement("div", {"className": "line"}), React.createElement(CommunityAdmins_1.default, {"community": this.getCommunity()}), React.createElement("div", {"className": "line"})), React.createElement("div", {"className": "center-wall"}, React.createElement("div", {"className": "user-wall-top"}, React.createElement("h1", null, community.name), React.createElement("div", {"className": "group-name"}, "Сообщество"), React.createElement("div", {"className": "group-text shot-text"}, React.createElement("span", null, "Третье сообщество"), " ", React.createElement("a", {"href": "", "className": "more-text"}, "еще"), React.createElement("span", null, "Третье сообщество"), " ", React.createElement("a", {"href": "", "className": "more-text2"}, "свернуть"))), React.createElement("div", {"className": "wall-tabs blue-block"}, React.createElement(Tabs_1.default, {"location": location, "tabs": this.getTabs(), "handleClick": this.handleTabClick.bind(this), "currentTab": params.tab || 'wall'}), React.createElement("div", {"className": "panes"}, this.props.children))), React.createElement(BottomTags_1.default, null)));
     };
     return InnerCommunity;
 })(React.Component);

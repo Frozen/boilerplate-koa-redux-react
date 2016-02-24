@@ -50,7 +50,8 @@ router
     get('/community/:id/:type', common).
     get('/community/:id/:type/:subtype', common).
     get('/rest/community/:id', rest_community).
-    get('/rest/community/:id/content', rest_community_content);
+    get('/rest/community/:id/content', rest_community_content).
+    get('/rest/community/:id/user', rest_community_users);
 
 //app.use(route.get('/rest/community/:id', rest_community));
 //app.use(route.get('/community/:id', common));
@@ -87,6 +88,7 @@ function *rest_community(next) {
     avatar: {
       '180': 'https://new.maxpark.com/static/u/community/avatars/180/63.jpg'
     },
+    url: '/community/' + id,
     description: "community escription bla bla " + id,
     rules: "community " + id + " rules",
     categories: [
@@ -161,6 +163,51 @@ function * rest_community_content() {
 
 }
 
+
+function *rest_community_users() {
+
+  sleep(500);
+
+  this.body = {
+    "count": 2,
+    "next": null,
+    "previous": null,
+    "results": [
+      {
+        "id": 3,
+        "community": 4,
+        "user": {
+          "id": 1,
+          "url": "/user/yaru",
+          "fio_or_username_or_id": "yaru",
+          "avatar": {
+            "50x50": "http://127.0.0.1/static/u/photo/1/s.jpg",
+            "30x30": "http://127.0.0.1/static/u/photo/1/m.jpg",
+            "180x180": "http://127.0.0.1/static/u/photo/1/b.jpg"
+          },
+          "is_online": false
+        },
+        "group_id": 1
+      },
+      {
+        "id": 8,
+        "community": 4,
+        "user": {
+          "id": 2,
+          "url": "/user/2",
+          "fio_or_username_or_id": " Потапов",
+          "avatar": {
+            "50x50": "http://127.0.0.1/static/u/photo/2/s.jpg",
+            "30x30": "http://127.0.0.1/static/u/photo/2/m.jpg",
+            "180x180": "http://127.0.0.1/static/u/photo/2/b.jpg"
+          },
+          "is_online": true
+        },
+        "group_id": 3
+      }
+    ]
+  }
+}
 
 //
 //app.post("/rest/community/:id/settings", function *(id) {

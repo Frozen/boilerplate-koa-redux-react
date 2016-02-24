@@ -1,7 +1,6 @@
 /// <reference path="../typings/tsd.t.ts" />
 // <reference path="./types.ts" />
 var types = require('../types/community');
-var models = require('../models/models');
 var constants = require('../constants/constants');
 //console.log("modelscommm", models.Community);
 exports.setCommunity = function (community) {
@@ -18,16 +17,14 @@ exports.setCommunityGroup = function (group_id) {
 };
 exports.fetchCommunity = function (communityId) {
     return function (dispatch) {
-        fetch('/rest/community/' + communityId, {
-            credentials: 'same-origin'
-        }).
+        fetch('/rest/community/' + communityId).
             then(function (r) {
             return r.json();
         }).
             then(function (data) {
             dispatch({
                 type: types.SET_COMMUNITY,
-                community: Object.assign(new models.Community(), data)
+                community: data
             });
         });
     };

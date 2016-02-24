@@ -39,7 +39,7 @@ export default class CommunityJoinLeave extends React.Component<IProp, any> {
             return null
         }
 
-        return community.user_group ?
+        return community.user_group_id ?
             <a href="" className="btn btn-grey" onClick={this.leave.bind(this)}>Выйти</a> :
             <a href="" className="btn btn-blue" onClick={this.join.bind(this)}>Вступить</a>
     }
