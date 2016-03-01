@@ -6,15 +6,55 @@ function trimSlash(s) {
     return s.replace(/\//, "");
 }
 exports.trimSlash = trimSlash;
-function loadCommunityUsers(communityId, type, page, query) {
-    return fetch('/rest/community/' + communityId + "/user?type=" + type + "&page=" + page + "&query=" + query, {
-        credentials: 'same-origin'
-    }).
-        then(function (r) {
-        return r.json();
-    }).then(function (data) {
-        return data;
-    });
+// export function loadCommunityUsers(communityId: number,
+//                                    type: string,
+//                                    page: number,
+//                                    query: string): Promise<any> {
+//
+//     return fetch('/rest/community/' + communityId + "/users?type=" + type + "&page=" + page + "&query="+query, {
+//         credentials: 'same-origin'
+//     }).
+//     then((r) => {
+//         return r.json()
+//     }).then(function(data)  {
+//         return data
+//     });
+//
+// }
+function previewText(text, maxLength) {
+    if (text.length <= maxLength) {
+        return text;
+    }
+    var splitted = text.split(" ");
+    var rs = "";
+    for (var i = 0; i < splitted.length; i++) {
+        var word = splitted[i];
+        if ((rs + word).length > maxLength) {
+            return rs;
+        }
+        rs += word;
+    }
+    return rs;
 }
-exports.loadCommunityUsers = loadCommunityUsers;
+exports.previewText = previewText;
+var Loader = (function () {
+    function Loader(baseUrl) {
+        this.page = 0;
+        this.baseUrl = baseUrl;
+    }
+    Loader.prototype.next = function (data) {
+        if (data === void 0) { data = {}; }
+        this.page += 1;
+        return $.ajax({
+            url: this.baseUrl,
+            type: 'GET',
+            data: Object.assign({}, data, { page: this.page })
+        });
+    };
+    Loader.prototype.reset = function () {
+        this.page = 0;
+    };
+    return Loader;
+})();
+exports.Loader = Loader;
 //# sourceMappingURL=helpers.js.map

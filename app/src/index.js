@@ -112,11 +112,11 @@ let store =  applyMiddleware(thunk, reduxRouterMiddleware)(createStore)(reducer,
 reduxRouterMiddleware.syncHistoryToStore(store);
 
 
-store.subscribe(()=> {
-    console.log("subscribe store", store.getState());
-});
+// store.subscribe(()=> {
+//     console.log("subscribe store", store.getState());
+// });
 
-var content = document.getElementById("wrapper");
+var content = document.getElementById("content");
 
 ReactDOM.render(
     <Provider store={store}>

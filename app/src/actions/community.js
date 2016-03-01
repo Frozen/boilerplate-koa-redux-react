@@ -1,7 +1,6 @@
 /// <reference path="../typings/tsd.t.ts" />
-// <reference path="./types.ts" />
 var types = require('../types/community');
-var constants = require('../constants/constants');
+// declare var $: JQuery;
 //console.log("modelscommm", models.Community);
 exports.setCommunity = function (community) {
     return {
@@ -17,11 +16,9 @@ exports.setCommunityGroup = function (group_id) {
 };
 exports.fetchCommunity = function (communityId) {
     return function (dispatch) {
-        fetch('/rest/community/' + communityId).
-            then(function (r) {
-            return r.json();
-        }).
-            then(function (data) {
+        $.ajax({
+            url: '/rest/community/' + communityId
+        }).then(function (data) {
             dispatch({
                 type: types.SET_COMMUNITY,
                 community: data
@@ -29,16 +26,34 @@ exports.fetchCommunity = function (communityId) {
         });
     };
 };
-// @TODO
-exports.asyncJoinCommunity = function (communityId, userId) {
+exports.asyncJoinCommunity = function (communityId) {
     return function (dispatch) {
-        dispatch(exports.setCommunityGroup(constants.COMMUNITY_GROUP_MEMBER));
+        $.ajax({
+            url: '/rest/community/join',
+            type: 'POST',
+            data: {
+                community_id: communityId
+            }
+        }).then(function (data) {
+            // console.log(data);
+            dispatch(exports.fetchCommunity(communityId));
+        });
     };
 };
 // @TODO
-exports.asyncLeaveCommunity = function (communityId, userId) {
+exports.asyncLeaveCommunity = function (communityId) {
     return function (dispatch) {
-        dispatch(exports.setCommunityGroup(0));
+        $.ajax({
+            url: '/rest/community/leave',
+            type: 'POST',
+            data: {
+                community_id: communityId
+            }
+        }).then(function (data) {
+            // console.log(data);
+            dispatch(exports.fetchCommunity(communityId));
+        });
+        // dispatch(setCommunityGroup(0))
     };
 };
 //

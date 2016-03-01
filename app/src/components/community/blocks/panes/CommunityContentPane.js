@@ -51,7 +51,6 @@ var CommunityContentPane = (function (_super) {
     };
     CommunityContentPane.prototype.render = function () {
         var location = this.props.location;
-        console.log("CommunityContentPane==", this.props);
         return (React.createElement("div", {"className": "pane"}, React.createElement(SubTabs_1.default, {"tabs": this.getSubTabs(), "location": location, "handleClick": this.handleSubTabClick.bind(this)}), this.props.children));
     };
     CommunityContentPane = __decorate([

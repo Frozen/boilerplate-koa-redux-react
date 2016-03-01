@@ -20,15 +20,16 @@ declare var request: request;
 export default class CommunityJoinLeave extends React.Component<IProp, any> {
 
     join(e: any) {
+        console.log("community join preventDefault");
         e.preventDefault();
         const {community, dispatch} = this.props;
-        dispatch(actions.asyncJoinCommunity(community.id, request.user.id));
+        dispatch(actions.asyncJoinCommunity(community.id));
     }
 
     leave(e: any) {
         e.preventDefault();
         const {community, dispatch} = this.props;
-        dispatch(actions.asyncLeaveCommunity(community.id, request.user.id));
+        dispatch(actions.asyncLeaveCommunity(community.id));
     }
 
     render() {

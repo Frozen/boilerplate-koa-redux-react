@@ -2,7 +2,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import * as infs from '../../../interfaces/interfaces';
-import {loadCommunityUsers} from "../../../helpers/helpers";
+import {Loader} from "../../../helpers/helpers";
 import {Link} from 'react-router';
 
 interface ICommunityAdmins {
@@ -20,20 +20,32 @@ export default class CommunityAdmins extends React.Component<ICommunityAdmins, a
         count: 0
     };
 
+    loader = null;
+
     componentDidMount() {
 
         const {community} = this.props;
 
-        loadCommunityUsers(community.id, 'admin', 1, '').then(function(data) {
+        this.loader = new Loader('/rest/community/' + this.props.community.id + "/users?type=admin");
 
+
+        this.loader.next().then(function(data) {
             this.setState({
                 users: data.results.slice(0, 9),
                 count: data.count
             });
+        }.bind(this));
 
-            this.isLoading = false;
-
-        }.bind(this))
+        // loadCommunityUsers(community.id, 'admin', 1, '').then(function(data) {
+        //
+        //     this.setState({
+        //         users: data.results.slice(0, 9),
+        //         count: data.count
+        //     });
+        //
+        //     this.isLoading = false;
+        //
+        // }.bind(this))
 
     }
 

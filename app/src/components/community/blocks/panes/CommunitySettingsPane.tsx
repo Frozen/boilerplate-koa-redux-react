@@ -4,6 +4,8 @@ import * as React from 'react';
 import Visible from '../../../common/Visible';
 import {Provider, connect} from 'react-redux';
 import * as actions from '../../../../actions/community';
+import * as infs from '../../../../interfaces/interfaces';
+import * as constants from '../../../../constants/constants';
 //import {reduxForm} from 'redux-form';
 
 
@@ -13,20 +15,21 @@ interface IProps {
     fields: any
     form: any
     dispatch: (v: any) => void
+    community: infs.Community
 }
 
 
-@connect()
+@connect(state => state.community)
 export default class CommunitySettingsPane extends React.Component<IProps, any> {
 
 
     state = {
-        form: {
-            name: 'aaaa',
-            rules: '',
-            description: '',
-            url: ''
-        }
+        // form: {
+        //     name: 'aaaa',
+        //     rules: '',
+        //     description: '',
+        //     url: ''
+        // }
     };
 
 
@@ -51,8 +54,8 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
     render() {
 
 
-        const {params} = this.props;
-        const {form} = this.state;
+        const {params, community} = this.props;
+        // const {form} = this.state;
 
         console.log("settings pane props", this.props);
 
@@ -64,19 +67,19 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                         <p className="info-label">Название</p>
                         <div className="form-row">
 
-                            <input id="id_name" name="name" value={form.name}  onChange={this.bind("name")}/>
+                            <input id="id_name" name="name" value={community.name}  onChange={this.bind("name")}/>
                             <div className="text-error ng-binding"></div>
                         </div>
                         <p className="info-label">Описание</p>
                         <div className="form-row form-row2">
 
-                            <textarea cols={40} id="id_description" name="description" rows={10} value={form.description} onChange={this.bind("description")} />
+                            <textarea cols={40} id="id_description" name="description" rows={10} value={community.description} onChange={this.bind("description")} />
                             <div className="text-error ng-binding"></div>
                         </div>
                         <p className="info-label">Правила</p>
                         <div className="form-row form-row2">
 
-                            <textarea cols={40} id="id_rules" name="rules" rows={10}  value={form.rules} onChange={this.bind("rules")}/>
+                            <textarea cols={40} id="id_rules" name="rules" rows={10}  value={community.rules} onChange={this.bind("rules")}/>
                             <div className="text-error ng-binding"></div>
                         </div>
                         <article>
@@ -93,7 +96,7 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                                     <div className="info-line">
                                         <p className="info-label">Адрес сайта</p>
                                         <p className="info-data" style={{width: '50%'}}>
-                                            <input id="id_url" maxLength={256} name="url" type="text" value={form.url} onChange={this.bind("url")}/>
+                                            <input id="id_url" maxLength={256} name="url" type="text" value={community.url} onChange={this.bind("url")}/>
                                         </p>
                                     </div>
 
@@ -105,9 +108,6 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                         </article>
                         <div className="userAc subscription">
                             <article>
-
-
-
 
                                 <p className="subscr-title">Возможность ставить заметки</p>
 
@@ -169,13 +169,6 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                             <article>
                                 <p className="subscr-title">Возможность ставить опросы</p>
 
-
-
-
-
-
-
-
                                 <ul id="id_poll_only_admin"><li><label htmlFor="id_poll_only_admin_0"><input checked={true} id="id_poll_only_admin_0" name="poll_only_admin" type="radio" value="False" /> Всем участникам</label></li>
                                     <li><label htmlFor="id_poll_only_admin_1"><input id="id_poll_only_admin_1" name="poll_only_admin" type="radio" value="True" /> Только администраторам</label></li></ul>
                             </article>
@@ -201,9 +194,10 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                                     <li><label htmlFor="id_is_closed_1"><input id="id_is_closed_1" name="is_closed" type="radio" value="True" /> Закрытое сообщество</label></li></ul>
                             </article>
                         </div>
-                        <div style={{margin: 'auto', width: '100%', textAlign: 'center'}}>
-                            <input ng-show="is_admin" type="submit" className="btn btn-blue" value="Сохранить" ng-disabled="inProgress" ng-className="{'btn-grey': inProgress}" />
-                        </div>
+                        {community.user_group_id == constants.COMMUNITY_GROUP_ADMIN ?
+                            <div style={{margin: 'auto', width: '100%', textAlign: 'center'}}>
+                                <input type="submit" className="btn btn-blue" value="Сохранить"/>
+                            </div>: ''}
                     </div>
                 </form>
             </div>

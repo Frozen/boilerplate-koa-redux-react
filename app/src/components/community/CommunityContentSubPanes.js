@@ -1,3 +1,4 @@
+/// <reference path="../../typings/tsd.t.ts" />
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -12,27 +13,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var React = require('react');
 var ContentItem_1 = require('../common/ContentItem');
 var InfiniteScrolling_1 = require('../common/InfiniteScrolling');
+var helpers_1 = require('../../helpers/helpers');
 var react_redux_1 = require('react-redux');
-var models = require('../../models/models');
 var CommunityContentPaneBase = (function (_super) {
     __extends(CommunityContentPaneBase, _super);
     function CommunityContentPaneBase() {
         _super.apply(this, arguments);
         this.state = {
             content: [],
-            page: 0,
             isActive: true,
             next: true
         };
         this.isLoading = false;
         // вкладка
         this.type = null;
+        this.loader = null;
     }
     CommunityContentPaneBase.prototype.componentDidMount = function () {
         if (this.type === null) {
             throw new Error("type is null");
         }
+        var params = this.props.params;
+        this.loader = new helpers_1.Loader('/rest/community/' + params.id + "/content?type=" + this.type + "&rubric_filter=");
         this.handleLoadMore();
+    };
+    CommunityContentPaneBase.prototype.componentWillUnmount = function () {
+        this.loader = null;
     };
     /**
      * Обнуляем контент по подкатегории
@@ -43,53 +49,39 @@ var CommunityContentPaneBase = (function (_super) {
             pages: 0,
             next: true
         });
+        this.loader.reset();
     };
     CommunityContentPaneBase.prototype.handleLoadMore = function () {
-        this._handleLoadMore(this.type);
+        this._handleLoadMore();
     };
-    CommunityContentPaneBase.prototype._handleLoadMore = function (subTab) {
+    CommunityContentPaneBase.prototype._handleLoadMore = function () {
         if (!this.state.next) {
             return;
         }
         if (!this.isLoading) {
             this.isLoading = true;
-            this._fetchContent(subTab)
-                .then(function (results) {
-                var content = this.state.content.concat(results);
-                this.setState({
-                    content: content
-                });
-            }.bind(this));
+            this._fetchContent();
         }
     };
-    CommunityContentPaneBase.prototype._fetchContent = function (tab) {
-        var page = this.state.page + 1;
-        this.setState({
-            page: page
-        });
-        var params = this.props.params;
-        return fetch('/rest/community/' + params.id + "/content?type=" + tab + "&rubric_filter=&page=" + page, {
-            credentials: 'same-origin'
-        }).
-            then(function (r) {
-            return r.json();
-        }).
+    CommunityContentPaneBase.prototype._fetchContent = function () {
+        this.loader.
+            next().
             then(function (data) {
-            var results = data.results.map(function (obj) {
-                return models.mapContent(obj);
-            });
             this.isLoading = false;
+            // unmounted
+            if (this.loader === null) {
+                return;
+            }
             this.setState({
-                next: data.next
+                content: this.state.content.concat(data.results)
             });
-            return results;
         }.bind(this));
     };
     CommunityContentPaneBase.prototype.render = function () {
         var _this = this;
         var infinityIsLoading = this.props.infinityIsLoading;
         var content = this.state.content;
-        return (React.createElement("div", {"className": "userAc"}, React.createElement("div", null, content.length), content.map(function (content, index) {
+        return (React.createElement("div", {"className": "userAc"}, content.map(function (content, index) {
             return React.createElement(ContentItem_1.default, {"content": content, "key": index});
         }), React.createElement(InfiniteScrolling_1.default, {"infiniteLoadMore": this.handleLoadMore.bind(this), "isActive": function () { return _this.state.isActive; }, "pause": function () { return infinityIsLoading; }})));
     };
@@ -99,7 +91,7 @@ var CommunityContentPaneAll = (function (_super) {
     __extends(CommunityContentPaneAll, _super);
     function CommunityContentPaneAll() {
         _super.apply(this, arguments);
-        this.type = '';
+        this.type = 'all';
     }
     CommunityContentPaneAll = __decorate([
         react_redux_1.connect()

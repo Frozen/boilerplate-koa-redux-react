@@ -15,16 +15,12 @@ var InfiniteScrolling = (function (_super) {
     };
     InfiniteScrolling.prototype.componentDidMount = function () {
         var _a = this.props, infiniteLoadMore = _a.infiniteLoadMore, isActive = _a.isActive, pause = _a.pause;
-        console.log("InfiniteScrolling isActive", isActive);
         this.f = function (e) {
             var viewportOffset = this.refs.i.getBoundingClientRect();
-            //console.log("viewportOffset",viewportOffset);
             var scroll = document.body.scrollTop;
-            //console.log("prevScroll", scroll, this.prevScrollValue);
-            //console.log("isMovingDown", this.isMovingDown(scroll));
             if (scroll + 500 > viewportOffset.top && this.isMovingDown(scroll) &&
                 infiniteLoadMore && isActive() && !pause()) {
-                console.log("should load more");
+                // console.log("should load more");
                 infiniteLoadMore();
             }
             this.prevScrollValue = document.body.scrollTop;

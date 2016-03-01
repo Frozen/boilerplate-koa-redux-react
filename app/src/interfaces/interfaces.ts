@@ -17,6 +17,8 @@ export interface Community {
     isInCommunity: () => boolean
     //getGroup: () => number
     user_group_id: number
+    description: string
+    short_description: string
 }
 
 export interface User {
@@ -46,8 +48,12 @@ export interface Content {
     getEditorTitle: () => string
     text: string
     type: string
-    getUrl: () => string
-    getSourceLink: () => string
+    // getSourceLink: () => string
+    source_link: string
+    image: string
+    editor_title: string
+    url: string
+    comments_count: number
 
 
 }
@@ -66,7 +72,6 @@ export interface CommunityAlbum {
     name: string
     photos_count: number
     photos: Array<CommunityAlbumPhoto>
-    //isBlocked: boolean
 
 }
 

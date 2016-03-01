@@ -10,12 +10,9 @@ import * as actions from '../../actions/community';
 import {trimSlash} from '../../helpers/helpers';
 import {Provider, connect} from 'react-redux';
 import * as models from '../../models/models';
-import {loadCommunityUsers} from '../../helpers/helpers'
+import {Loader} from '../../helpers/helpers'
 import * as constants from '../../constants/constants'
 
-
-
-const GROUP_ADMIN = 1;
 
 interface ICommunityUserProp {
     key: number
@@ -37,7 +34,7 @@ class CommunityUser extends React.Component<ICommunityUserProp, any> {
                         <div className="userAva" style={{whiteSpace: 'nowrap', overflow: 'hidden'}}>
                             <span style={{display: 'inline-block', verticalAlign: 'middle', height: '100%'}} />
                             <a href={user.url}>
-                                <img alt={user.fio_or_username_or_id} style={{verticalAlign: 'middle', marginLeft: '-3px'}} src={user.avatar['50x50']} />
+                                <img alt={user.fio_or_username_or_id} style={{verticalAlign: 'middle', marginLeft: '0px'}} src={user.avatar['50x50']} />
                             </a>
                         </div>
                         {user.is_online ? <span className="user-stat ng-hide">Online</span> : ''}
@@ -88,13 +85,22 @@ class CommunityMembersPaneBase extends React.Component<IProp, any> {
     // вкладка
     type = null;
 
+    loader = null;
+
+
 
     public componentDidMount() {
         if (this.type === null) {
             throw new Error("type is null")
         }
 
+        this.loader = new Loader('/rest/community/' + this.props.community.id + "/users?type=" + this.type);
         this.handleLoadMore();
+
+    }
+
+    componentWillUnmount() {
+        this.loader = null;
     }
 
     handleLoadMore() {
@@ -104,21 +110,22 @@ class CommunityMembersPaneBase extends React.Component<IProp, any> {
     }
 
     _handleLoadMore(query) {
-        const {community} = this.props;
 
         if (this.isLoading) {
             return
         }
 
-        loadCommunityUsers(community.id, this.type, this.state.page + 1, query).then(function(data) {
+        this.loader.next({query: query}).then(function(data) {
 
             const rows = this.state.users;
-
-            console.log('loadCommunityUsers data', data)
+            
+            // unmounted
+            if (this.loader === null) {
+                return
+            }
 
             this.setState({
                 users: [...rows, ...data.results],
-                page: this.state.page + 1
             });
 
             this.isLoading = false;
@@ -128,6 +135,7 @@ class CommunityMembersPaneBase extends React.Component<IProp, any> {
     }
 
     reset() {
+        this.loader.reset();
         this.setState({
             users: [],
             page: 0,

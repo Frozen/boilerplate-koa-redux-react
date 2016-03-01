@@ -1,10 +1,12 @@
 /// <reference path="../typings/tsd.t.ts" />
-// <reference path="./types.ts" />
+
 
 import * as types from '../types/community';
 import * as models from '../models/models';
 import * as stubs from '../models/stubs';
 import * as constants from '../constants/constants';
+
+// declare var $: JQuery;
 
 
 //console.log("modelscommm", models.Community);
@@ -25,12 +27,9 @@ export const setCommunityGroup = (group_id: number) => {
 export const fetchCommunity = (communityId: number) => {
     return (dispatch) => {
 
-
-        fetch('/rest/community/' + communityId).
-        then((r) => {
-            return r.json()
-        }).
-        then((data) => {
+        $.ajax({
+            url: '/rest/community/' + communityId
+        }).then((data) => {
 
             dispatch({
                 type: types.SET_COMMUNITY,
@@ -43,20 +42,45 @@ export const fetchCommunity = (communityId: number) => {
 };
 
 
-// @TODO
-export const asyncJoinCommunity = (communityId: number, userId: number) => {
+export const asyncJoinCommunity = (communityId: number) => {
 
     return (dispatch) => {
-        dispatch(setCommunityGroup(constants.COMMUNITY_GROUP_MEMBER))
+
+
+        $.ajax({
+            url: '/rest/community/join',
+            type: 'POST',
+            data: {
+                community_id: communityId
+            }
+        }).then((data) => {
+
+            // console.log(data);
+            dispatch(fetchCommunity(communityId))
+
+        });
+
     }
 
 };
 
 // @TODO
-export const asyncLeaveCommunity = (communityId: number, userId: number) => {
+export const asyncLeaveCommunity = (communityId: number) => {
 
     return (dispatch) => {
-        dispatch(setCommunityGroup(0))
+        $.ajax({
+            url: '/rest/community/leave',
+            type: 'POST',
+            data: {
+                community_id: communityId
+            }
+        }).then((data) => {
+
+            // console.log(data);
+            dispatch(fetchCommunity(communityId))
+
+        });
+        // dispatch(setCommunityGroup(0))
     }
 
 };

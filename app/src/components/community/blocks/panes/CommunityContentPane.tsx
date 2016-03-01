@@ -73,8 +73,6 @@ export default class CommunityContentPane extends React.Component<IProp, any> {
 
         const {location} = this.props;
 
-        console.log("CommunityContentPane==", this.props);
-
         return (
             <div className="pane">
                 <SubTabs tabs={this.getSubTabs()} location={location} handleClick={this.handleSubTabClick.bind(this)}/>

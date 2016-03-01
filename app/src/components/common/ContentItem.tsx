@@ -38,6 +38,9 @@ export default class ContentItem extends React.Component<IProps, any> {
                 case 'video':
                     return <ContentVideo content={content} key={key}/>;
 
+                case 'photo':
+                    return <ContentPhoto content={content} key={key}/>;
+
                 default:
                     return <div>No Content Type {content.type}</div>
             }
@@ -62,9 +65,9 @@ class User extends React.Component<IUserProps, any> {
         return (
             <div className="user-l">
                 <div className="userAva">
-                    <img src={user.avatar['50x50']} alt={user.getFioOrUsernameOrId()} />
+                    <img src={user.avatar['50x50']} alt={user.fio_or_username_or_id} />
                 </div>
-                {user.isOnline() ? <span className="user-stat">Online</span>: ''}
+                {user.is_online ? <span className="user-stat">Online</span>: ''}
             </div>
         )
     }
@@ -82,10 +85,10 @@ class ContentArticle extends React.Component<IProps, any> {
         return (
             <article>
                 <header>
-                    <a href="#" className="usName">yaru</a>
+                    <a href={content.user.url} className="usName">{content.user.fio_or_username_or_id}</a>
                     <p>добавил {this.type}
                         <mark>
-                            <a href={content.getUrl()}>{content.getEditorTitle()}</a>
+                            <a href={content.url}>{content.editor_title}</a>
                         </mark>
                     </p>
 
@@ -93,10 +96,15 @@ class ContentArticle extends React.Component<IProps, any> {
                 <p>
                     {content.text}
                 </p>
+                {content.image ?
+                <a href="/user/702327695/content/5023527">
+                    <img src={content.image} alt={content.editor_title} className="wall-img" />
+                </a>
+                :''}
 
                 <footer>
                     <Rating content={content} />
-                    <a href="/community/4/content/100#comments"><span>Комментировать</span> (0)</a>
+                    <a href={content.url + '#comments'}><span>Комментировать</span> ({content.comments_count})</a>
                 </footer>
 
                 <User user={content.user} />
@@ -125,10 +133,10 @@ class ContentLink extends React.Component<IProps, any> {
         return (
             <article>
                 <header>
-                    <a href="#" className="usName">yaru</a>
+                    <a href={content.user.url} className="usName">{content.user.fio_or_username_or_id}</a>
                     <p>добавил ссылку
                         <mark>
-                            <a href={content.getSourceLink()}>{content.getEditorTitle()}</a>
+                            <a href={content.source_link}>{content.editor_title}</a>
                         </mark>
                     </p>
 
@@ -139,7 +147,7 @@ class ContentLink extends React.Component<IProps, any> {
 
                 <footer>
                     <Rating content={content} />
-                    <a href="/community/4/content/100#comments"><span>Комментировать</span> (0)</a>
+                    <a href={content.url + '#comments'}><span>Комментировать</span> ({content.comments_count})</a>
                 </footer>
 
                 <User user={content.user} />
@@ -150,6 +158,37 @@ class ContentLink extends React.Component<IProps, any> {
 
 }
 
+class ContentPhoto extends React.Component<IProps, any> {
+
+    render() {
+
+        const {content} = this.props;
+
+        return (
+            <article>
+                <header>
+                    <a href={content.user.url} className="usName">{content.user.fio_or_username_or_id}</a>
+                    <p>добавил фото</p>
+                </header>
+                <a>
+                    <img src={content.image} />
+                </a>
+                <p>
+                    {content.text}
+                </p>
+
+                <footer>
+                    <Rating content={content} />
+                    <a href={content.url + '#comments'}><span>Комментировать</span> ({content.comments_count})</a>
+                    </footer>
+
+                <User user={content.user} />
+
+            </article>
+        )
+    }
+
+}
 
 //class ContentPoll extends React.Component<IProps, any> {
 //
@@ -200,7 +239,7 @@ class ContentNote extends React.Component<IProps, any> {
         return (
             <article>
                 <header>
-                    <a href={content.user.getUrl()} className="usName">{content.user.getFioOrUsernameOrId()}</a>
+                    <a href={content.user.url} className="usName">{content.user.fio_or_username_or_id}</a>
                     <p>добавил заметку</p>
                 </header>
                 <p>

@@ -19,7 +19,9 @@ exports.createCommunity = function (name) {
         ],
         //is_in_community: false,
         isInCommunity: function () { return _this.is_in_community; },
-        user_group_id: 0
+        user_group_id: 0,
+        description: "community description full",
+        short_description: "community description"
     };
 };
 exports.createContent = function (type) {
@@ -32,12 +34,11 @@ exports.createContent = function (type) {
         rating: exports.createRating(),
         getEditorTitle: function () { return 'editor title'; },
         text: "bla bla text",
-        getUrl: function () {
-            return "/content/5";
-        },
-        getSourceLink: function () {
-            return "source_link";
-        }
+        source_link: "source_link",
+        url: "/content/5",
+        image: "/static/image",
+        editor_title: "editor title",
+        comments_count: 5
     };
 };
 exports.createUser = function () {

@@ -12,6 +12,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var React = require('react');
 var SubTabs_1 = require('../../../common/SubTabs');
 var react_redux_1 = require("react-redux");
+var constants = require('../../../../constants/constants');
 var CommunityMembersPane = (function (_super) {
     __extends(CommunityMembersPane, _super);
     function CommunityMembersPane() {
@@ -32,7 +33,19 @@ var CommunityMembersPane = (function (_super) {
     };
     CommunityMembersPane.prototype.render = function () {
         var _a = this.props, params = _a.params, location = _a.location;
-        return (React.createElement("div", {"className": "pane"}, React.createElement(SubTabs_1.default, {"tabs": this.getSubTabs(), "location": location, "currentTab": params.subtab || '', "handleClick": this.handleSubTabClick.bind(this)}), this.props.children));
+        return (React.createElement("div", {"className": "pane"}, React.createElement(SubTabs_1.default, {"tabs": this.getSubTabs(), "location": location, "currentTab": params.subtab || '', "handleClick": this.handleSubTabClick.bind(this), "showCallback": function (tab) {
+            if (request.user.id == constants.COMMUNITY_GROUP_ADMIN ||
+                request.user.id == constants.COMMUNITY_GROUP_MODERATOR) {
+                return true;
+            }
+            if (tab == 'waiting') {
+                return false;
+            }
+            if (tab == 'blacklist') {
+                return false;
+            }
+            return true;
+        }}), this.props.children));
     };
     CommunityMembersPane = __decorate([
         react_redux_1.connect()

@@ -49,13 +49,50 @@ var Community = (function (_super) {
 })(React.Component);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Community;
-var InnerCommunity = (function (_super) {
-    __extends(InnerCommunity, _super);
-    function InnerCommunity() {
+var CommunityShortDescription = (function (_super) {
+    __extends(CommunityShortDescription, _super);
+    function CommunityShortDescription() {
         _super.apply(this, arguments);
         this.state = {
             fullDescription: false
         };
+    }
+    CommunityShortDescription.prototype.setFull = function (e) {
+        e.preventDefault();
+        this.setState({
+            fullDescription: true
+        });
+    };
+    CommunityShortDescription.prototype.setSmall = function (e) {
+        e.preventDefault();
+        this.setState({
+            fullDescription: false
+        });
+    };
+    CommunityShortDescription.prototype.render = function () {
+        var _this = this;
+        var community = this.props.community;
+        var fullDescription = this.state.fullDescription;
+        var c = function (community) {
+            if (community.description == community.short_description) {
+                return (React.createElement("div", {"className": "group-text shot-text"}, React.createElement("span", null, community.description)));
+            }
+            if (fullDescription) {
+                return (React.createElement("div", {"className": "group-text shot-text"}, React.createElement("span", null, community.description), " ", React.createElement("a", {"href": "", "className": "more-text2", "onClick": _this.setSmall.bind(_this)}, "свернуть")));
+            }
+            else {
+                return (React.createElement("div", {"className": "group-text shot-text"}, React.createElement("span", null, community.short_description), " ", React.createElement("a", {"href": "", "className": "more-text", "onClick": _this.setFull.bind(_this)}, "еще")));
+            }
+        };
+        var rs = c(community);
+        return rs;
+    };
+    return CommunityShortDescription;
+})(React.Component);
+var InnerCommunity = (function (_super) {
+    __extends(InnerCommunity, _super);
+    function InnerCommunity() {
+        _super.apply(this, arguments);
     }
     InnerCommunity.prototype.getTabs = function () {
         return [
@@ -79,8 +116,8 @@ var InnerCommunity = (function (_super) {
         return this.props.community;
     };
     InnerCommunity.prototype.render = function () {
-        var _a = this.props, community = _a.community, location = _a.location, history = _a.history, params = _a.params;
-        return (React.createElement("div", {"className": "content", "style": { paddingBottom: 0 }}, React.createElement("div", {"className": "left-col"}, React.createElement("div", {"className": "commun-photo"}, React.createElement("a", {"onClick": function () { history.push("/community/" + community.id + "/users"); }}, React.createElement("img", {"src": community.avatar['180'], "alt": ""}))), React.createElement(CommunityCategories_1.default, {"history": this.props.history, "community": this.getCommunity()}), React.createElement("div", {"className": "save-mess community-joined"}, "Вы вступили в сообщество"), React.createElement("br", null), React.createElement("br", null), React.createElement("div", {"className": "line"}), React.createElement(CommunityAdmins_1.default, {"community": this.getCommunity()}), React.createElement("div", {"className": "line"})), React.createElement("div", {"className": "center-wall"}, React.createElement("div", {"className": "user-wall-top"}, React.createElement("h1", null, community.name), React.createElement("div", {"className": "group-name"}, "Сообщество"), React.createElement("div", {"className": "group-text shot-text"}, React.createElement("span", null, "Третье сообщество"), " ", React.createElement("a", {"href": "", "className": "more-text"}, "еще"), React.createElement("span", null, "Третье сообщество"), " ", React.createElement("a", {"href": "", "className": "more-text2"}, "свернуть"))), React.createElement("div", {"className": "wall-tabs blue-block"}, React.createElement(Tabs_1.default, {"location": location, "tabs": this.getTabs(), "handleClick": this.handleTabClick.bind(this), "currentTab": params.tab || 'wall'}), React.createElement("div", {"className": "panes"}, this.props.children))), React.createElement(BottomTags_1.default, null)));
+        var _a = this.props, community = _a.community, location = _a.location, params = _a.params;
+        return (React.createElement("div", null, React.createElement("div", {"className": "left-col"}, React.createElement("div", {"className": "commun-photo"}, React.createElement("img", {"src": community.avatar['180x180'], "alt": ""})), React.createElement(CommunityCategories_1.default, {"history": this.props.history, "community": this.getCommunity()}), React.createElement("br", null), React.createElement("br", null), React.createElement("div", {"className": "line"}), React.createElement(CommunityAdmins_1.default, {"community": this.getCommunity()}), React.createElement("div", {"className": "line"})), React.createElement("div", {"className": "center-wall"}, React.createElement("div", {"className": "user-wall-top"}, React.createElement("h1", null, community.name, "1111"), React.createElement("div", {"className": "group-name"}, "Сообщество"), React.createElement(CommunityShortDescription, {"community": community})), React.createElement("div", {"className": "wall-tabs blue-block"}, React.createElement(Tabs_1.default, {"location": location, "tabs": this.getTabs(), "handleClick": this.handleTabClick.bind(this), "currentTab": params.tab || 'wall'}), React.createElement("div", {"className": "panes"}, this.props.children))), React.createElement(BottomTags_1.default, null)));
     };
     return InnerCommunity;
 })(React.Component);

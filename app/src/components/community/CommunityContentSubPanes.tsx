@@ -1,3 +1,5 @@
+/// <reference path="../../typings/tsd.t.ts" />
+
 
 import * as React from 'react';
 import Visible from '../common/Visible';
@@ -6,9 +8,10 @@ import ContentItem from '../common/ContentItem';
 import * as infs from '../../interfaces/interfaces';
 import InfiniteScrolling from '../common/InfiniteScrolling';
 import * as actions from '../../actions/community';
-import {trimSlash} from '../../helpers/helpers';
+import {trimSlash, Loader} from '../../helpers/helpers';
 import {Provider, connect} from 'react-redux';
 import * as models from '../../models/models';
+
 
 
 interface IProp {
@@ -30,7 +33,6 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
 
     state = {
         content: [],
-        page: 0,
         isActive: true,
         next: true
     };
@@ -40,13 +42,20 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
     // вкладка
     type = null;
 
+    loader = null;
 
     public componentDidMount() {
         if (this.type === null) {
             throw new Error("type is null")
         }
 
+        const {params} = this.props;
+        this.loader = new Loader('/rest/community/' + params.id + "/content?type=" + this.type + "&rubric_filter=");
         this.handleLoadMore();
+    }
+
+    componentWillUnmount() {
+        this.loader = null;
     }
 
     /**
@@ -58,14 +67,15 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
             {content: [],
                 pages: 0,
                 next: true
-            })
+            });
+        this.loader.reset();
     }
 
     handleLoadMore() {
-        this._handleLoadMore(this.type)
+        this._handleLoadMore()
     }
 
-    _handleLoadMore(subTab: string) {
+    _handleLoadMore() {
 
         if (!this.state.next) {
             return
@@ -73,42 +83,26 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
 
         if (!this.isLoading) {
             this.isLoading = true;
-            this._fetchContent(subTab)
-                .then(function(results: Array<infs.Content>) {
-                    const content = [...this.state.content, ...results];
-                    this.setState({
-                        content: content
-                    });
-
-                }.bind(this));
+            this._fetchContent();
         }
     }
 
-    _fetchContent(tab): Promise<Array<infs.Content>> {
+    _fetchContent(): any {
 
-        const page = this.state.page + 1;
-        this.setState({
-            page: page
-        });
-
-        const {params} = this.props;
-        return fetch('/rest/community/' + params.id + "/content?type=" + tab + "&rubric_filter=&page=" + page, {
-            credentials: 'same-origin'
-        }).
-        then((r) => {
-            return r.json()
-        }).
+        this.loader.
+        next().
         then(function(data) {
 
-            const results = data.results.map(obj => {
-                return models.mapContent(obj)
-            });
-
             this.isLoading = false;
+
+            // unmounted
+            if (this.loader === null) {
+                return
+            }
+
             this.setState({
-                next: data.next
+                content: [...this.state.content, ...data.results]
             });
-            return results;
 
         }.bind(this));
     }
@@ -121,7 +115,6 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
 
         return (
             <div className="userAc">
-                <div>{content.length}</div>
                 {content.map(function(content, index) {
                     return <ContentItem content={content} key={index}/>
                     })}
@@ -139,7 +132,7 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
 @connect()
 export class CommunityContentPaneAll extends CommunityContentPaneBase {
 
-    type = ''
+    type = 'all'
 }
 
 @connect()

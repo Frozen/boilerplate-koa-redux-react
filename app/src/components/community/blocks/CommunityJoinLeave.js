@@ -18,14 +18,15 @@ var CommunityJoinLeave = (function (_super) {
         _super.apply(this, arguments);
     }
     CommunityJoinLeave.prototype.join = function (e) {
+        console.log("community join preventDefault");
         e.preventDefault();
         var _a = this.props, community = _a.community, dispatch = _a.dispatch;
-        dispatch(actions.asyncJoinCommunity(community.id, request.user.id));
+        dispatch(actions.asyncJoinCommunity(community.id));
     };
     CommunityJoinLeave.prototype.leave = function (e) {
         e.preventDefault();
         var _a = this.props, community = _a.community, dispatch = _a.dispatch;
-        dispatch(actions.asyncLeaveCommunity(community.id, request.user.id));
+        dispatch(actions.asyncLeaveCommunity(community.id));
     };
     CommunityJoinLeave.prototype.render = function () {
         var community = this.props.community;

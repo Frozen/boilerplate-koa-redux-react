@@ -4,6 +4,7 @@
 import * as React from 'react';
 import * as infs from '../../../../interfaces/interfaces';
 import {connect} from "react-redux";
+import {Loader} from "../../../../helpers/helpers";
 
 interface IProps {
 
@@ -17,69 +18,55 @@ export default class CommunityAlbumsPane extends React.Component<IProps, any> {
     isLoading = false;
 
     state = {
-        albums: [],
-        next: true,
-        page: 0
+        albums: []
     };
+    
+    loader = null;
 
     _handleLoadMore() {
 
-        if (!this.state.next) {
-            return
-        }
-
         if (!this.isLoading) {
             this.isLoading = true;
-            this._fetchAlbums()
-                .then(function(results: Array<infs.CommunityAlbum>) {
-                    const albums = [...this.state.albums, ...results];
-                    this.setState({
-                        albums: albums
-                    });
-
-                }.bind(this));
+            this._fetchAlbums();
         }
     }
 
-    _fetchAlbums(): Promise<Array<infs.CommunityAlbum>> {
+    _fetchAlbums(): any {
 
-        const page = this.state.page + 1;
-        this.setState({
-            page: page
-        });
-
-        const {community} = this.props;
-        return fetch('/rest/community/' + community.id + "/albums?page=" + page, {
-            credentials: 'same-origin'
-        }).
-        then((r) => {
-            return r.json()
-        }).
+        this.loader.next().
         then(function(data) {
 
             let results = data.results;
 
-            this.isLoading = false;
+            // unmounted
+            if (this.loader === null) {
+                return
+            }
+
+            const albums = [...this.state.albums, ...results];
             this.setState({
-                next: data.next
+                albums: albums
             });
-            return results;
+            this.isLoading = false;
 
         }.bind(this));
     }
 
     componentDidMount() {
-        console.log('CommunityAlbumsPane did mount');
-        this._handleLoadMore()
+        const {community} = this.props;
+        this.loader = new Loader('/rest/community/' + community.id + "/albums");
+        this._handleLoadMore();
+
+
+    }
+
+    componentWillUnmount() {
+        this.loader = null;
     }
 
 
-
     render() {
-
-
-
-
+        
         return (
             <div className="pane photo">
                 <div className="wall-panes">

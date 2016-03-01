@@ -13,10 +13,11 @@ var SubTabs = (function (_super) {
     }
     SubTabs.prototype.render = function () {
         var _a = this.props, tabs = _a.tabs, handleClick = _a.handleClick, location = _a.location;
+        var showCallback = this.props.showCallback || function (tab) { return true; };
         var currentTab = location.pathname.replace(/\//, "").split("/")[3];
         var _tabs = tabs || [];
         return (React.createElement("ul", {"className": "wall-filter"}, _tabs.map(function (tab, index) {
-            return React.createElement("li", {"key": index}, React.createElement("a", {"href": "", "className": classNames({ current: tab[0] == currentTab }), "onClick": function (e) { e.preventDefault(); handleClick(tab[0]); }}, tab[1]));
+            return (showCallback(tab[0]) ? React.createElement("li", {"key": index}, React.createElement("a", {"href": "", "className": classNames({ current: tab[0] == currentTab }), "onClick": function (e) { e.preventDefault(); handleClick(tab[0]); }}, tab[1])) : '');
         })));
     };
     return SubTabs;
