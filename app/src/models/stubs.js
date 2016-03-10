@@ -1,4 +1,3 @@
-var _this = this;
 exports.createRating = function () {
     return {
         rating: 0,
@@ -14,14 +13,14 @@ exports.createCommunity = function (name) {
         name: name,
         url: "/community/5",
         rules: "community rules",
-        categories: [
+        rubrics: [
             { id: 1, name: 'community category 1' }
         ],
-        //is_in_community: false,
-        isInCommunity: function () { return _this.is_in_community; },
         user_group_id: 0,
         description: "community description full",
-        short_description: "community description"
+        short_description: "community description",
+        category: "main category",
+        subcategory: "sub category"
     };
 };
 exports.createContent = function (type) {
@@ -32,17 +31,18 @@ exports.createContent = function (type) {
         community: exports.createCommunity(),
         user: exports.createUser(),
         rating: exports.createRating(),
-        getEditorTitle: function () { return 'editor title'; },
         text: "bla bla text",
         source_link: "source_link",
         url: "/content/5",
         image: "/static/image",
         editor_title: "editor title",
-        comments_count: 5
+        comments_count: 5,
+        time_create: "сегодня в 22:55"
     };
 };
 exports.createUser = function () {
     return {
+        id: 17,
         fio_or_username_or_id: "username",
         url: "/user/5",
         is_online: true,

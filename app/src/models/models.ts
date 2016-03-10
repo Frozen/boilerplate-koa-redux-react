@@ -8,6 +8,7 @@ export class User implements infs.User{
 
     avatar:{ [key:string]:string; };
 
+    id: number;
     first_name: string;
     last_name: string;
     username: string;

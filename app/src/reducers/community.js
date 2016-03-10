@@ -4,20 +4,25 @@ import * as models from '../models/models';
 //import * as _ from 'lodash';
 
 
+
 export const community = (state={}, action) => {
 
     switch (action.type) {
         case types.SET_COMMUNITY:
             return Object.assign({}, state, action.community);
 
-        case types.SET_COMMUNITY_GROUP:
-            return Object.assign({}, state, {group_id: action.group_id});
+        // case types.SET_COMMUNITY_GROUP:
+        //     return Object.assign({}, state, {group_id: action.group_id});
+        case types.INIT_SETTINGS_FORM:
+            return action.data;
 
         default:
             return state;
     }
 
 };
+
+
 
 
 export const contentPane = (state={}, action) => {

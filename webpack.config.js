@@ -3,12 +3,17 @@ const path = require('path');
 const HtmlwebpackPlugin = require('html-webpack-plugin');
 const ROOT_PATH = path.resolve(__dirname);
 
+
+var MAXLAND_BUNDLE = '/Users/kot/projects/maxland/main/static/js';
+
+const entry = path.resolve(ROOT_PATH,'app/src/index')
+
 module.exports = {
   devtool: process.env.NODE_ENV === 'production' ? '' : 'source-map',
-  entry: [
+  entry: process.env.NODE_ENV === 'production' ? [entry] : [
     'webpack-dev-server/client?http://localhost:8080',
     //'webpack/hot/only-dev-server',
-    path.resolve(ROOT_PATH,'app/src/index')
+    entry
   ],
   module: {
     preLoaders: [
@@ -33,7 +38,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   output: {
-    path: process.env.NODE_ENV === 'production' ? path.resolve(ROOT_PATH, 'app/dist') : path.resolve(ROOT_PATH, 'app/build'),
+    path: process.env.NODE_ENV === 'production' ? MAXLAND_BUNDLE : path.resolve(ROOT_PATH, 'app/build'),
     publicPath: 'http://localhost:8080/',
     filename: 'bundle.js',
   },

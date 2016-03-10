@@ -4,4 +4,5 @@
 /// <reference path="./lodash/lodash.d.ts" />
 /// <reference path="./react-router/react-router.d.ts" />
 /// <reference path="./jquery/jquery.d.ts" />
+/// <reference path="./redux-form/redux-form.d.ts" />
 //# sourceMappingURL=tsd.t.js.map

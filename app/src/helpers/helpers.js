@@ -39,20 +39,37 @@ function previewText(text, maxLength) {
 exports.previewText = previewText;
 var Loader = (function () {
     function Loader(baseUrl) {
-        this.page = 0;
         this.baseUrl = baseUrl;
+        this.hasNext = true;
+        this.page = 0;
     }
     Loader.prototype.next = function (data) {
         if (data === void 0) { data = {}; }
         this.page += 1;
+        if (!this.hasNext) {
+            return $.Deferred().resolve({
+                results: []
+            });
+        }
         return $.ajax({
             url: this.baseUrl,
             type: 'GET',
             data: Object.assign({}, data, { page: this.page })
-        });
+        }).then(function (data) {
+            if (!data.results) {
+                this.hasNext = false;
+                return $.Deferred().resolve(data); //   Promise.resolve(data);
+            }
+            if (data.results.length < 10) {
+                this.hasNext = false;
+                return $.Deferred().resolve(data);
+            }
+            return $.Deferred().resolve(data);
+        }.bind(this));
     };
     Loader.prototype.reset = function () {
         this.page = 0;
+        this.hasNext = true;
     };
     return Loader;
 })();

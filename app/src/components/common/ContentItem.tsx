@@ -65,7 +65,7 @@ class User extends React.Component<IUserProps, any> {
         return (
             <div className="user-l">
                 <div className="userAva">
-                    <img src={user.avatar['50x50']} alt={user.fio_or_username_or_id} />
+                    <a href={user.url}><img src={user.avatar['50x50']} /></a>
                 </div>
                 {user.is_online ? <span className="user-stat">Online</span>: ''}
             </div>
@@ -86,7 +86,7 @@ class ContentArticle extends React.Component<IProps, any> {
             <article>
                 <header>
                     <a href={content.user.url} className="usName">{content.user.fio_or_username_or_id}</a>
-                    <p>добавил {this.type}
+                    <p>{content.time_create} добавил {this.type}
                         <mark>
                             <a href={content.url}>{content.editor_title}</a>
                         </mark>
@@ -97,7 +97,7 @@ class ContentArticle extends React.Component<IProps, any> {
                     {content.text}
                 </p>
                 {content.image ?
-                <a href="/user/702327695/content/5023527">
+                <a href={content.url}>
                     <img src={content.image} alt={content.editor_title} className="wall-img" />
                 </a>
                 :''}
@@ -134,7 +134,7 @@ class ContentLink extends React.Component<IProps, any> {
             <article>
                 <header>
                     <a href={content.user.url} className="usName">{content.user.fio_or_username_or_id}</a>
-                    <p>добавил ссылку
+                    <p>{content.time_create} добавил ссылку
                         <mark>
                             <a href={content.source_link}>{content.editor_title}</a>
                         </mark>
@@ -168,10 +168,10 @@ class ContentPhoto extends React.Component<IProps, any> {
             <article>
                 <header>
                     <a href={content.user.url} className="usName">{content.user.fio_or_username_or_id}</a>
-                    <p>добавил фото</p>
+                    <p>{content.time_create} добавил фото</p>
                 </header>
                 <a>
-                    <img src={content.image} />
+                    <img src={content.image} className="wall-img"/>
                 </a>
                 <p>
                     {content.text}
@@ -190,44 +190,6 @@ class ContentPhoto extends React.Component<IProps, any> {
 
 }
 
-//class ContentPoll extends React.Component<IProps, any> {
-//
-//
-//    render() {
-//
-//        const {content} = this.props;
-//
-//        return (
-//            <article>
-//                <header>
-//                    <a href="#" className="usName">yaru</a>
-//                    <p>добавил опрос в
-//
-//                        сообщество <a href={content.community.getUrl()}>Третье сообщество</a>
-//
-//                        <mark>
-//                            <a href={content.getUrl()}>{content.getEditorTitle()}</a>
-//                        </mark>
-//                    </p>
-//
-//                </header>
-//                <p>
-//                    {content.text}
-//                </p>
-//
-//                <footer>
-//                    <Rating rating={content.rating} />
-//                    <a href="/community/4/content/100#comments"><span>Комментировать</span> (0)</a>
-//                </footer>
-//
-//                <User user={content.user} />
-//
-//            </article>
-//        )
-//    }
-//
-//}
-
 
 class ContentNote extends React.Component<IProps, any> {
 
@@ -240,7 +202,7 @@ class ContentNote extends React.Component<IProps, any> {
             <article>
                 <header>
                     <a href={content.user.url} className="usName">{content.user.fio_or_username_or_id}</a>
-                    <p>добавил заметку</p>
+                    <p>{content.time_create} добавил заметку</p>
                 </header>
                 <p>
                     {content.text}
@@ -248,7 +210,7 @@ class ContentNote extends React.Component<IProps, any> {
 
                 <footer>
                     <Rating content={content} />
-                    <a href="/community/4/content/100#comments"><span>Комментировать</span> (0)</a>
+                    <a href={content.url + '#comments'}><span>Комментировать</span> ({content.comments_count})</a>
                 </footer>
 
                 <User user={content.user} />

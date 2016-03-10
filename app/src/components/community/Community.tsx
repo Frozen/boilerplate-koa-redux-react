@@ -8,13 +8,12 @@ import Tabs from '../common/Tabs';
 import SubTabs from '../common/SubTabs';
 import Visible from '../common/Visible';
 import * as actions from '../../actions/community';
-import CommunityCategories from './CommunityCategories';
+import CommunityRubrics from './CommunityRubrics';
 //import RulesBlock from './blocks/Rules';
 //import CommunityMembersPane from './blocks/panes/CommunityMembersPane';
 //import CommunityContentPane from './blocks/panes/CommunityContentPane';
 import CommunityRulesPane from './blocks/panes/CommunityRulesPane';
 import {trimSlash} from '../../helpers/helpers';
-//var Infinite = require('react-infinite');
 import InfiniteScrolling from '../common/InfiniteScrolling';
 import * as models from '../../models/models';
 import * as infs from '../../interfaces/interfaces';
@@ -160,7 +159,7 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
 
     render() {
 
-        const {community, location, params} = this.props;
+        const {community, location, params, dispatch} = this.props;
 
         return (
             <div>
@@ -168,7 +167,7 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
                     <div className="commun-photo">
                         <img src={community.avatar['180x180']} alt="" />
                     </div>
-                    <CommunityCategories history={this.props.history} community={this.getCommunity()} />
+                    <CommunityRubrics history={this.props.history} community={this.getCommunity()} location={location}/>
 
                     <br /><br />
 
@@ -180,13 +179,11 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
 
                 <div className="center-wall">
 
-
                     <div className="user-wall-top">
-                        <h1>{community.name}1111</h1>
+                        <h1>{community.name}</h1>
                         <div className="group-name">Сообщество</div>
                         <CommunityShortDescription community={community} />
                     </div>
-
 
                     <div className="wall-tabs blue-block">
                         <Tabs location={location} tabs={this.getTabs()} handleClick={this.handleTabClick.bind(this)} currentTab={params.tab || 'wall'}/>
@@ -196,10 +193,7 @@ class InnerCommunity extends React.Component<CommunityProps, any> {
                     </div>
                 </div>
 
-
                 <BottomTags />
-
-
 
             </div>)
     }

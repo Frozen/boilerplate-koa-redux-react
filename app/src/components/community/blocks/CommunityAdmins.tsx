@@ -26,7 +26,7 @@ export default class CommunityAdmins extends React.Component<ICommunityAdmins, a
 
         const {community} = this.props;
 
-        this.loader = new Loader('/rest/community/' + this.props.community.id + "/users?type=admin");
+        this.loader = new Loader('/rest/community/' + this.props.community.id + "/users?type=admins");
 
 
         this.loader.next().then(function(data) {
@@ -35,18 +35,6 @@ export default class CommunityAdmins extends React.Component<ICommunityAdmins, a
                 count: data.count
             });
         }.bind(this));
-
-        // loadCommunityUsers(community.id, 'admin', 1, '').then(function(data) {
-        //
-        //     this.setState({
-        //         users: data.results.slice(0, 9),
-        //         count: data.count
-        //     });
-        //
-        //     this.isLoading = false;
-        //
-        // }.bind(this))
-
     }
 
 
@@ -71,7 +59,7 @@ export default class CommunityAdmins extends React.Component<ICommunityAdmins, a
                                     <img src={cu.user.avatar['50x50']}
                                          className="ava center-image" alt={cu.user.fio_or_username_or_id}
                                          style={{verticalAlign: 'middle', border: 'none'}} />
-                                    <span>{cu.user.fio_or_username_or_id}</span>
+                                    <span dangerouslySetInnerHTML={{__html: cu.user.fio_or_username_or_id.replace(" ", "<br />")}} />
                                 </a>
                             </div>
 

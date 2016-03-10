@@ -25,6 +25,8 @@ interface IProp {
     dispatch: any
     params: any
     history: History
+    location: any
+    community: infs.Community
 }
 
 
@@ -34,7 +36,8 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
     state = {
         content: [],
         isActive: true,
-        next: true
+        next: true,
+        isLoading: false
     };
 
 
@@ -49,8 +52,11 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
             throw new Error("type is null")
         }
 
-        const {params} = this.props;
-        this.loader = new Loader('/rest/community/' + params.id + "/content?type=" + this.type + "&rubric_filter=");
+        const {params, location, community} = this.props;
+        this.loader = new Loader(
+            '/rest/community/' + community.id +
+            "/content?type=" + this.type +
+            "&rubric=" + (location.query.rubric ? location.query.rubric : ''));
         this.handleLoadMore();
     }
 
@@ -83,6 +89,9 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
 
         if (!this.isLoading) {
             this.isLoading = true;
+            this.setState({
+                isLoading: true
+            });
             this._fetchContent();
         }
     }
@@ -101,7 +110,8 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
             }
 
             this.setState({
-                content: [...this.state.content, ...data.results]
+                content: [...this.state.content, ...data.results],
+                isLoading: false
             });
 
         }.bind(this));
@@ -118,7 +128,7 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
                 {content.map(function(content, index) {
                     return <ContentItem content={content} key={index}/>
                     })}
-
+                {this.state.isLoading? <div className="spinner"><img src="/static/images/loading_spinner.gif"/></div>:''}
                 <InfiniteScrolling infiniteLoadMore={this.handleLoadMore.bind(this)}
                                    isActive={() => this.state.isActive}
                                    pause={() => infinityIsLoading}/>
@@ -129,37 +139,37 @@ class CommunityContentPaneBase extends React.Component<IProp, any> {
 
 }
 
-@connect()
+@connect((state) => state.community)
 export class CommunityContentPaneAll extends CommunityContentPaneBase {
 
     type = 'all'
 }
 
-@connect()
+@connect((state) => state.community)
 export class CommunityContentPaneArticle extends CommunityContentPaneBase {
 
     type = 'article'
 }
 
-@connect()
+@connect((state) => state.community)
 export class CommunityContentPaneNote extends CommunityContentPaneBase {
 
     type = 'note'
 }
 
-@connect()
+@connect((state) => state.community)
 export class CommunityContentPanePhoto extends CommunityContentPaneBase {
 
     type = 'photo'
 }
 
-@connect()
+@connect((state) => state.community)
 export class CommunityContentPaneVideo extends CommunityContentPaneBase {
 
     type = 'video'
 }
 
-@connect()
+@connect((state) => state.community)
 export class CommunityContentPanePoll extends CommunityContentPaneBase {
 
     type = 'poll'

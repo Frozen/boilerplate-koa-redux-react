@@ -18,18 +18,70 @@ interface ICommunityUserProp {
     key: number
     user: infs.User
     group_id: number
+    is_blocked: boolean
+    community: infs.Community
 }
 
 class CommunityUser extends React.Component<ICommunityUserProp, any> {
 
+
+    componentWillMount() {
+        this.setState({
+            group_id: this.props.group_id,
+            is_blocked: this.props.is_blocked
+        })
+    }
+
+    changeGroup(e) {
+        const group_id = e.target.value;
+        this.setState({
+            group_id: group_id
+        });
+        $.ajax({
+            url: '/rest/community/' + this.props.community.id + '/change_group',
+            type: 'POST',
+            data: {
+                group: group_id,
+                user: this.props.user.id
+            }
+        })
+    }
+
+    unBun(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/rest/community/' +this.props.community.id+ '/change_group',
+            type: 'POST',
+            data: {
+                // group: group_id,
+                // user: this.props.user.id
+            }
+        })
+    }
+
     render() {
 
+        console.log("CommunityUser props", this.props);
+
         const user = this.props.user;
+        const group_id = this.state.group_id;
+        const is_blocked = this.state.is_blocked;
+        const community = this.props.community;
 
         return (
             <div className="userAc">
                 <article className="ng-scope">
                     <header><a href={user.url} className="usName">{user.fio_or_username_or_id}</a></header>
+                    <div className="user-edit" style={{display: community.user_group_id == constants.COMMUNITY_GROUP_ADMIN ? 'block' :'none'}}>
+                        <select value={group_id.toString()} onChange={this.changeGroup.bind(this)}>
+                            <option value={"3"} label="Участник">Участник</option>
+                            <option value={"2"} label="Модератор">Модератор</option>
+                            <option value={"1"} label="Администратор">Администратор</option>
+                        </select>
+                        &nbsp;
+                        <a href="" className="action">Исключить</a>
+                        {is_blocked?<a href="" className="action" onClick={this.unBun.bind(this)}>Разбанить</a>:''}
+                    </div>
                     <div className="user-l">
                         <div className="userAva" style={{whiteSpace: 'nowrap', overflow: 'hidden'}}>
                             <span style={{display: 'inline-block', verticalAlign: 'middle', height: '100%'}} />
@@ -44,17 +96,6 @@ class CommunityUser extends React.Component<ICommunityUserProp, any> {
     }
 
 }
-
-//<div className="user-edit" ng-show="is_admin_or_moderator">
-//    {group_id == constants.COMMUNITY_GROUP_ADMIN ?
-//        <select ng-show="is_admin" ng-hide="is_moderator" className="ng-pristine ng-untouched ng-valid">
-//            <option value="number:3" label="Участник" >Участник</option>
-//            <option value="number:2" label="Модератор">Модератор</option>
-//            <option value="number:1" label="Администратор">Администратор</option>
-//        </select>
-//            <a href="" className="action" >Исключить</a>
-//<a href="" ng-hide="is_moderator" className="action" ng-click="banUser(member)" ng-show="member.is_blocked">Разбанить</a>: ''}
-//</div>
 
 
 interface IProp {
@@ -76,9 +117,6 @@ class CommunityMembersPaneBase extends React.Component<IProp, any> {
 
     state = {
         users: [],
-        page: 0,
-        isActive: true,
-        next: true
     };
 
     isLoading = false;
@@ -86,7 +124,6 @@ class CommunityMembersPaneBase extends React.Component<IProp, any> {
     type = null;
 
     loader = null;
-
 
 
     public componentDidMount() {
@@ -118,7 +155,7 @@ class CommunityMembersPaneBase extends React.Component<IProp, any> {
         this.loader.next({query: query}).then(function(data) {
 
             const rows = this.state.users;
-            
+
             // unmounted
             if (this.loader === null) {
                 return
@@ -137,10 +174,7 @@ class CommunityMembersPaneBase extends React.Component<IProp, any> {
     reset() {
         this.loader.reset();
         this.setState({
-            users: [],
-            page: 0,
-            isActive: true,
-            next: true
+            users: []
         })
     }
 
@@ -157,6 +191,7 @@ class CommunityMembersPaneBase extends React.Component<IProp, any> {
     render() {
 
         const {users} = this.state;
+        const community = this.props.community;
 
         return (
             <div>
@@ -166,7 +201,7 @@ class CommunityMembersPaneBase extends React.Component<IProp, any> {
                 </div>
                 <div className="wall-panes bord">
                     {users.map(function(cu, index) {
-                        return <CommunityUser {...cu} key={index}/>
+                        return <CommunityUser {...cu} community={community} key={index}/>
                     })}
                 </div>
             </div>
@@ -183,7 +218,7 @@ export class CommunityMembersPaneAll extends CommunityMembersPaneBase {
 
 @connect((state) => state.community)
 export class CommunityMembersPaneAdmin extends CommunityMembersPaneBase {
-    type = 'admin';
+    type = 'admins';
 
 }
 

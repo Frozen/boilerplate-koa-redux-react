@@ -6,19 +6,23 @@
 //
 //}
 
+export interface CommunityRubric {
+    id: number
+    name: string
+}
+
 export interface Community {
     id: number
     avatar: { [key:string]:string; }
     name: string
     url: string
-    //getUrl: () => string
     rules: string
-    categories: Array<any>
-    isInCommunity: () => boolean
-    //getGroup: () => number
+    rubrics: Array<CommunityRubric>
     user_group_id: number
     description: string
     short_description: string
+    category: string
+    subcategory: string
 }
 
 export interface User {
@@ -30,6 +34,7 @@ export interface User {
     getUrl: () => string
     isOnline: () => boolean
     avatar: { [key:string]:string; }
+    id: number
 }
 
 export interface Rating {
@@ -44,16 +49,14 @@ export interface Content {
     user: User
     community: Community
     rating: Rating
-
-    getEditorTitle: () => string
     text: string
     type: string
-    // getSourceLink: () => string
     source_link: string
     image: string
     editor_title: string
     url: string
     comments_count: number
+    time_create: string
 
 
 }

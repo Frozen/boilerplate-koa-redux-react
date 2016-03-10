@@ -9,4 +9,5 @@ exports.TEST_BLOCK_DISPATCH = 'TEST_BLOCK_DISPATCH';
 // settings
 exports.SET_FORM_VALUE = 'SET_FORM_VALUE';
 //}
+exports.INIT_SETTINGS_FORM = 'communitySettingsForm/LOAD';
 //# sourceMappingURL=community.js.map

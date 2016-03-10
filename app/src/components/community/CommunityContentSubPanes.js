@@ -22,7 +22,8 @@ var CommunityContentPaneBase = (function (_super) {
         this.state = {
             content: [],
             isActive: true,
-            next: true
+            next: true,
+            isLoading: false
         };
         this.isLoading = false;
         // вкладка
@@ -33,8 +34,10 @@ var CommunityContentPaneBase = (function (_super) {
         if (this.type === null) {
             throw new Error("type is null");
         }
-        var params = this.props.params;
-        this.loader = new helpers_1.Loader('/rest/community/' + params.id + "/content?type=" + this.type + "&rubric_filter=");
+        var _a = this.props, params = _a.params, location = _a.location, community = _a.community;
+        this.loader = new helpers_1.Loader('/rest/community/' + community.id +
+            "/content?type=" + this.type +
+            "&rubric=" + (location.query.rubric ? location.query.rubric : ''));
         this.handleLoadMore();
     };
     CommunityContentPaneBase.prototype.componentWillUnmount = function () {
@@ -60,6 +63,9 @@ var CommunityContentPaneBase = (function (_super) {
         }
         if (!this.isLoading) {
             this.isLoading = true;
+            this.setState({
+                isLoading: true
+            });
             this._fetchContent();
         }
     };
@@ -73,7 +79,8 @@ var CommunityContentPaneBase = (function (_super) {
                 return;
             }
             this.setState({
-                content: this.state.content.concat(data.results)
+                content: this.state.content.concat(data.results),
+                isLoading: false
             });
         }.bind(this));
     };
@@ -83,7 +90,7 @@ var CommunityContentPaneBase = (function (_super) {
         var content = this.state.content;
         return (React.createElement("div", {"className": "userAc"}, content.map(function (content, index) {
             return React.createElement(ContentItem_1.default, {"content": content, "key": index});
-        }), React.createElement(InfiniteScrolling_1.default, {"infiniteLoadMore": this.handleLoadMore.bind(this), "isActive": function () { return _this.state.isActive; }, "pause": function () { return infinityIsLoading; }})));
+        }), this.state.isLoading ? React.createElement("div", {"className": "spinner"}, React.createElement("img", {"src": "/static/images/loading_spinner.gif"})) : '', React.createElement(InfiniteScrolling_1.default, {"infiniteLoadMore": this.handleLoadMore.bind(this), "isActive": function () { return _this.state.isActive; }, "pause": function () { return infinityIsLoading; }})));
     };
     return CommunityContentPaneBase;
 })(React.Component);
@@ -94,7 +101,7 @@ var CommunityContentPaneAll = (function (_super) {
         this.type = 'all';
     }
     CommunityContentPaneAll = __decorate([
-        react_redux_1.connect()
+        react_redux_1.connect(function (state) { return state.community; })
     ], CommunityContentPaneAll);
     return CommunityContentPaneAll;
 })(CommunityContentPaneBase);
@@ -106,7 +113,7 @@ var CommunityContentPaneArticle = (function (_super) {
         this.type = 'article';
     }
     CommunityContentPaneArticle = __decorate([
-        react_redux_1.connect()
+        react_redux_1.connect(function (state) { return state.community; })
     ], CommunityContentPaneArticle);
     return CommunityContentPaneArticle;
 })(CommunityContentPaneBase);
@@ -118,7 +125,7 @@ var CommunityContentPaneNote = (function (_super) {
         this.type = 'note';
     }
     CommunityContentPaneNote = __decorate([
-        react_redux_1.connect()
+        react_redux_1.connect(function (state) { return state.community; })
     ], CommunityContentPaneNote);
     return CommunityContentPaneNote;
 })(CommunityContentPaneBase);
@@ -130,7 +137,7 @@ var CommunityContentPanePhoto = (function (_super) {
         this.type = 'photo';
     }
     CommunityContentPanePhoto = __decorate([
-        react_redux_1.connect()
+        react_redux_1.connect(function (state) { return state.community; })
     ], CommunityContentPanePhoto);
     return CommunityContentPanePhoto;
 })(CommunityContentPaneBase);
@@ -142,7 +149,7 @@ var CommunityContentPaneVideo = (function (_super) {
         this.type = 'video';
     }
     CommunityContentPaneVideo = __decorate([
-        react_redux_1.connect()
+        react_redux_1.connect(function (state) { return state.community; })
     ], CommunityContentPaneVideo);
     return CommunityContentPaneVideo;
 })(CommunityContentPaneBase);
@@ -154,7 +161,7 @@ var CommunityContentPanePoll = (function (_super) {
         this.type = 'poll';
     }
     CommunityContentPanePoll = __decorate([
-        react_redux_1.connect()
+        react_redux_1.connect(function (state) { return state.community; })
     ], CommunityContentPanePoll);
     return CommunityContentPanePoll;
 })(CommunityContentPaneBase);

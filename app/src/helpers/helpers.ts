@@ -54,26 +54,50 @@ export function previewText(text: string, maxLength: number): string {
 }
 
 
+interface AsyncResult {
+    results: Array<any>
+}
+
 export class Loader {
 
-    page = 0;
+    page: number;
     baseUrl: string;
-
+    hasNext: boolean;
 
     constructor(baseUrl: string) {
         this.baseUrl = baseUrl;
+        this.hasNext = true;
+        this.page = 0;
     }
 
-    next(data: { [key:string]:string; } = {}) {
+    next(data: { [key:string]:string; } = {}): JQueryPromise<any> {
         this.page += 1;
+
+        if (!this.hasNext) {
+            return $.Deferred().resolve( {
+                results: []
+            })
+        }
+
         return $.ajax({
             url: this.baseUrl,
             type: 'GET',
             data: Object.assign({}, data, {page: this.page})
-        });
+        }).then(function(data: AsyncResult) {
+            if (!data.results) {
+                this.hasNext = false;
+                return $.Deferred().resolve(data);//   Promise.resolve(data);
+            }
+            if (data.results.length < 10) {
+                this.hasNext = false;
+                return $.Deferred().resolve(data);
+            }
+            return $.Deferred().resolve(data);
+        }.bind(this))
     }
 
     reset() {
         this.page = 0;
+        this.hasNext = true;
     }
 }

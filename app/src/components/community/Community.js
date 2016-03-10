@@ -15,7 +15,7 @@ var BottomTags_1 = require('../common/BottomTags');
 var Loading_1 = require('../common/Loading');
 var Tabs_1 = require('../common/Tabs');
 var actions = require('../../actions/community');
-var CommunityCategories_1 = require('./CommunityCategories');
+var CommunityRubrics_1 = require('./CommunityRubrics');
 var react_redux_1 = require('react-redux');
 var CommunityAdmins_1 = require('./blocks/CommunityAdmins');
 //<CommunityContentPane {...panes.content}
@@ -116,8 +116,8 @@ var InnerCommunity = (function (_super) {
         return this.props.community;
     };
     InnerCommunity.prototype.render = function () {
-        var _a = this.props, community = _a.community, location = _a.location, params = _a.params;
-        return (React.createElement("div", null, React.createElement("div", {"className": "left-col"}, React.createElement("div", {"className": "commun-photo"}, React.createElement("img", {"src": community.avatar['180x180'], "alt": ""})), React.createElement(CommunityCategories_1.default, {"history": this.props.history, "community": this.getCommunity()}), React.createElement("br", null), React.createElement("br", null), React.createElement("div", {"className": "line"}), React.createElement(CommunityAdmins_1.default, {"community": this.getCommunity()}), React.createElement("div", {"className": "line"})), React.createElement("div", {"className": "center-wall"}, React.createElement("div", {"className": "user-wall-top"}, React.createElement("h1", null, community.name, "1111"), React.createElement("div", {"className": "group-name"}, "Сообщество"), React.createElement(CommunityShortDescription, {"community": community})), React.createElement("div", {"className": "wall-tabs blue-block"}, React.createElement(Tabs_1.default, {"location": location, "tabs": this.getTabs(), "handleClick": this.handleTabClick.bind(this), "currentTab": params.tab || 'wall'}), React.createElement("div", {"className": "panes"}, this.props.children))), React.createElement(BottomTags_1.default, null)));
+        var _a = this.props, community = _a.community, location = _a.location, params = _a.params, dispatch = _a.dispatch;
+        return (React.createElement("div", null, React.createElement("div", {"className": "left-col"}, React.createElement("div", {"className": "commun-photo"}, React.createElement("img", {"src": community.avatar['180x180'], "alt": ""})), React.createElement(CommunityRubrics_1.default, {"history": this.props.history, "community": this.getCommunity(), "location": location}), React.createElement("br", null), React.createElement("br", null), React.createElement("div", {"className": "line"}), React.createElement(CommunityAdmins_1.default, {"community": this.getCommunity()}), React.createElement("div", {"className": "line"})), React.createElement("div", {"className": "center-wall"}, React.createElement("div", {"className": "user-wall-top"}, React.createElement("h1", null, community.name), React.createElement("div", {"className": "group-name"}, "Сообщество"), React.createElement(CommunityShortDescription, {"community": community})), React.createElement("div", {"className": "wall-tabs blue-block"}, React.createElement(Tabs_1.default, {"location": location, "tabs": this.getTabs(), "handleClick": this.handleTabClick.bind(this), "currentTab": params.tab || 'wall'}), React.createElement("div", {"className": "panes"}, this.props.children))), React.createElement(BottomTags_1.default, null)));
     };
     return InnerCommunity;
 })(React.Component);

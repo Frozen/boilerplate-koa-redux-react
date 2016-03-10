@@ -17,3 +17,5 @@ export const TEST_BLOCK_DISPATCH = 'TEST_BLOCK_DISPATCH';
 // settings
 export const SET_FORM_VALUE = 'SET_FORM_VALUE';
 //}
+
+export const INIT_SETTINGS_FORM = 'communitySettingsForm/LOAD';
