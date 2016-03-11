@@ -1,9 +1,7 @@
 
 
 import * as React from 'react';
-import Visible from '../common/Visible';
 import SubTabs from '../common/SubTabs';
-import ContentItem from '../common/ContentItem';
 import * as infs from '../../interfaces/interfaces';
 import InfiniteScrolling from '../common/InfiniteScrolling';
 import * as actions from '../../actions/community';
@@ -12,6 +10,84 @@ import {Provider, connect} from 'react-redux';
 import * as models from '../../models/models';
 import {Loader} from '../../helpers/helpers'
 import * as constants from '../../constants/constants'
+
+
+interface ICommunityMembersPane {
+
+    handleSubTabClick: () => any
+    getCurrentTab: () => string
+    getCurrentSubTab: () => string
+    subTabs: Array<any>
+    currentSubTab: string
+    params: any
+    history: History
+    dispatch: any
+    location: any
+    children: any
+    community: infs.Community
+
+}
+
+
+declare const request: any;
+
+@connect((state) => state.community)
+export class CommunityMembersPane extends React.Component<ICommunityMembersPane, any> {
+
+    getSubTabs() {
+        return [["all", "Все"],
+            ["admin", "Руководство"],
+            ["friends", "Друзья"],
+            ["waiting", "Заявки"],
+            ["blacklist", "Черный список"],
+            ["name", "По алфавиту"],
+            ["activity", "По активности"]]
+    }
+
+    handleSubTabClick(path) {
+        const {history, dispatch, params} = this.props;
+        history.push("/community/" + params.id + "/members/" + path);
+    }
+
+    render() {
+
+        const {params, location, community} = this.props;
+
+        console.log("CommunityMembersPane CommunityMembersPane ");
+
+        return (
+            <div className="pane">
+
+                <SubTabs
+                    tabs={this.getSubTabs()} location={location} currentTab={params.subtab || ''}
+                    handleClick={this.handleSubTabClick.bind(this)}
+                    showCallback = {(tab) => {
+                        if (community.user_group_id == constants.COMMUNITY_GROUP_ADMIN ||
+                            request.user_group_id == constants.COMMUNITY_GROUP_MODERATOR) {
+                            return true
+                        }
+
+                        if (tab == 'waiting') {
+                            return false
+                        }
+                        if (tab == 'blacklist') {
+                            return false
+                        }
+                        return true;
+                    }}
+                    />
+                {this.props.children}
+            </div>
+        )
+
+    }
+
+}
+
+
+
+
+
 
 
 interface ICommunityUserProp {
@@ -48,20 +124,32 @@ class CommunityUser extends React.Component<ICommunityUserProp, any> {
     }
 
     unBun(e) {
+        const {user} = this.props;
         e.preventDefault();
         $.ajax({
-            url: '/rest/community/' +this.props.community.id+ '/change_group',
+            url: '/rest/community/' +this.props.community.id+ '/unban',
             type: 'POST',
             data: {
-                // group: group_id,
-                // user: this.props.user.id
+                user: user.id
+            }
+        })
+    }
+
+    ban(e) {
+
+        const {user} = this.props;
+
+        e.preventDefault();
+        $.ajax({
+            url: '/rest/community/' +this.props.community.id+ '/ban',
+            type: 'POST',
+            data: {
+                user: user.id
             }
         })
     }
 
     render() {
-
-        console.log("CommunityUser props", this.props);
 
         const user = this.props.user;
         const group_id = this.state.group_id;
@@ -79,7 +167,7 @@ class CommunityUser extends React.Component<ICommunityUserProp, any> {
                             <option value={"1"} label="Администратор">Администратор</option>
                         </select>
                         &nbsp;
-                        <a href="" className="action">Исключить</a>
+                        {!is_blocked?<a href="" className="action" onClick={this.ban.bind(this)}>Исключить</a>:''}
                         {is_blocked?<a href="" className="action" onClick={this.unBun.bind(this)}>Разбанить</a>:''}
                     </div>
                     <div className="user-l">

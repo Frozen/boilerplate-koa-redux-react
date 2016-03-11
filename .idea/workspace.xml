@@ -5,46 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="489dbb6b-b8b5-4fb2-9af6-a1ea11d581af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/kot.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/community/CommunityRubrics.js.map" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/components/community/CommunityCategories.js.map" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/components/community/CommunityCategories.js" afterPath="$PROJECT_DIR$/app/src/components/community/CommunityRubrics.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/components/community/CommunityCategories.tsx" afterPath="$PROJECT_DIR$/app/src/components/community/CommunityRubrics.tsx" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityMembersPane.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityMembersPane.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityMembersPane.tsx" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/components/community/CommunityMembersSubPanes.tsx" afterPath="$PROJECT_DIR$/app/src/components/community/CommunityMembersPane.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/ContentItem.js" afterPath="$PROJECT_DIR$/app/src/components/common/ContentItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/ContentItem.js.map" afterPath="$PROJECT_DIR$/app/src/components/common/ContentItem.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/ContentItem.tsx" afterPath="$PROJECT_DIR$/app/src/components/common/ContentItem.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/Rating.js" afterPath="$PROJECT_DIR$/app/src/components/common/Rating.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/Rating.js.map" afterPath="$PROJECT_DIR$/app/src/components/common/Rating.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/Rating.tsx" afterPath="$PROJECT_DIR$/app/src/components/common/Rating.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/Community.js" afterPath="$PROJECT_DIR$/app/src/components/community/Community.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/Community.js.map" afterPath="$PROJECT_DIR$/app/src/components/community/Community.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/Community.tsx" afterPath="$PROJECT_DIR$/app/src/components/community/Community.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/CommunityContentSubPanes.js" afterPath="$PROJECT_DIR$/app/src/components/community/CommunityContentSubPanes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/CommunityContentSubPanes.js.map" afterPath="$PROJECT_DIR$/app/src/components/community/CommunityContentSubPanes.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/CommunityContentSubPanes.tsx" afterPath="$PROJECT_DIR$/app/src/components/community/CommunityContentSubPanes.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/CommunityMembersSubPanes.tsx" afterPath="$PROJECT_DIR$/app/src/components/community/CommunityMembersSubPanes.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/blocks/CommunityAdmins.tsx" afterPath="$PROJECT_DIR$/app/src/components/community/blocks/CommunityAdmins.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.js" afterPath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.js.map" afterPath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.tsx" afterPath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/helpers/helpers.js" afterPath="$PROJECT_DIR$/app/src/helpers/helpers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/helpers/helpers.js.map" afterPath="$PROJECT_DIR$/app/src/helpers/helpers.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/helpers/helpers.ts" afterPath="$PROJECT_DIR$/app/src/helpers/helpers.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" afterPath="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/models.js.map" afterPath="$PROJECT_DIR$/app/src/models/models.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/models.ts" afterPath="$PROJECT_DIR$/app/src/models/models.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/stubs.js" afterPath="$PROJECT_DIR$/app/src/models/stubs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/stubs.js.map" afterPath="$PROJECT_DIR$/app/src/models/stubs.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/stubs.ts" afterPath="$PROJECT_DIR$/app/src/models/stubs.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/reducers/community.js" afterPath="$PROJECT_DIR$/app/src/reducers/community.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/index.js" afterPath="$PROJECT_DIR$/app/src/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/types/community.js" afterPath="$PROJECT_DIR$/app/src/types/community.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/types/community.js.map" afterPath="$PROJECT_DIR$/app/src/types/community.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/types/community.ts" afterPath="$PROJECT_DIR$/app/src/types/community.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/typings/tsd.t.js" afterPath="$PROJECT_DIR$/app/src/typings/tsd.t.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/typings/tsd.t.js.map" afterPath="$PROJECT_DIR$/app/src/typings/tsd.t.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/typings/tsd.t.ts" afterPath="$PROJECT_DIR$/app/src/typings/tsd.t.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
     </list>
     <ignored path="boilerplate-koa-redux-react.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,11 +38,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CommunityMembersPane.tsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/components/community/CommunityMembersPane.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+              <folding>
+                <element signature="e#2#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubTabs.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/components/common/SubTabs.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255">
-              <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
+            <state relative-caret-position="315">
+              <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommunitySettingsPane.tsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-390">
+              <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+              <folding>
+                <element signature="e#2#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="community.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/actions/community.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -115,30 +131,8 @@
       <file leaf-file-name="CommunityRubrics.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/components/community/CommunityRubrics.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommunityContentSubPanes.tsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/components/community/CommunityContentSubPanes.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="63" column="27" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
-              <folding>
-                <element signature="e#50#81#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="interfaces.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/interfaces/interfaces.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+            <state relative-caret-position="135">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -161,7 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/components/community/TestBlock.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/community/blocks/PaneMixin.ts" />
         <option value="$PROJECT_DIR$/app/src/components/community/blocks/CommunityContentPane.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/community/blocks/panes/reducers.ts" />
@@ -186,7 +179,6 @@
         <option value="$PROJECT_DIR$/app/src/components/community/blocks/Admins.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/community/CommunityAlbumsPane.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityAlbumsPane.js" />
-        <option value="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityMembersPane.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/common/SubTabs.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityAlbumsPane.tsx" />
         <option value="$PROJECT_DIR$/app/src/actions/community.js" />
@@ -199,19 +191,21 @@
         <option value="$PROJECT_DIR$/app/src/models/models.ts" />
         <option value="$PROJECT_DIR$/app/src/components/common/ContentItem.tsx" />
         <option value="$PROJECT_DIR$/app/src/reducers/community.js" />
-        <option value="$PROJECT_DIR$/app/src/types/community.ts" />
         <option value="$PROJECT_DIR$/app/src/typings/tsd.t.ts" />
         <option value="$PROJECT_DIR$/app/src/components/community/CommunityCategories.tsx" />
         <option value="$PROJECT_DIR$/app/src/models/stubs.ts" />
         <option value="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" />
-        <option value="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.tsx" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/app/src/helpers/helpers.ts" />
-        <option value="$PROJECT_DIR$/app/src/components/community/CommunityMembersSubPanes.tsx" />
-        <option value="$PROJECT_DIR$/app/src/index.js" />
         <option value="$PROJECT_DIR$/app/src/components/community/Community.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/community/CommunityRubrics.tsx" />
         <option value="$PROJECT_DIR$/app/src/components/community/CommunityContentSubPanes.tsx" />
+        <option value="$PROJECT_DIR$/app/src/types/community.ts" />
+        <option value="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.tsx" />
+        <option value="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityMembersPane.tsx" />
+        <option value="$PROJECT_DIR$/app/src/components/community/CommunityMembersSubPanes.tsx" />
+        <option value="$PROJECT_DIR$/app/src/index.js" />
+        <option value="$PROJECT_DIR$/app/src/components/community/CommunityMembersPane.tsx" />
       </list>
     </option>
   </component>
@@ -326,7 +320,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="reducers" />
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boilerplate-koa-redux-react" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="boilerplate-koa-redux-react" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="community" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -467,34 +487,40 @@
       <option name="project" value="LOCAL" />
       <updated>1456831285700</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="community release">
+      <created>1457624939216</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1457624939216</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1412" height="826" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2817518" sideWeight="0.49456522" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29972753" sideWeight="0.4970803" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34877384" sideWeight="0.50291973" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25328466" sideWeight="0.5054348" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23841962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2817518" sideWeight="0.49456522" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -514,27 +540,14 @@
     <MESSAGE value="skip" />
     <MESSAGE value="community albums" />
     <MESSAGE value="community beta" />
-    <option name="LAST_COMMIT_MESSAGE" value="community beta" />
+    <MESSAGE value="community release" />
+    <option name="LAST_COMMIT_MESSAGE" value="community release" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityRulesPane.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/common/Tabs.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/tests/components/models/UserTest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -637,21 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityMembersPane.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/common/SubTabs.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityAlbumsPane.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -672,6 +670,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -687,16 +686,6 @@
         <state relative-caret-position="245">
           <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/actions/community.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
-          <folding>
-            <element signature="e#47#91#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -729,6 +718,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -746,6 +736,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
           <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -761,6 +752,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -779,13 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/types/community.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/redux-form/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -797,6 +782,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -816,31 +804,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1014">
-          <caret line="176" column="40" selection-start-line="176" selection-start-column="40" selection-end-line="176" selection-end-column="40" />
-          <folding>
-            <element signature="e#2#33#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/community/CommunityMembersSubPanes.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="140" column="5" selection-start-line="140" selection-start-column="5" selection-end-line="140" selection-end-column="5" />
-          <folding>
-            <element signature="e#2#33#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -870,22 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="103" column="23" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/community/CommunityRubrics.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/community/Community.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -900,10 +852,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/community/CommunityContentSubPanes.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="63" column="27" selection-start-line="63" selection-start-column="27" selection-end-line="63" selection-end-column="27" />
+        <state relative-caret-position="-984">
+          <caret line="57" column="42" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
           <folding>
             <element signature="e#50#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/community/CommunityRubrics.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/actions/community.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/types/community.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-390">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+          <folding>
+            <element signature="e#2#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/common/SubTabs.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityMembersPane.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityRulesPane.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunityContentPane.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/community/CommunityMembersPane.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+          <folding>
+            <element signature="e#2#33#0" expanded="true" />
           </folding>
         </state>
       </provider>

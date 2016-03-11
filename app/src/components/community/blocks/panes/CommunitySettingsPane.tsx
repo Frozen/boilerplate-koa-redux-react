@@ -1,12 +1,10 @@
 
 
 import * as React from 'react';
-import Visible from '../../../common/Visible';
-import {Provider, connect} from 'react-redux';
-import * as actions from '../../../../actions/community';
 import * as infs from '../../../../interfaces/interfaces';
 import * as constants from '../../../../constants/constants';
 import {reduxForm} from 'redux-form';
+import * as actions from '../../../../actions/community';
 
 
 interface IProps {
@@ -16,7 +14,26 @@ interface IProps {
     form: any
     dispatch: (v: any) => void
     community: infs.Community
+    handleSubmit: any
 }
+
+
+const submit = function(communityId: number) {
+
+    return function(values, dispatch) {
+        $.ajax({
+            url: '/rest/community/'+communityId+'/settings',
+            type: 'POST',
+            data: values
+        }).then(function(data) {
+
+            dispatch(actions.fetchCommunity(communityId));
+
+            // console.log(data);
+        })
+    };
+
+};
 
 
 @reduxForm(
@@ -29,7 +46,7 @@ interface IProps {
     },
     state => {
         return {
-            community: state.community,
+            community: state.community.community,
             initialValues: state.community.community
         }
 
@@ -39,36 +56,31 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
 
 
     state = {
-        // form: {
-        //     name: 'aaaa',
-        //     rules: '',
-        //     description: '',
-        //     url: ''
-        // }
+
     };
 
 
     componentWillMount() {
 
-        console.log("CommunitySettingsPane componentWillMount", this.props)
+        // console.log("CommunitySettingsPane componentWillMount", this.props)
 
     }
 
-    handleSubmit(e) {
+    // handleSubmit(e) {
+    //
+    //     e.preventDefault();
+    //
+    // }
 
-        e.preventDefault();
+    // bind(name) {
+    //     return (e) => {
+    //         var x = {};
+    //         x[name] = e.target.value;
+    //         this.setState(x);
+    //     }
+    // }
 
-    }
-
-    bind(name) {
-        return (e) => {
-            var x = {};
-            x[name] = e.target.value;
-            this.setState(x);
-        }
-    }
-
-    componentDidMount() {
+    // componentDidMount() {
         // const {dispatch} = this.props;
         // dispatch({
         //     type: INIT_SETTINGS_FORM,
@@ -76,7 +88,7 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
         //         name: "777 name 888"
         //     }
         // })
-    }
+    // }
 
     render() {
 
@@ -84,15 +96,15 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
         const {params, community} = this.props;
         const {fields: {name, description, rules, note_only_admin,
             link_only_admin, article_only_admin, photo_only_admin,
-            poll_only_admin, is_closed, accept_comment, video_only_admin}} = this.props;
+            poll_only_admin, is_closed, accept_comment, video_only_admin}, handleSubmit} = this.props;
         // const {form} = this.state;
 
-        console.log("settings pane community", this.props.fields.name);
+        console.log("settings pane community", this.props.community);
 
         return (
             <div className="pane community_albums community-settings">
 
-                <form id="community_settings">
+                <form id="community_settings" onSubmit={handleSubmit(submit(community.id))}>
                     <div className="userAc page">
                         <p className="info-label">Название</p>
                         <div className="form-row">

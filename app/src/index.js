@@ -27,12 +27,8 @@ import * as ReactDOM from 'react-dom';
 import {Provider, connect} from 'react-redux';
 import * as communityReducers from './reducers/community';
 import thunk from 'redux-thunk';
-//import { syncHistory, routeReducer } from 'redux-simple-router';
-//import { createHistory } from 'history';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import { Router, Route, IndexRoute, IndexRedirect } from 'react-router';
-//import fetch from 'whatwg-fetch';
-//var fetch = require('whatwg-fetch');
 import {syncHistory, syncReduxAndRouter, routeReducer, push} from 'redux-simple-router';
 import Community from './components/community/Community';
 import {CommunityContentPaneAll, CommunityContentPaneArticle,
@@ -42,10 +38,9 @@ import {CommunityContentPaneAll, CommunityContentPaneArticle,
 import {CommunityMembersPaneAll, CommunityMembersPaneAdmin,
     CommunityMembersPaneFriends, CommunityMembersPaneWaiting,
     CommunityMembersPaneBlacklist, CommunityMembersPaneName,
-    CommunityMembersPaneActivity} from './components/community/CommunityMembersSubPanes';
-import TestBlock from './components/community/TestBlock';
+    CommunityMembersPaneActivity, CommunityMembersPane} from './components/community/CommunityMembersPane';
+
 import CommunityContentPane from './components/community/blocks/panes/CommunityContentPane';
-import CommunityMembersPane from './components/community/blocks/panes/CommunityMembersPane';
 import CommunityRulesPane from './components/community/blocks/panes/CommunityRulesPane';
 import CommunitySettingsPane from './components/community/blocks/panes/CommunitySettingsPane';
 import CommunityAlbumsPane from './components/community/blocks/panes/CommunityAlbumsPane';
@@ -147,7 +142,7 @@ ReactDOM.render(
                 </Route>
 
 
-                <Route path="members(/:subtab)" component={CommunityMembersPane} />
+                
                 <Route path="settings" component={CommunitySettingsPane} />
                 <Route path="albums" component={CommunityAlbumsPane} />
             </Route>
