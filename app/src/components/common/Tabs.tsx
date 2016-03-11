@@ -37,7 +37,7 @@ export default class Tabs extends React.Component<any, any> {
                 {tabs.map((tab, index) => {
                     return (
                         <li key={index}><a
-                            href={"/community/3"+tab[0]}
+                            href={"/community/3/"+tab[0]}
                             onMouseDown={(e) => {e.preventDefault(); handleClick(tab[0])}}
                             onClick={(e) => e.preventDefault()}
                             className={classNames({current: currentTab.replace(/\//, "") == tab[0].replace(/\//, "")})}>{tab[1]}</a></li>

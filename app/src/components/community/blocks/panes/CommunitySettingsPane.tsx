@@ -29,25 +29,40 @@ const submit = function(communityId: number) {
 
             dispatch(actions.fetchCommunity(communityId));
 
-            // console.log(data);
         })
     };
 
 };
 
+function istrue(v: string|boolean) {
+    return v.toString() == 'true'
+}
+
+function isfalse(v: string|boolean) {
+    return v.toString() == 'false'
+}
+
 
 @reduxForm(
     {
-        form: 'initializing',
+        form: 'communitySettingsForm',
         fields: ['name', 'description', 'rules', 'site_address',
             'note_only_admin', 'link_only_admin', 'photo_only_admin',
             'poll_only_admin', 'article_only_admin', 'is_closed',
             'accept_comment', 'video_only_admin']
     },
     state => {
+        const community = state.community.community;
         return {
             community: state.community.community,
-            initialValues: state.community.community
+            initialValues:community
+                // Object.assign({}, community, { // :(
+                //     note_only_admin: community.note_only_admin.toString(),
+                //     link_only_admin: community.link_only_admin.toString(),
+                //     photo_only_admin: community.photo_only_admin.toString(),
+                //     poll_only_admin: community.poll_only_admin.toString(),
+                //     article_only_admin: community.article_only_admin.toString(),
+                //     })
         }
 
     }
@@ -55,51 +70,20 @@ const submit = function(communityId: number) {
 export default class CommunitySettingsPane extends React.Component<IProps, any> {
 
 
-    state = {
-
-    };
-
-
-    componentWillMount() {
-
-        // console.log("CommunitySettingsPane componentWillMount", this.props)
-
-    }
-
-    // handleSubmit(e) {
-    //
-    //     e.preventDefault();
-    //
-    // }
-
-    // bind(name) {
-    //     return (e) => {
-    //         var x = {};
-    //         x[name] = e.target.value;
-    //         this.setState(x);
-    //     }
-    // }
-
-    // componentDidMount() {
-        // const {dispatch} = this.props;
-        // dispatch({
-        //     type: INIT_SETTINGS_FORM,
-        //     data: {
-        //         name: "777 name 888"
-        //     }
-        // })
-    // }
-
     render() {
-
 
         const {params, community} = this.props;
         const {fields: {name, description, rules, note_only_admin,
             link_only_admin, article_only_admin, photo_only_admin,
-            poll_only_admin, is_closed, accept_comment, video_only_admin}, handleSubmit} = this.props;
-        // const {form} = this.state;
+            poll_only_admin, is_closed, accept_comment,
+            video_only_admin, site_address}, handleSubmit} = this.props;
 
-        console.log("settings pane community", this.props.community);
+        if (typeof note_only_admin.value == 'undefined') {
+            return null;
+        }
+
+
+        console.log("settings pane community", note_only_admin);
 
         return (
             <div className="pane community_albums community-settings">
@@ -137,7 +121,7 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                                     <div className="info-line">
                                         <p className="info-label">Адрес сайта</p>
                                         <p className="info-data" style={{width: '50%'}}>
-                                            <input id="id_url" maxLength={256} name="url" type="text" />
+                                            <input {...site_address} />
                                         </p>
                                     </div>
 
@@ -152,12 +136,12 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                                 <ul id="id_note_only_admin">
                                     <li>
                                         <label>
-                                            <input type="radio" {...note_only_admin} checked={!note_only_admin.value} value={''} /> Всем участникам
+                                            <input type="radio" {...note_only_admin} checked={isfalse(note_only_admin.value)} value={'false'} /> Всем участникам
                                         </label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" {...note_only_admin} checked={note_only_admin.value} value={'1'}/> Только администраторам
+                                            <input type="radio" {...note_only_admin} checked={istrue(note_only_admin.value)} value={'true'} /> Только администраторам
                                         </label>
                                     </li>
                                 </ul>
@@ -168,12 +152,12 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                                 <ul>
                                     <li>
                                         <label>
-                                            <input type="radio" {...link_only_admin} checked={!link_only_admin.value}  value="0" /> Всем участникам
+                                            <input type="radio" {...link_only_admin} checked={isfalse(link_only_admin.value)}  value="false" /> Всем участникам
                                         </label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" {...link_only_admin} checked={link_only_admin.value} value="1" /> Только администраторам
+                                            <input type="radio" {...link_only_admin} checked={istrue(link_only_admin.value)} value="true" /> Только администраторам
                                         </label>
                                     </li>
                                 </ul>
@@ -183,12 +167,12 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                                 <ul>
                                     <li>
                                         <label>
-                                            <input type="radio" {...article_only_admin} checked={!article_only_admin.value}  value="" /> Всем участникам
+                                            <input type="radio" {...article_only_admin} checked={isfalse(article_only_admin.value)}  value="false" /> Всем участникам
                                         </label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" {...article_only_admin} checked={article_only_admin.value} value="1" /> Только администраторам
+                                            <input type="radio" {...article_only_admin} checked={istrue(article_only_admin.value)} value="true" /> Только администраторам
                                         </label>
                                     </li>
                                 </ul>
@@ -198,12 +182,12 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                                 <ul id="id_photo_only_admin">
                                     <li>
                                         <label>
-                                            <input type="radio" {...photo_only_admin} value="" checked={photo_only_admin.value} /> Всем участникам
+                                            <input type="radio" {...photo_only_admin} checked={isfalse(photo_only_admin.value)} value="false" /> Всем участникам
                                         </label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" {...photo_only_admin} value="1" checked={photo_only_admin.value} /> Только администраторам
+                                            <input type="radio" {...photo_only_admin} checked={istrue(photo_only_admin.value)} value="true" /> Только администраторам
                                         </label>
                                     </li>
                                 </ul>
@@ -214,12 +198,12 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                                 <ul>
                                     <li>
                                         <label>
-                                            <input type="radio" {...video_only_admin} checked={!video_only_admin.value} value="" /> Всем участникам
+                                            <input type="radio" {...video_only_admin} checked={isfalse(video_only_admin.value)} value="false" /> Всем участникам
                                         </label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" {...video_only_admin} checked={video_only_admin.value} value="1"/> Только администраторам
+                                            <input type="radio" {...video_only_admin} checked={istrue(video_only_admin.value)} value="true"/> Только администраторам
                                         </label>
                                     </li>
                                 </ul>
@@ -229,12 +213,12 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                                 <ul id="id_poll_only_admin">
                                     <li>
                                         <label>
-                                            <input type="radio" {...poll_only_admin} checked={!poll_only_admin.value} value="" /> Всем участникам
+                                            <input type="radio" {...poll_only_admin} checked={isfalse(poll_only_admin.value)} value="false" /> Всем участникам
                                         </label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" {...poll_only_admin} checked={poll_only_admin.value} value="1" /> Только администраторам
+                                            <input type="radio" {...poll_only_admin} checked={istrue(poll_only_admin.value)} value="true" /> Только администраторам
                                         </label>
                                     </li>
                                 </ul>
@@ -264,12 +248,12 @@ export default class CommunitySettingsPane extends React.Component<IProps, any> 
                                 <ul id="id_is_closed">
                                     <li>
                                         <label>
-                                            <input type="radio" {...is_closed} checked={!is_closed.value} value=""/> Открытое сообщество
+                                            <input type="radio" {...is_closed} checked={isfalse(is_closed.value)} value="false"/> Открытое сообщество
                                         </label>
                                     </li>
                                     <li>
                                         <label>
-                                            <input type="radio" {...is_closed} checked={is_closed.value} value="1" /> Закрытое сообщество
+                                            <input type="radio" {...is_closed} checked={istrue(is_closed.value)} value="true" /> Закрытое сообщество
                                         </label>
                                     </li>
                                 </ul>

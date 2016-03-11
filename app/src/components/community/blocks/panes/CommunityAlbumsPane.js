@@ -52,6 +52,7 @@ var CommunityAlbumsPane = (function (_super) {
         this.loader = null;
     };
     CommunityAlbumsPane.prototype.render = function () {
+        console.log('CommunityAlbumsPane');
         return (React.createElement("div", {"className": "pane photo"}, React.createElement("div", {"className": "wall-panes"}, React.createElement("div", {"className": "userAc photo-box"}, this.state.albums.map(function (album, index) {
             return (React.createElement("article", {"key": index}, React.createElement("header", null, React.createElement("h6", null, "Альбом ", album.name), React.createElement("p", null, album.photos_count, " фотографии")), album.photos.map(function (item, index) {
                 return (React.createElement("div", {"className": "photo-cell only-six", "key": index}, React.createElement("a", {"href": item.url}, React.createElement("img", {"alt": "", "src": item['100x100']}))));

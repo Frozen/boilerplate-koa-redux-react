@@ -57,7 +57,6 @@ export default class CommunityAlbumsPane extends React.Component<IProps, any> {
         this.loader = new Loader('/rest/community/' + community.id + "/albums");
         this._handleLoadMore();
 
-
     }
 
     componentWillUnmount() {
@@ -66,6 +65,8 @@ export default class CommunityAlbumsPane extends React.Component<IProps, any> {
 
 
     render() {
+
+        console.log('CommunityAlbumsPane');
         
         return (
             <div className="pane photo">

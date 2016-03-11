@@ -140,8 +140,6 @@ ReactDOM.render(
                     <Route path="name" component={CommunityMembersPaneName} />
                     <Route path="activity" component={CommunityMembersPaneActivity} />
                 </Route>
-
-
                 
                 <Route path="settings" component={CommunitySettingsPane} />
                 <Route path="albums" component={CommunityAlbumsPane} />

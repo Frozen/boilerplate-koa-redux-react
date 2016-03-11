@@ -37,7 +37,7 @@ var Tabs = (function (_super) {
             currentTab = "wall";
         }
         return (React.createElement("ul", {"className": "tabs"}, tabs.map(function (tab, index) {
-            return (React.createElement("li", {"key": index}, React.createElement("a", {"href": "/community/3" + tab[0], "onMouseDown": function (e) { e.preventDefault(); handleClick(tab[0]); }, "onClick": function (e) { return e.preventDefault(); }, "className": classNames({ current: currentTab.replace(/\//, "") == tab[0].replace(/\//, "") })}, tab[1])));
+            return (React.createElement("li", {"key": index}, React.createElement("a", {"href": "/community/3/" + tab[0], "onMouseDown": function (e) { e.preventDefault(); handleClick(tab[0]); }, "onClick": function (e) { return e.preventDefault(); }, "className": classNames({ current: currentTab.replace(/\//, "") == tab[0].replace(/\//, "") })}, tab[1])));
         })));
     };
     Tabs = __decorate([
