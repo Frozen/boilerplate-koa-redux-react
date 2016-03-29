@@ -1,8 +1,6 @@
 
-
-
-
 import * as infs from '../interfaces/interfaces';
+import * as _ from 'lodash';
 
 export class User implements infs.User{
 
@@ -100,11 +98,11 @@ export class Rating implements infs.Rating{
 }
 
 
-export function mapContent(data): infs.Content {
-
-    const user = Object.assign(new User(), data.user);
-    const rating = Object.assign(new Rating(), data.rating);
-    const community = data.community;
-    return Object.assign(new Content(), data, {user: user, rating: rating, community: community})
-
-}
+// export function mapContent(data): infs.Content {
+//
+//     const user = _.assign(new User(), data.user);
+//     const rating = _.assign(new Rating(), data.rating);
+//     const community = data.community;
+//     return _.assign(new Content(), data, {user: user, rating: rating, community: community})
+//
+// }

@@ -45,6 +45,12 @@ import CommunityRulesPane from './components/community/blocks/panes/CommunityRul
 import CommunitySettingsPane from './components/community/blocks/panes/CommunitySettingsPane';
 import CommunityAlbumsPane from './components/community/blocks/panes/CommunityAlbumsPane';
 
+////////////// FRIENDS //////////
+import {FriendsComponent, FriendsPaneFriends,
+    FriendsPaneOnline, FriendsPaneEnemies, FriendsPaneRequests,
+    FriendsPaneRequestsMy, FriendsPaneBlacklist} from './components/friends/FriendsComponent'
+
+
 import * as communityActions from './actions/community';
 import * as models from './models/models'
 
@@ -140,9 +146,17 @@ ReactDOM.render(
                     <Route path="name" component={CommunityMembersPaneName} />
                     <Route path="activity" component={CommunityMembersPaneActivity} />
                 </Route>
-                
+
                 <Route path="settings" component={CommunitySettingsPane} />
                 <Route path="albums" component={CommunityAlbumsPane} />
+            </Route>
+            <Route path="/user/:id/friends" component={FriendsComponent}>
+                <IndexRoute component={FriendsPaneFriends} />
+                <Route path="online" component={FriendsPaneOnline} />
+                <Route path="enemies" component={FriendsPaneEnemies} />
+                <Route path="requests" component={FriendsPaneRequests} />
+                <Route path="requests-my" component={FriendsPaneRequestsMy} />
+                <Route path="blacklist" component={FriendsPaneBlacklist} />
             </Route>
         </Router>
     </Provider>, content);

@@ -54,7 +54,7 @@ var Loader = (function () {
         return $.ajax({
             url: this.baseUrl,
             type: 'GET',
-            data: Object.assign({}, data, { page: this.page })
+            data: _.assign({}, data, { page: this.page })
         }).then(function (data) {
             if (!data.results) {
                 this.hasNext = false;

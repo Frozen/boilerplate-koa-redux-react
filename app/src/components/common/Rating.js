@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var React = require('react');
+var _ = require('lodash');
 var Rating = (function (_super) {
     __extends(Rating, _super);
     function Rating() {
@@ -23,7 +24,7 @@ var Rating = (function (_super) {
             then(function (data) {
             if (data.ok) {
                 this.setState({
-                    content: Object.assign({}, this.state.content, { rating: data.data })
+                    content: _.assign({}, this.state.content, { rating: data.data })
                 });
             }
         }.bind(this));

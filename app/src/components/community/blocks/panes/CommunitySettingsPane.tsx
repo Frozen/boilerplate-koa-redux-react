@@ -56,13 +56,6 @@ function isfalse(v: string|boolean) {
         return {
             community: state.community.community,
             initialValues:community
-                // Object.assign({}, community, { // :(
-                //     note_only_admin: community.note_only_admin.toString(),
-                //     link_only_admin: community.link_only_admin.toString(),
-                //     photo_only_admin: community.photo_only_admin.toString(),
-                //     poll_only_admin: community.poll_only_admin.toString(),
-                //     article_only_admin: community.article_only_admin.toString(),
-                //     })
         }
 
     }

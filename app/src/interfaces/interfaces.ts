@@ -83,3 +83,13 @@ export interface CommunityAlbumPhoto {
     '100x100': string
 }
 
+// страница друзья, друг
+export interface FriendUserFriend {
+    user: User
+    friends_count: number
+    friends_count_text_plural: string
+    message?: string
+}
+
+
+

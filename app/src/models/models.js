@@ -66,11 +66,12 @@ var Rating = (function () {
     return Rating;
 })();
 exports.Rating = Rating;
-function mapContent(data) {
-    var user = Object.assign(new User(), data.user);
-    var rating = Object.assign(new Rating(), data.rating);
-    var community = data.community;
-    return Object.assign(new Content(), data, { user: user, rating: rating, community: community });
-}
-exports.mapContent = mapContent;
+// export function mapContent(data): infs.Content {
+//
+//     const user = _.assign(new User(), data.user);
+//     const rating = _.assign(new Rating(), data.rating);
+//     const community = data.community;
+//     return _.assign(new Content(), data, {user: user, rating: rating, community: community})
+//
+// } 
 //# sourceMappingURL=models.js.map

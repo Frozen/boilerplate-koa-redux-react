@@ -3,6 +3,7 @@
 
 import * as React from 'react';
 import * as infs from '../../interfaces/interfaces'
+import * as _ from 'lodash';
 
 
 interface IProps {
@@ -28,7 +29,7 @@ export default class Rating extends React.Component<IProps, any> {
 
             if (data.ok) {
                 this.setState({
-                    content: Object.assign({}, this.state.content, {rating: data.data})
+                    content: _.assign({}, this.state.content, {rating: data.data})
                 })
             }
 
