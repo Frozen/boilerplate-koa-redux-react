@@ -4,25 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/app/src/components/community/Community.tsx" line="190" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="489dbb6b-b8b5-4fb2-9af6-a1ea11d581af" name="Default" comment="fix community settings">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/friends/Blocks.tsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/friends/FriendsComponent.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/kot.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/kot.xml" />
+    <list default="true" id="489dbb6b-b8b5-4fb2-9af6-a1ea11d581af" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/Rating.js" afterPath="$PROJECT_DIR$/app/src/components/common/Rating.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/Rating.js.map" afterPath="$PROJECT_DIR$/app/src/components/common/Rating.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/common/Rating.tsx" afterPath="$PROJECT_DIR$/app/src/components/common/Rating.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.js.map" afterPath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.tsx" afterPath="$PROJECT_DIR$/app/src/components/community/blocks/panes/CommunitySettingsPane.tsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/helpers/helpers.js" afterPath="$PROJECT_DIR$/app/src/helpers/helpers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/helpers/helpers.js.map" afterPath="$PROJECT_DIR$/app/src/helpers/helpers.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/helpers/helpers.ts" afterPath="$PROJECT_DIR$/app/src/helpers/helpers.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/index.js" afterPath="$PROJECT_DIR$/app/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" afterPath="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/models.js" afterPath="$PROJECT_DIR$/app/src/models/models.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/models.js.map" afterPath="$PROJECT_DIR$/app/src/models/models.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/models/models.ts" afterPath="$PROJECT_DIR$/app/src/models/models.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/reducers/community.js" afterPath="$PROJECT_DIR$/app/src/reducers/community.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/components/friends/Blocks.tsx" afterPath="$PROJECT_DIR$/app/src/components/friends/Blocks.tsx" />
     </list>
     <ignored path="boilerplate-koa-redux-react.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +31,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2250">
+            <state relative-caret-position="1500">
               <caret line="150" column="47" selection-start-line="150" selection-start-column="47" selection-end-line="150" selection-end-column="47" />
               <folding />
             </state>
@@ -57,7 +41,7 @@
       <file leaf-file-name="FriendsComponent.tsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/components/friends/FriendsComponent.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="1800">
               <caret line="130" column="12" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="12" />
               <folding>
                 <element signature="e#2#33#0" expanded="true" />
@@ -76,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Blocks.tsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Blocks.tsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/components/friends/Blocks.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+            <state relative-caret-position="258">
+              <caret line="291" column="0" selection-start-line="291" selection-start-column="0" selection-end-line="291" selection-end-column="0" />
               <folding>
                 <element signature="e#1#32#0" expanded="true" />
               </folding>
@@ -88,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -101,7 +85,7 @@
       <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="720">
               <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
               <folding />
             </state>
@@ -111,7 +95,7 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="195">
               <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
               <folding />
             </state>
@@ -184,8 +168,8 @@
         <option value="$PROJECT_DIR$/app/src/helpers/helpers.ts" />
         <option value="$PROJECT_DIR$/app/src/interfaces/interfaces.ts" />
         <option value="$PROJECT_DIR$/app/src/components/friends/FriendsComponent.tsx" />
-        <option value="$PROJECT_DIR$/app/src/components/friends/Blocks.tsx" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/src/components/friends/Blocks.tsx" />
       </list>
     </option>
   </component>
@@ -230,6 +214,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -414,8 +400,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -524,7 +508,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1452716557324</updated>
-      <workItem from="1459158024674" duration="2545000" />
+      <workItem from="1459158024674" duration="3839000" />
+      <workItem from="1459330789452" duration="592000" />
     </task>
     <task id="LOCAL-00001" summary="skip">
       <created>1453123545135</created>
@@ -575,28 +560,35 @@
       <option name="project" value="LOCAL" />
       <updated>1459264905793</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="user friends">
+      <created>1459264960362</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1459264960362</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2545000" />
+    <option name="totallyTimeSpent" value="4431000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1412" height="826" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2890511" sideWeight="0.49456522" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29343066" sideWeight="0.49456522" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29700273" sideWeight="0.4970803" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29700273" sideWeight="0.4970803" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34877384" sideWeight="0.50291973" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25328466" sideWeight="0.5054348" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23841962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23841962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -630,7 +622,8 @@
     <MESSAGE value="fix community members" />
     <MESSAGE value="fix community settings" />
     <MESSAGE value="fix gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix gitignore" />
+    <MESSAGE value="user friends" />
+    <option name="LAST_COMMIT_MESSAGE" value="user friends" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -727,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -736,7 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -938,7 +929,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
+        <state relative-caret-position="1500">
           <caret line="150" column="47" selection-start-line="150" selection-start-column="47" selection-end-line="150" selection-end-column="47" />
           <folding />
         </state>
@@ -946,7 +937,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/friends/FriendsComponent.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="1800">
           <caret line="130" column="12" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="12" />
           <folding>
             <element signature="e#2#33#0" expanded="true" />
@@ -962,26 +953,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/friends/Blocks.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+        <state relative-caret-position="258">
+          <caret line="291" column="0" selection-start-line="291" selection-start-column="0" selection-end-line="291" selection-end-column="0" />
           <folding>
             <element signature="e#1#32#0" expanded="true" />
           </folding>
@@ -992,6 +967,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="17" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
           <folding />
         </state>
       </provider>
