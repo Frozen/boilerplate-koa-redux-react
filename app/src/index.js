@@ -51,6 +51,10 @@ import {FriendsComponent, FriendsPaneFriends,
     FriendsPaneRequestsMy, FriendsPaneBlacklist} from './components/friends/FriendsComponent'
 
 
+////////////// Admin Complaint //////////
+import {BasePane} from './components/adminka/complaint/BasePane';
+
+
 import * as communityActions from './actions/community';
 import * as models from './models/models'
 
@@ -158,6 +162,8 @@ ReactDOM.render(
                 <Route path="requests-my" component={FriendsPaneRequestsMy} />
                 <Route path="blacklist" component={FriendsPaneBlacklist} />
             </Route>
+            <Route path="/adminka/complaint_book" component={BasePane} />
+
         </Router>
     </Provider>, content);
 
