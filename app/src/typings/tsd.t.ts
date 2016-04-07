@@ -5,6 +5,7 @@
 /// <reference path="./react-router/react-router.d.ts" />
 /// <reference path="./jquery/jquery.d.ts" />
 /// <reference path="./redux-form/redux-form.d.ts" />
+/// <reference path="./react-bootstrap/react-bootstrap.d.ts" />
 
 
 declare interface Object {
