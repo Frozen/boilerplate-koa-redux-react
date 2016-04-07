@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="489dbb6b-b8b5-4fb2-9af6-a1ea11d581af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/components/adminka/complaint/BasePane.tsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/index.js" afterPath="$PROJECT_DIR$/app/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/typings/tsd.t.js" afterPath="$PROJECT_DIR$/app/src/typings/tsd.t.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/typings/tsd.t.js.map" afterPath="$PROJECT_DIR$/app/src/typings/tsd.t.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/typings/tsd.t.ts" afterPath="$PROJECT_DIR$/app/src/typings/tsd.t.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="boilerplate-koa-redux-react.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,8 +66,8 @@
       <file leaf-file-name="BasePane.tsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/components/adminka/complaint/BasePane.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+            <state relative-caret-position="278">
+              <caret line="182" column="26" selection-start-line="182" selection-start-column="26" selection-end-line="182" selection-end-column="26" />
               <folding>
                 <element signature="e#41#72#0" expanded="true" />
                 <element signature="n#!!block;n#IBan#0" expanded="false" />
@@ -509,7 +503,7 @@
       <option name="presentableId" value="Default" />
       <updated>1452716557324</updated>
       <workItem from="1459158024674" duration="3839000" />
-      <workItem from="1459330789452" duration="32436000" />
+      <workItem from="1459330789452" duration="32537000" />
     </task>
     <task id="LOCAL-00001" summary="skip">
       <created>1453123545135</created>
@@ -574,24 +568,31 @@
       <option name="project" value="LOCAL" />
       <updated>1459349707464</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="жалобы на комментарий">
+      <created>1460029847466</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1460029847466</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36275000" />
+    <option name="totallyTimeSpent" value="36376000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1412" height="826" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44959128" sideWeight="0.4970803" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44959128" sideWeight="0.4970803" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34877384" sideWeight="0.50291973" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25328466" sideWeight="0.5054348" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23841962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23841962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29343066" sideWeight="0.49456522" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -630,7 +631,8 @@
     <MESSAGE value="fix community settings" />
     <MESSAGE value="fix gitignore" />
     <MESSAGE value="user friends" />
-    <option name="LAST_COMMIT_MESSAGE" value="user friends" />
+    <MESSAGE value="жалобы на комментарий" />
+    <option name="LAST_COMMIT_MESSAGE" value="жалобы на комментарий" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1021,8 +1023,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/adminka/complaint/BasePane.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+        <state relative-caret-position="278">
+          <caret line="182" column="26" selection-start-line="182" selection-start-column="26" selection-end-line="182" selection-end-column="26" />
           <folding>
             <element signature="e#41#72#0" expanded="true" />
             <element signature="n#!!block;n#IBan#0" expanded="false" />
