@@ -17,7 +17,7 @@ var InfiniteScrolling = (function (_super) {
         var _a = this.props, infiniteLoadMore = _a.infiniteLoadMore, isActive = _a.isActive, pause = _a.pause;
         this.f = function (e) {
             var viewportOffset = this.refs.i.getBoundingClientRect();
-            var scroll = document.body.scrollTop;
+            var scroll = document.documentElement.scrollTop || document.body.scrollTop;
             if (scroll + 500 > viewportOffset.top && this.isMovingDown(scroll) &&
                 infiniteLoadMore && isActive() && !pause()) {
                 // console.log("should load more");

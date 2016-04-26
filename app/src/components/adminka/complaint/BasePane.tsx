@@ -9,7 +9,6 @@ import {connect} from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import {Loader} from "../../../helpers/helpers";
 import InfiniteScrolling from '../../common/InfiniteScrolling';
-var moment = require('momentjs');
 
 
 interface IFriendBlock {
@@ -149,7 +148,7 @@ export class Complaints extends React.Component<any, any> {
                 <Modal show={this.state.showFilter} onHide={this.hideFilter.bind(this)}>
                     <form onSubmit={this.submitFilter.bind(this)}>
                         <Modal.Header closeButton>
-                            <Modal.Title>Редактировать</Modal.Title>
+                            <Modal.Title>Фильтр</Modal.Title>
                         </Modal.Header>
 
                         <Modal.Body>
@@ -203,8 +202,7 @@ export class Complaints extends React.Component<any, any> {
                                 <th>Автор жалобы</th>
                                 <th>Жалоба</th>
                                 <th>Правка комментария</th>
-                                <th>Комментатор</th>
-                                <th>Действие</th>
+                                <th>Автор комментария</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -309,19 +307,17 @@ export class Complaint extends React.Component<IComplaint, any> {
         const value = this.refs.comment_edit_textarea.value;
 
         $.ajax({
-            url: '/api/adminka/complaint_book/edit_complaint_comment',
+            url: '/api/adminka/edit_comment',
             type: 'post',
             data: {
-                complaint: this.props.complaint.id,
+                comment_id: this.props.complaint.comment.id,
                 text: value
             }
         }).then(function() {
             this.props.updateComplaint(this.props.complaint.id);
         }.bind(this));
 
-        this.setState({
-            showCommentDeleteForm: false
-        });
+        this.hideEdit();
 
     }
 
@@ -388,6 +384,19 @@ export class Complaint extends React.Component<IComplaint, any> {
         }.bind(this))
     }
 
+    setResolved(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/api/adminka/complaint_book/complaint_resolve',
+            type: 'post',
+            data: {
+                complaint_id: this.props.complaint.id
+            }
+        }).then(function() {
+            this.props.updateComplaint(this.props.complaint.id);
+        }.bind(this))
+    }
+
     removeInterestingComment(e: Event) {
 
         if (e) {
@@ -442,11 +451,12 @@ export class Complaint extends React.Component<IComplaint, any> {
                             <tr>
                                 <td>Статус</td>
                                 <td>
-                                    <span className="status-text {% if complaint.user.status == 'Активен' %}green-text{% else %}red-text{% endif %}" onClick={function() { this.setState({showBanComplaintAuthor: true}) }.bind(this)}>{ complaint.user.status }</span>
+                                    <span>{ complaint.user.status }</span>
                                     <BanUserModal show={this.state.showBanComplaintAuthor} onHide={function() { this.setState({showBanComplaintAuthor: false});  }.bind(this)} userId={complaint.user.id} updateComplaint={this.props.updateComplaint.bind(this, this.props.complaint.id)}/>
 
                                 </td>
                             </tr>
+
                         </tbody>
                     </table>
                 </td>
@@ -470,7 +480,8 @@ export class Complaint extends React.Component<IComplaint, any> {
                                     }
                                     <br />
                                     <br />
-                                    {complaint.need_full_text ? <a className="status-text blue-text" onClick={function(e) {e.preventDefault(); this.setState({complaint_full_text: !this.state.complaint_full_text})}.bind(this)  }>показать полностью</a>: ''}
+                                    {complaint.need_full_text ? <a className="status-text blue-text"
+                                                                   onClick={function(e) {e.preventDefault(); this.setState({complaint_full_text: !this.state.complaint_full_text})}.bind(this)  }>{this.state.complaint_full_text ? 'свернуть':  'показать полностью'}</a>: ''}
                                 </td>
                             </tr>
                             <tr>
@@ -482,7 +493,7 @@ export class Complaint extends React.Component<IComplaint, any> {
                                     }
                                     <br />
                                     <br />
-                                    {complaint.comment.need_full_text ? <a className="status-text blue-text" onClick={function(e) {e.preventDefault(); this.setState({comment_full_text: !this.state.comment_full_text})}.bind(this)  }>показать полностью</a>: '' }
+                                    {complaint.comment.need_full_text ? <a className="status-text blue-text" onClick={function(e) {e.preventDefault(); this.setState({comment_full_text: !this.state.comment_full_text})}.bind(this)  }>{this.state.comment_full_text ? 'свернуть' : 'показать полностью'}</a>: '' }
                                 </td>
                             </tr>
                             <tr>
@@ -553,10 +564,11 @@ export class Complaint extends React.Component<IComplaint, any> {
                         <br />
                         <a href="#delete-comment-modal" className="status-text blue-text" onClick={this.showCommentDeleteForm.bind(this)}>Удалить</a>
 
-                        <CommentDeleteModal comment={complaint.comment}
+                        <CommentDeleteModal
                                             show={this.state.showCommentDeleteForm}
                                             onHide={this.hideCommentDeleteForm.bind(this)}
-                                            commentAuthorId={complaint.commentator.id}
+                                            complaint={complaint}
+
                                             />
 
                         <br />
@@ -571,6 +583,12 @@ export class Complaint extends React.Component<IComplaint, any> {
                                 Отметить интересным
                             </a>
                         }
+
+                        <br />
+                        <br />
+                        <a href="" className="status-text blue-text" onClick={this.setResolved.bind(this)}>
+                            Отметить обработанным
+                        </a>
 
 
 
@@ -598,39 +616,24 @@ export class Complaint extends React.Component<IComplaint, any> {
                             <tr>
                                 <td>Статус</td>
                                 <td>
-                                    <span className="status-text {% if complaint.commentator.status == 'Активен' %}green-text{% else %}red-text{% endif %}" onClick={function() { this.setState({showBanCommentator: true}); }.bind(this)}>
+                                    <span>
                                         { complaint.commentator.status }
-
                                     </span>
 
                                     <BanUserModal show={this.state.showBanCommentator} onHide={function() { this.setState({showBanCommentator: false});  }.bind(this)} userId={complaint.commentator.id} updateComplaint={this.props.updateComplaint.bind(this, this.props.complaint.id)}/>
                                 </td>
                             </tr>
+
+                            <tr>
+                                <td></td>
+                                <td>
+
+                                    <UserDeleteModal userId={complaint.commentator.id} />
+
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-                </td>
-                <td id="action-column-{{ complaint.id }}">
-                    { complaint.status_value == 'submitted' ?
-                    <form action="{{ url('adminka:complaint_action') }}" name="complaint-action-form" data-complaint-id="{{ complaint.id }}" method="post">
-
-                        <a href="" className="btn btn-primary" onClick={this.punish.bind(this, 10)}>&nbsp;&nbsp;-10&nbsp;&nbsp;</a>
-                        <br />
-                        <br />
-
-                        <a href="" className="btn btn-primary" onClick={this.punish.bind(this, 20)}>&nbsp;&nbsp;-20&nbsp;&nbsp;</a>
-                        <br />
-                        <br />
-
-                        <a href="" className="btn btn-primary" onClick={this.punish.bind(this, 30)}>&nbsp;&nbsp;-30&nbsp;&nbsp;</a>
-                        <br />
-
-
-                        <br />
-                        <br />
-                        <a type="submit" value="" className="btn btn-primary" onClick={this.punish.bind(this, 0)}>Не наказывать</a>
-
-                    </form>
-                        : ''}
                 </td>
             </tr>
         )
@@ -666,7 +669,9 @@ class BanUserModal extends React.Component<IBanUserModal, any> {
     }
 
     state = {
-      bans: []
+        bans: [],
+        ban_reason: 'Мат',
+        reason_explain: ''
     };
 
 
@@ -674,6 +679,7 @@ class BanUserModal extends React.Component<IBanUserModal, any> {
         [string: string]: any;
         ban_time: HTMLInputElement;
         ban_reason: HTMLInputElement;
+        reason_explain: HTMLInputElement;
     };
 
     submitForm(e: Event) {
@@ -683,16 +689,23 @@ class BanUserModal extends React.Component<IBanUserModal, any> {
         const ban_time = this.refs.ban_time.value;
         const ban_reason = this.refs.ban_reason.value;
         const user = this.props.userId;
+        const reason_explain = this.refs.reason_explain.value;
+
+        const data = {
+            reason: ban_reason,
+            minutes: ban_time,
+            user_id: user
+        };
+
+        if (data.reason === 'Другое') {
+            data['reason_explain'] = reason_explain;
+        }
 
         $.ajax({
             url: '/api/adminka/ban_user',
             type: 'post',
-            data: {
-                reason: ban_reason,
-                minutes: ban_time,
-                user_id: user
-            }
-        }).then(function() {
+            data: data
+        }).then(function(response) {
             this.props.updateComplaint();
         }.bind(this));
 
@@ -706,7 +719,7 @@ class BanUserModal extends React.Component<IBanUserModal, any> {
 
         return (
             <Modal show={show} onHide={onHide} onEnter={this.beforeEnter.bind(this)}>
-                <form onSubmit={this.submitForm.bind(this)} className="form-inline">
+                <form onSubmit={this.submitForm.bind(this)}>
                     <Modal.Header closeButton>
                         <Modal.Title>Забанить пользователя</Modal.Title>
                     </Modal.Header>
@@ -736,7 +749,12 @@ class BanUserModal extends React.Component<IBanUserModal, any> {
 
                         <div className="form-group">
                             <label htmlFor="ban_reason">Выберите причину</label>&nbsp;
-                            <select id="ban_reason" name="ban_reason" ref="ban_reason" className="form-control">
+                            <select id="ban_reason"
+                                    name="ban_reason"
+                                    ref="ban_reason"
+                                    className="form-control"
+                                    onChange={function(e) { this.setState({ban_reason: e.target.value})}.bind(this)}
+                                    defaultValue={this.state.ban_reason}>
 
                                 <option value="Мат">Мат</option>
                                 <option value="Оскорбление">Оскорбление</option>
@@ -747,11 +765,18 @@ class BanUserModal extends React.Component<IBanUserModal, any> {
                                 <option value="Клон">Клон</option>
                             </select>
                         </div>
+
+                        <div className="form-group" style={{display: this.state.ban_reason == 'Другое' ? 'block' : 'none'}}>
+                            <label htmlFor="ban_reason">Укажите причину</label>&nbsp;
+                            <textarea name="reason_explain" ref="reason_explain" className="form-control" onChange={function(e) {this.setState({reason_explain: e.target.value})}.bind(this)}></textarea>
+                        </div>
+
+
                     </Modal.Body>
 
                     <Modal.Footer>
                         <Button onClick={onHide}>Закрыть</Button>
-                        <input type="submit" className="btn btn-primary" />
+                        <input type="submit" className="btn btn-primary" disabled={this.state.ban_reason == 'Другое' && this.state.reason_explain == ''}/>
                     </Modal.Footer>
                 </form>
             </Modal>
@@ -800,15 +825,11 @@ class BanRows extends React.Component<IBanRows, any> {
 
                 <tbody>
                 {bans.map(function(ban: IBan, key: number) {
-
-                    const time_start = moment(ban.time_start).format('DD.MM.YYYY HH:MM');
-                    const time_end = moment(ban.time_finish).format('DD.MM.YYYY HH:MM');
-
                     return (
                         <tr key={key}>
                             <td>{ban.id}</td>
-                            <td>{time_start}</td>
-                            <td>{time_end}</td>
+                            <td>{ban.time_start}</td>
+                            <td>{ban.time_finish}</td>
                             <td>{ban.reason}</td>
                             <td>{ban.is_active ? 'активный': 'неактивный'}</td>
                         </tr>)
@@ -821,11 +842,11 @@ class BanRows extends React.Component<IBanRows, any> {
 
 
 interface ICommentDeleteModal {
-    commentAuthorId: number
-    comment: any
     show: boolean
     onHide: any
+    complaint: any
 }
+
 
 class CommentDeleteModal extends React.Component<ICommentDeleteModal, any> {
 
@@ -834,7 +855,7 @@ class CommentDeleteModal extends React.Component<ICommentDeleteModal, any> {
         console.log("CommentDeleteModal begore enter");
 
         $.ajax({
-            url: '/api/adminka/user/' + this.props.commentAuthorId + '/bans',
+            url: '/api/adminka/user/' + this.props.complaint.commentator.id + '/bans',
             type: 'get'
         }).then(function(data) {
 
@@ -846,7 +867,27 @@ class CommentDeleteModal extends React.Component<ICommentDeleteModal, any> {
     }
 
     state = {
-        bans: []
+        bans: [],
+        ban_reason: '',
+        reason_explain: '',
+        reduce_rating_value: 0,
+        action: 'ban',
+        ban_user_checkbox: false,
+        delete_comment_reason: '',
+
+        reasons_list: [
+            'спам',
+            'флуд',
+            'оскорбления',
+            'капс',
+            'транслит',
+            'оффтопик',
+            'разжигание',
+            'мат',
+            'олбанец',
+            'накрутка',
+            'реклама'
+        ]
     };
 
 
@@ -856,60 +897,43 @@ class CommentDeleteModal extends React.Component<ICommentDeleteModal, any> {
             e.preventDefault();
         }
 
-        $.ajax({
-            url: '/api/adminka/delete_comment',
-            type: 'post',
-            data: {
-                comment_id: this.props.comment.id
-            }
-        });
-
-        this.props.onHide();
-    }
-
-    refs: {
-        [string: string]: any;
-        ban_reason: HTMLInputElement;
-        ban_time: HTMLInputElement;
-    };
-
-    removeAndBan(e: Event) {
-
-        if (e) {
-            e.preventDefault();
-        }
-
-        // console.log("1");
-
-
-        const reason = this.refs.ban_reason.value;
-        const duration = this.refs.ban_time.value;
-        // console.log("2");
-        const data = {
-            user_id: this.props.commentAuthorId,
-            reason: reason,
-            minutes: duration
+        var data = {
+            reduce_rating_value: this.state.reduce_rating_value,
+            complaint_id: this.props.complaint.id,
+            ban: this.state.ban_user_checkbox,
+            ban_reason: this.refs.ban_reason.value,
+            ban_duration: this.refs.ban_duration.value,
+            delete_comment_reason: this.refs.delete_comment_reason.value
         };
 
-        $.when(
-            $.ajax({
-                url: '/api/adminka/ban_user',
-                type: 'post',
-                data: data
-            }),
-            $.ajax({
-                url: '/api/adminka/delete_comment',
-                type: 'post',
-                data: {
-                    comment_id: this.props.comment.id
-                }
-            })
-        ).done(function() {
+        if (this.state.reason_explain) {
+            data['ban_reason_explain'] = this.state.reason_explain
+        }
+
+        $.ajax({
+            url: '/api/adminka/complaint_book/complaint_action',
+            type: 'post',
+            data: data
+        }).then(function() {
             this.props.onHide();
         }.bind(this));
 
     }
 
+    clickReason(el, key, e) {
+        e.preventDefault();
+        var a = {};
+        a[el] = this.state[el] + key + "\n";
+        this.setState(a);
+    }
+
+    refs: {
+        [string: string]: any;
+        ban_reason: HTMLInputElement;
+        ban_duration: HTMLInputElement;
+        reason_explain: HTMLInputElement;
+        delete_comment_reason: HTMLInputElement;
+    };
 
     render() {
 
@@ -927,46 +951,171 @@ class CommentDeleteModal extends React.Component<ICommentDeleteModal, any> {
                         <BanRows bans={this.state.bans}/>
 
                         <div className="form-group">
-                            <label htmlFor="ban_time">Выберите Срок</label>&nbsp;
-                            <select id="ban_time" name="ban_time" ref="ban_time" className="form-control">
-
-                                <option value="30">30 минут</option>
-                                <option value="45">45 минут</option>
-                                <option value="60">1 час</option>
-                                <option value="180">3 часа</option>
-                                <option value="360">6 часов</option>
-                                <option value="720">12 часов</option>
-                                <option value="1440">1 день</option>
-                                <option value="4320">3 дня</option>
-                                <option value="10080">1 неделя</option>
-                                <option value="43200">1 месяц</option>
-                                <option value="525600">1 год</option>
-                                <option value="144720000">перманентно</option>
-                            </select>
+                            <label htmlFor="ban_reason">Снять рейтинг</label>
+                            <br />
+                            <span className={this.state.reduce_rating_value == 0 ? 'btn btn-primary' : 'btn btn-default'} onClick={function() {this.setState({reduce_rating_value: 0})}.bind(this)}>0</span>&nbsp;
+                            <span className={this.state.reduce_rating_value == 10 ? 'btn btn-primary' : 'btn btn-default'} onClick={function() {this.setState({reduce_rating_value: 10})}.bind(this)}>10</span>&nbsp;
+                            <span className={this.state.reduce_rating_value == 20 ? 'btn btn-primary' : 'btn btn-default'} onClick={function() {this.setState({reduce_rating_value: 20})}.bind(this)}>20</span>&nbsp;
+                            <span className={this.state.reduce_rating_value == 30 ? 'btn btn-primary' : 'btn btn-default'} onClick={function() {this.setState({reduce_rating_value: 30})}.bind(this)}>30</span>
                         </div>
-                        &nbsp;&nbsp;
 
                         <div className="form-group">
-                            <label htmlFor="ban_reason">Выберите причину</label>&nbsp;
-                            <select id="ban_reason" name="ban_reason" ref="ban_reason" className="form-control">
-                                <option value="Мат">Мат</option>
-                                <option value="Оскорбление">Оскорбление</option>
-                                <option value="Разжигание">Разжигание</option>
-                                <option value="Спам">Спам</option>
-                                <option value="Флуд">Флуд</option>
-                                <option value="Другое">Другое</option>
-                                <option value="Клон">Клон</option>
-                            </select>
+                            <label htmlFor="delete_comment_reason">Причина удаления</label>&nbsp;
+                            <textarea type="text"
+                                    name="delete_comment_reason"
+                                    id="delete_comment_reason"
+                                    ref="delete_comment_reason"
+                                    className="form-control"
+                                      style={{height: '100px'}}
+                                      value={this.state.delete_comment_reason}
+                                    onChange={function(e) {this.setState({delete_comment_reason: e.target.value})}.bind(this)}>
+                            </textarea>
                         </div>
+                        <div>
+
+                            {this.state.reasons_list.map(function(key, index) {
+
+                                return <span key={index}>
+                                    <a href="" onClick={this.clickReason.bind(this, 'delete_comment_reason', key)}>{key}</a> |&nbsp;
+                                </span>
+
+                            }.bind(this))}
+
+                        </div>
+                        <br />
+
+
+                        <fieldset disabled={!this.state.ban_user_checkbox}>
+                            <legend>
+                                <label>
+                                    <input type="checkbox" checked={this.state.ban_user_checkbox} onChange={function() {this.setState({ban_user_checkbox: !this.state.ban_user_checkbox})}.bind(this)} /> Забанить пользователя
+                                </label>
+                            </legend>
+                            <div className="form-group">
+                                <label htmlFor="ban_time">Выберите Срок</label>&nbsp;
+                                <select id="ban_time" name="ban_duration" ref="ban_duration" className="form-control">
+
+                                    <option value="30">30 минут</option>
+                                    <option value="45">45 минут</option>
+                                    <option value="60">1 час</option>
+                                    <option value="180">3 часа</option>
+                                    <option value="360">6 часов</option>
+                                    <option value="720">12 часов</option>
+                                    <option value="1440">1 день</option>
+                                    <option value="4320">3 дня</option>
+                                    <option value="10080">1 неделя</option>
+                                    <option value="43200">1 месяц</option>
+                                    <option value="525600">1 год</option>
+                                    <option value="144720000">перманентно</option>
+                                </select>
+                            </div>
+                            &nbsp;&nbsp;
+
+                            <div className="form-group">
+                                <label htmlFor="ban_reason">Выберите причину</label>&nbsp;
+                                <textarea id="ban_reason" name="ban_reason"
+                                          ref="ban_reason" className="form-control"
+                                          onChange={function(e) { this.setState({ban_reason: e.target.value})}.bind(this)}
+                                          defaultValue={this.state.ban_reason}
+                                          value={this.state.ban_reason}
+                                          style={{height: '100px'}}>
+                                </textarea>
+                            </div>
+
+                            <div>
+
+                                {this.state.reasons_list.map(function(key, index) {
+
+                                    return <span key={index}>
+                                    <a href="" onClick={this.clickReason.bind(this, 'ban_reason', key)}>{key}</a> |&nbsp;
+                                </span>
+
+                                    }.bind(this))}
+
+                            </div>
+
+                        </fieldset>
+
                     </Modal.Body>
 
                     <Modal.Footer>
                         <Button onClick={onHide}>Отмена</Button>
-                        <Button className="btn btn-primary" onClick={this.removeComment.bind(this)}>Удалить комментарий</Button>
-                        <Button className="btn btn-primary" onClick={this.removeAndBan.bind(this)}>Удалить и забанить</Button>
+                        <Button className="btn btn-primary" disabled={!this.state.delete_comment_reason} onClick={this.removeComment.bind(this)}>{this.state.ban_user_checkbox ? 'Забанить и удалить': 'Удалить коммент'}</Button>
                     </Modal.Footer>
                 </form>
             </Modal>
         )
     }
+}
+
+interface IUserDeleteModal {
+    userId: number
+}
+
+class UserDeleteModal extends React.Component<IUserDeleteModal, any> {
+
+
+    state = {
+        show: false,
+        delete_reason: '',
+        // reasons_list: [
+        //     'спам',
+        //     'флуд',
+        //     'оскорбления',
+        //     'капс',
+        //     'транслит',
+        //     'оффтопик',
+        //     'разжигание',
+        //     'мат',
+        //     'олбанец',
+        //     'накрутка',
+        //     'реклама'
+        // ]
+    };
+
+    onHide() {
+        this.setState({
+            show: false
+        })
+    }
+
+    show() {
+        this.setState({
+            show: true
+        });
+    }
+
+    deleteUser() {
+        $.ajax({
+            url: '/api/adminka/delete_user',
+            type: 'post',
+            data: {
+                user_id: this.props.userId
+            }
+        }).then(function() {
+            this.props.onHide();
+        }.bind(this))
+    }
+
+    render() {
+        return (
+            <span>
+                <span className="status-text" onClick={this.show.bind(this)}>Удалить</span>
+                <Modal show={this.state.show} onHide={this.onHide.bind(this)}>
+                    <form>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Удалить Пользователя</Modal.Title>
+                        </Modal.Header>
+
+                        <Modal.Footer>
+                            <Button onClick={this.onHide.bind(this)}>Отмена</Button>
+                            <Button className="btn btn-primary" onClick={this.deleteUser.bind(this)}>Удалить</Button>
+                        </Modal.Footer>
+                    </form>
+                </Modal>
+            </span>
+        )
+    }
+
+
 }

@@ -31,7 +31,7 @@ export default class InfiniteScrolling extends React.Component<IProps, any> {
         this.f = function(e) {
 
             var viewportOffset = this.refs.i.getBoundingClientRect();
-            var scroll = document.body.scrollTop;
+            var scroll = document.documentElement.scrollTop || document.body.scrollTop;
 
             if (scroll + 500 > viewportOffset.top && this.isMovingDown(scroll) &&
                 infiniteLoadMore && isActive() && !pause()) {
